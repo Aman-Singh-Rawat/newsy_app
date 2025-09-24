@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/extension.dart';
+import 'package:newsy/view/views/auth/forgot_password.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
 import 'package:newsy/view/widgets/social_btn.dart';
 import 'package:newsy/view/widgets/text_field_with_label_widget.dart';
@@ -28,6 +29,10 @@ class _AuthScreenState extends State<AuthScreen> {
       );
     }
   }
+
+  void _handleSignUp() {}
+
+  void _handleSignIn() {}
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +80,9 @@ class _AuthScreenState extends State<AuthScreen> {
                     ),
                     side: BorderSide(color: Colorr.primaryColor[400]!),
                     value: _isRememberMe,
-                    onChanged: (value) {setState(() => _isRememberMe = value!);},
+                    onChanged: (value) {
+                      setState(() => _isRememberMe = value!);
+                    },
                     activeColor: Colorr.primaryColor[400]!,
                   ),
 
@@ -91,18 +98,24 @@ class _AuthScreenState extends State<AuthScreen> {
               SizedBox(height: 10.h),
               CustomBtn(
                 color: Colorr.primaryColor[400]!,
-                btnText: "Sign up",
-                onTap: () {},
+                btnText: widget.isSignIn ? "Sign in" : "Sign up",
+                onTap: () =>
+                    widget.isSignIn ? _handleSignIn() : _handleSignUp(),
               ),
 
               if (widget.isSignIn) ...[
                 SizedBox(height: 15.h),
-                Text(
-                  "Forgot the password?",
-                  style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                    color: Colorr.primaryColor[500],
+                InkWell(
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => ForgotPassword()),
+                  ),
+                  child: Text(
+                    "Forgot the password?",
+                    style: GoogleFonts.poppins(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: Colorr.primaryColor[500],
+                    ),
                   ),
                 ),
               ],

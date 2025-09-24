@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
+import 'package:newsy/core/utils/assets.dart';
 import 'package:newsy/models/on_board.dart';
 import 'package:newsy/view/views/onboarding/role_screen.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
@@ -24,7 +25,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   void initState() {
     onBoardList = [
       {
-        "image": "assets/images/img_gandhi_ji.png",
+        "image": Assets.imgGandhiJi,
         "title": RichText(
           text: TextSpan(
             style: CustomTextStyle.onboardingTextStyle,
@@ -41,7 +42,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         ),
       },
       {
-        "image": "assets/images/img_sharukhan.png",
+        "image": Assets.imgSharukhan,
         "title": RichText(
           text: TextSpan(
             style: CustomTextStyle.onboardingTextStyle,
@@ -58,7 +59,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         ),
       },
       {
-        "image": "assets/images/img_ronaldo.png",
+        "image": Assets.imgRonaldo,
         "title": RichText(
           text: TextSpan(
             style: CustomTextStyle.onboardingTextStyle,

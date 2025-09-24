@@ -1,61 +1,26 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:newsy/core/theme/app_colors.dart';
 
-class NewsAgencyWidget extends StatelessWidget {
+import '../../core/theme/app_colors.dart';
+
+class ForgotTypeWidget extends StatelessWidget {
   final bool isSelected;
   final Function(int) onClick;
-  final bool isForgotPassword;
-  final Map<String, dynamic> dataList;
+  final Map<String, dynamic> forgotTypeList;
 
-  const NewsAgencyWidget({
+  const ForgotTypeWidget({
     super.key,
     required this.isSelected,
     required this.onClick,
-    required this.dataList,
-    this.isForgotPassword = true,
+    required this.forgotTypeList,
   });
-
-  TextStyle get getHeadingStyle {
-    if (isForgotPassword) {
-      return GoogleFonts.poppins(
-        color: Colors.black54,
-        fontSize: 11,
-        fontWeight: FontWeight.w500,
-      );
-    } else {
-      return GoogleFonts.poppins(
-        color: Colors.black,
-        fontSize: 14,
-        fontWeight: FontWeight.w600,
-      );
-    }
-  }
-
-  TextStyle get getSubHeadingStyle {
-    if (isForgotPassword) {
-      return GoogleFonts.poppins(
-        color: Colors.black,
-        fontSize: 14,
-        fontWeight: FontWeight.w600,
-      );
-    } else {
-      return GoogleFonts.poppins(
-        color: Colors.black54,
-        fontSize: 11,
-        fontWeight: FontWeight.w500,
-      );
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        onClick(dataList["index"]);
+        onClick(forgotTypeList["index"]);
       },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
@@ -85,7 +50,7 @@ class NewsAgencyWidget extends StatelessWidget {
                 radius: 40,
                 backgroundColor: Colorr.primaryColor[20],
                 child: Icon(
-                  dataList["icon"],
+                  forgotTypeList["icon"],
                   size: 30.w,
                   color: Colorr.primaryColor[400]!.withOpacity(0.8),
                 ),
@@ -97,10 +62,24 @@ class NewsAgencyWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(dataList["category"], style: getHeadingStyle),
+                  Text(
+                    forgotTypeList["category"],
+                    style: GoogleFonts.poppins(
+                      color: Colors.black,
+                      fontSize: 17,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
 
                   const SizedBox(height: 10),
-                  Text(dataList["description"], style: getSubHeadingStyle),
+                  Text(
+                    forgotTypeList["description"],
+                    style: GoogleFonts.poppins(
+                      color: Colors.black54,
+                      fontSize: 11,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 ],
               ),
             ),
