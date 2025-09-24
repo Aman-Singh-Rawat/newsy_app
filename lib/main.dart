@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'News App',
           theme: ThemeData(
-            fontFamily: GoogleFonts.lato().fontFamily,
+            fontFamily: GoogleFonts.poppins().fontFamily,
             colorScheme: ColorScheme.fromSeed(
               seedColor: Colorr.primaryColor[400]!,
             ),
