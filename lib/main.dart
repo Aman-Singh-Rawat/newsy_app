@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/view/views/onboarding/onboarding_screen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:newsy/view/views/onboarding/role_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,17 +17,52 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(360, 690),
-      builder: (_, context) {
+      builder: (_, ctx) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'News App',
           theme: ThemeData(
+            scaffoldBackgroundColor: Colors.white,
+            inputDecorationTheme: InputDecorationTheme(
+              contentPadding: EdgeInsets.symmetric(
+                vertical: 12.h,
+                horizontal: 14.w,
+              ),
+              hintStyle: GoogleFonts.poppins(
+                color: Colors.grey.shade400,
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w500,
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(25.r),
+                borderSide: BorderSide(
+                  color: Colors.grey.shade200,
+                  width: 1.5.w,
+                ),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(25.r),
+                borderSide: BorderSide(
+                  color: Colorr.primaryColor[400]!,
+                  width: 2.w,
+                ),
+              ),
+            ),
+            appBarTheme: AppBarTheme(
+              backgroundColor: Colors.white,
+              iconTheme: IconThemeData(color: Colorr.primaryColor[400]!),
+              titleTextStyle: GoogleFonts.poppins(
+                fontSize: 18.sp,
+                fontWeight: FontWeight.w600,
+                color: Colors.black,
+              ),
+            ),
             fontFamily: GoogleFonts.poppins().fontFamily,
             colorScheme: ColorScheme.fromSeed(
               seedColor: Colorr.primaryColor[400]!,
             ),
           ),
-          home: const OnboardingScreen(),
+          home: const RoleScreen(),
         );
       },
     );

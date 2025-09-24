@@ -4,6 +4,7 @@ import 'package:introduction_screen/introduction_screen.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/models/on_board.dart';
+import 'package:newsy/view/views/onboarding/role_screen.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -135,7 +136,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         ),
                       ),
                       onTap: () {
-                        /// TODO navigate user to auth screen
+                        Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => RoleScreen()),
+                        );
                       },
                     ),
                     const SizedBox(height: 20),
@@ -143,10 +146,16 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       color: colorr[400]!,
                       btnText: "Next",
                       onTap: () {
-                        _pageController.nextPage(
-                          duration: Duration(milliseconds: 300),
-                          curve: Curves.easeIn,
-                        );
+                        if (_selectedIndex == onBoardList.length - 1) {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(builder: (context) => RoleScreen()),
+                          );
+                        } else {
+                          _pageController.nextPage(
+                            duration: Duration(milliseconds: 200),
+                            curve: Curves.easeIn,
+                          );
+                        }
                       },
                     ),
                   ],

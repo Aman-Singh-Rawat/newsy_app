@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 
 class CustomBtn extends StatelessWidget {
@@ -14,27 +15,27 @@ class CustomBtn extends StatelessWidget {
     required this.btnText,
     required this.onTap,
     this.width = double.infinity,
-    this.height = 47,
+    this.height = 54,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: BorderRadius.circular(20.r),
       child: Container(
         width: width,
         height: height,
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(25.r),
         ),
         child: Center(
           child: Text(
             btnText,
             style: TextStyle(
               color: Colors.white,
-              fontSize: 15,
+              fontSize: 14.sp,
               fontWeight: FontWeight.w600,
             ),
           ),
