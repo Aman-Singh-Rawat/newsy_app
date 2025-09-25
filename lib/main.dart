@@ -22,9 +22,9 @@ class MyApp extends StatelessWidget {
           title: 'News App',
           theme: ThemeData(
             scaffoldBackgroundColor: Colors.white,
-            textSelectionTheme: const TextSelectionThemeData(
-              cursorColor: Colors.green, // Global cursor color
-              selectionHandleColor: Colors.green, // Optional: also change the selection handle color
+            textSelectionTheme: TextSelectionThemeData(
+              cursorColor: Colorr.primaryColor[400]!, // Global cursor color
+              selectionHandleColor: Colorr.primaryColor[400]!, // Optional: also change the selection handle color
             ),
             inputDecorationTheme: InputDecorationTheme(
               contentPadding: EdgeInsets.symmetric(
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
               ),
               hintStyle: GoogleFonts.poppins(
                 color: Colors.grey.shade400,
-                fontSize: 14.sp,
+                fontSize: 13.sp,
                 fontWeight: FontWeight.w500,
               ),
               enabledBorder: OutlineInputBorder(

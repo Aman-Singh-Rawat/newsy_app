@@ -4,64 +4,47 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/view/views/auth/auth_screen.dart';
 import 'package:otp_pin_field/otp_pin_field.dart';
+import 'package:pinput/pinput.dart';
 
 class MyOtpPinField extends StatelessWidget {
   const MyOtpPinField({super.key});
 
   @override
   Widget build(BuildContext context) {
-    ///  Otp pin Controller
-    final _otpPinFieldController = GlobalKey<OtpPinFieldState>();
-
-    return OtpPinField(
-
-      key: _otpPinFieldController,
-
-      ///in case you want to enable autoFill
-      autoFillEnable: false,
-
-      ///for Ios it is not needed as the SMS autofill is provided by default, but not for Android, that's where this key is useful.
-      textInputAction: TextInputAction.done,
-      fieldHeight: 48.h,
-      fieldWidth: 65.w,
-      ///in case you want to change the action of keyboard
-      /// to clear the Otp pin Controller
-      onSubmit: (text) {
-        print('Entered pin is $text');
-
-        /// return the entered pin
-      },
-      onChange: (text) {
-        print('Enter on change pin is $text');
-
-        /// return the entered pin
-      },
-      onCodeChanged: (code) {
-        print('onCodeChanged  is $code');
-      },
-
-      /// to decorate your Otp_Pin_Field
-      otpPinFieldStyle: OtpPinFieldStyle(
-        fieldBorderRadius: 16.r,
-        textStyle: GoogleFonts.poppins(
-          fontSize: 20.sp,
-          fontWeight: FontWeight.w600,
-          color: Colors.black,
-        ),
-
-        defaultFieldBorderColor: Colors.grey.shade200,
-        activeFieldBorderColor: Colorr.primaryColor[400]!,
-        filledFieldBorderColor: Colorr.primaryColor[400]!,
+    final defaultPinTheme = PinTheme(
+      width: 65.w,
+      height: 45.h,
+      margin: EdgeInsets.symmetric(horizontal: 2.w),
+      textStyle: GoogleFonts.poppins(
+        fontSize: 20.sp,
+        color: Colors.black,
+        fontWeight: FontWeight.w600,
       ),
-      maxLength: 4,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(14.r),
+        border: Border.all(color: Colors.grey.shade200, width: 1.5.w),
+      ),
+    );
 
-      /// no of pin field
-      showCursor: true,
-      cursorColor: Colorr.primaryColor[400]!,
-      cursorWidth: 3.w,
-      mainAxisAlignment: MainAxisAlignment.center,
+    final focusedPinTheme = defaultPinTheme.copyDecorationWith(
+      borderRadius: BorderRadius.circular(14.r),
+      border: Border.all(color: Colorr.primaryColor[400]!, width: 1.5.w),
+    );
 
-      otpPinFieldDecoration: OtpPinFieldDecoration.custom,
+    final submittedPinTheme = defaultPinTheme.copyWith(
+      decoration: defaultPinTheme.decoration?.copyWith(
+        borderRadius: BorderRadius.circular(14.r),
+        border: Border.all(color: Colorr.primaryColor[400]!, width: 1.5.w),
+      ),
+    );
+
+    return Pinput(
+      defaultPinTheme: defaultPinTheme,
+      focusedPinTheme: focusedPinTheme,
+      submittedPinTheme: submittedPinTheme,
+
+      pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
+      onCompleted: (pin) => print(pin),
     );
   }
 }

@@ -61,7 +61,7 @@ class _CustomTextFieldWithLabelState extends State<CustomTextFieldWithLabel> {
           obscureText: widget.isPassword ? isVisible : false,
           decoration: InputDecoration(
             hintText: widget.hint,
-            suffix: widget.isPassword
+            suffixIcon: widget.isPassword
                 ? GestureDetector(
                     onTap: () {
                       setState(() => isVisible = !isVisible);

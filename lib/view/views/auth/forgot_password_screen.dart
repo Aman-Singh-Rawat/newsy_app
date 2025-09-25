@@ -10,14 +10,14 @@ import 'package:newsy/view/widgets/news_agency_widget.dart';
 
 import '../../../core/theme/app_colors.dart';
 
-class ForgotPassword extends StatefulWidget {
-  const ForgotPassword({super.key});
+class ForgotPasswordScreen extends StatefulWidget {
+  const ForgotPasswordScreen({super.key});
 
   @override
-  State<ForgotPassword> createState() => _ForgotPasswordState();
+  State<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
 }
 
-class _ForgotPasswordState extends State<ForgotPassword> {
+class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   int _selectedIndex = 0;
   final List<Map<String, dynamic>> _forgotTypeList = [
     {

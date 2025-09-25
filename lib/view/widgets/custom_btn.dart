@@ -8,6 +8,7 @@ class CustomBtn extends StatelessWidget {
   final VoidCallback onTap;
   final double width;
   final double height;
+  final bool isClickable;
 
   const CustomBtn({
     super.key,
@@ -15,13 +16,13 @@ class CustomBtn extends StatelessWidget {
     required this.btnText,
     required this.onTap,
     this.width = double.infinity,
-    this.height = 54,
+    this.height = 54, this.isClickable = true,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap,
+      onTap: isClickable ? onTap : null,
       borderRadius: BorderRadius.circular(20.r),
       child: Container(
         width: width,

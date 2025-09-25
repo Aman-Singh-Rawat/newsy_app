@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/extension.dart';
+import 'package:newsy/view/views/auth/reset_password_screen.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
 import 'package:newsy/view/widgets/otp_pin_field.dart';
 
@@ -79,7 +80,9 @@ class _OtpScreenState extends State<OtpScreen> {
           CustomBtn(
             color: Colorr.primaryColor[400]!,
             btnText: "Verify",
-            onTap: () {},
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => ResetPasswordScreen()),
+            ),
           ),
 
           SizedBox(height: 20.h),

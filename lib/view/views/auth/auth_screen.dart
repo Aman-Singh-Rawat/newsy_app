@@ -4,8 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/assets.dart';
 import 'package:newsy/core/utils/extension.dart';
-import 'package:newsy/view/views/auth/forgot_password.dart';
+import 'package:newsy/view/views/auth/forgot_password_screen.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
+import 'package:newsy/view/widgets/remember_me_widget.dart';
 import 'package:newsy/view/widgets/social_btn.dart';
 import 'package:newsy/view/widgets/text_field_with_label_widget.dart';
 
@@ -51,7 +52,7 @@ class _AuthScreenState extends State<AuthScreen> {
     super.initState();
   }
 
-  get getIsFieldEmpty =>
+  get _isFieldEmpty =>
       _emailController.text.trim().isEmpty ||
       _passwordController.text.trim().isEmpty;
 
@@ -65,12 +66,16 @@ class _AuthScreenState extends State<AuthScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: 10.h),
+
+              /// top image
               Image.asset(
                 Assets.imgSplash,
                 height: 200.h,
                 width: 200.w,
                 fit: BoxFit.cover,
               ),
+
+              /// top heading
               Text(
                 widget.isSignIn ? "Let's Sign You In" : "Create an Account",
                 style: GoogleFonts.poppins(
@@ -90,57 +95,47 @@ class _AuthScreenState extends State<AuthScreen> {
                 controller: _emailController,
               ),
 
-              SizedBox(height: 20.h),
+              SizedBox(height: 15.h),
 
               /// password field
               CustomTextFieldWithLabel(
                 label: "Password",
                 hint: "Password",
-                isPassword: true, controller: _passwordController,
+                isPassword: true,
+                controller: _passwordController,
               ),
 
               SizedBox(height: 5.h),
 
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Checkbox(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    side: BorderSide(
-                      color: Colorr.primaryColor[400]!,
-                      width: 1.5.w,
-                    ),
-                    value: _isRememberMe,
-                    onChanged: (value) {
-                      setState(() => _isRememberMe = value!);
-                    },
-                    activeColor: Colorr.primaryColor[400]!,
-                  ),
-
-                  Text(
-                    "Remember me",
-                    style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                    ),
-                  ),
-                ],
+              /// for remember the user
+              RememberMeWidget(
+                isRememberMe: _isRememberMe,
+                onChanged: (value) {
+                  setState(() => _isRememberMe = value!);
+                },
               ),
+
               SizedBox(height: 10.h),
+
+              // custom button for sign in or sign up
               CustomBtn(
-                color: getIsFieldEmpty ? Colorr.primaryColor[200]! : Colorr.primaryColor[400]!,
+                isClickable: !_isFieldEmpty,
+                color: _isFieldEmpty
+                    ? Colorr.primaryColor[200]!
+                    : Colorr.primaryColor[400]!,
                 btnText: widget.isSignIn ? "Sign in" : "Sign up",
                 onTap: () =>
                     widget.isSignIn ? _handleSignIn() : _handleSignUp(),
               ),
 
+              /// if user is sign in then show forgot password
               if (widget.isSignIn) ...[
                 SizedBox(height: 15.h),
                 InkWell(
                   onTap: () => Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => ForgotPassword()),
+                    MaterialPageRoute(
+                      builder: (context) => ForgotPasswordScreen(),
+                    ),
                   ),
                   child: Text(
                     "Forgot the password?",
@@ -153,8 +148,9 @@ class _AuthScreenState extends State<AuthScreen> {
                 ),
               ],
 
-              SizedBox(height: 25.h),
+              SizedBox(height: 20.h),
 
+              /// or continue with
               Text(
                 "or continue with",
                 style: GoogleFonts.poppins(
@@ -166,6 +162,7 @@ class _AuthScreenState extends State<AuthScreen> {
 
               SizedBox(height: 20.h),
 
+              /// login with social media
               Row(
                 children: [
                   Expanded(
@@ -175,7 +172,7 @@ class _AuthScreenState extends State<AuthScreen> {
                       btnText: "Facebook",
                     ),
                   ),
-                  SizedBox(width: 20.w),
+                  SizedBox(width: 15.w),
                   Expanded(
                     child: SocialBtn(
                       icon: Assets.ic_google,
@@ -186,8 +183,9 @@ class _AuthScreenState extends State<AuthScreen> {
                 ],
               ),
 
-              SizedBox(height: 30.h),
+              SizedBox(height: 25.h),
 
+              /// bottom navigation text
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

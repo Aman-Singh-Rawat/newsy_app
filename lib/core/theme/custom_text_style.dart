@@ -5,10 +5,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CustomTextStyle {
-  static TextStyle onboardingTextStyle = TextStyle(
-    fontSize: 32.sp,
+  static TextStyle onboardingTextStyle = GoogleFonts.poppins(
+    fontSize: 28.sp,
     height: 1.3,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w600,
     color: Colors.white,
   );
 
