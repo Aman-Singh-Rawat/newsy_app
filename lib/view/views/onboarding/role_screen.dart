@@ -55,6 +55,7 @@ class _RoleScreenState extends State<RoleScreen> {
 
           ..._roleDataList.asMap().entries.map((item) {
             return NewsAgencyWidget(
+              isForgotPassword: false,
               isSelected: item.key == _selectedItemIndex,
               onClick: (selectedIndex) {
                 setState(() => _selectedItemIndex = selectedIndex);
