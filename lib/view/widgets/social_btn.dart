@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SocialBtn extends StatelessWidget {
-  final IconData icon;
+  final String icon;
   final VoidCallback onTap;
   final String btnText;
 
@@ -21,12 +22,12 @@ class SocialBtn extends StatelessWidget {
         borderRadius: BorderRadius.circular(12.r),
         border: Border.all(color: Colors.grey.shade200),
       ),
-      height: 48.h,
+      height: 45.h,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon, size: 24.r),
-          SizedBox(width: 8.w),
+          SvgPicture.asset(icon, height: 18.h, width: 20.w,),
+          SizedBox(width: 10.w),
           Text(
             btnText,
             style: GoogleFonts.poppins(

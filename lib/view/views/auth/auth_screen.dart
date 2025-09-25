@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:newsy/core/theme/app_colors.dart';
+import 'package:newsy/core/utils/assets.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/auth/forgot_password.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
@@ -18,6 +19,8 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   bool _isRememberMe = false;
 
   void _handleAuthNavigation() {
@@ -35,13 +38,39 @@ class _AuthScreenState extends State<AuthScreen> {
   void _handleSignIn() {}
 
   @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  @override
+  void initState() {
+    _emailController.addListener(() => setState(() {}));
+    _passwordController.addListener(() => setState(() {}));
+    super.initState();
+  }
+
+  get getIsFieldEmpty =>
+      _emailController.text.trim().isEmpty ||
+      _passwordController.text.trim().isEmpty;
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              SizedBox(height: 10.h),
+              Image.asset(
+                Assets.imgSplash,
+                height: 200.h,
+                width: 200.w,
+                fit: BoxFit.cover,
+              ),
               Text(
                 widget.isSignIn ? "Let's Sign You In" : "Create an Account",
                 style: GoogleFonts.poppins(
@@ -58,6 +87,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 label: "Email",
                 hint: "Email",
                 isPassword: false,
+                controller: _emailController,
               ),
 
               SizedBox(height: 20.h),
@@ -66,10 +96,10 @@ class _AuthScreenState extends State<AuthScreen> {
               CustomTextFieldWithLabel(
                 label: "Password",
                 hint: "Password",
-                isPassword: true,
+                isPassword: true, controller: _passwordController,
               ),
 
-              SizedBox(height: 10.h),
+              SizedBox(height: 5.h),
 
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -78,7 +108,10 @@ class _AuthScreenState extends State<AuthScreen> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(4),
                     ),
-                    side: BorderSide(color: Colorr.primaryColor[400]!),
+                    side: BorderSide(
+                      color: Colorr.primaryColor[400]!,
+                      width: 1.5.w,
+                    ),
                     value: _isRememberMe,
                     onChanged: (value) {
                       setState(() => _isRememberMe = value!);
@@ -97,7 +130,7 @@ class _AuthScreenState extends State<AuthScreen> {
               ),
               SizedBox(height: 10.h),
               CustomBtn(
-                color: Colorr.primaryColor[400]!,
+                color: getIsFieldEmpty ? Colorr.primaryColor[200]! : Colorr.primaryColor[400]!,
                 btnText: widget.isSignIn ? "Sign in" : "Sign up",
                 onTap: () =>
                     widget.isSignIn ? _handleSignIn() : _handleSignUp(),
@@ -137,7 +170,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 children: [
                   Expanded(
                     child: SocialBtn(
-                      icon: Icons.facebook,
+                      icon: Assets.ic_meta,
                       onTap: () {},
                       btnText: "Facebook",
                     ),
@@ -145,7 +178,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   SizedBox(width: 20.w),
                   Expanded(
                     child: SocialBtn(
-                      icon: Icons.facebook,
+                      icon: Assets.ic_google,
                       onTap: () {},
                       btnText: "Google",
                     ),

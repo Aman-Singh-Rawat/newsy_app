@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Timer(
-      const Duration(seconds: 3),
+      const Duration(seconds: 30),
       () => Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => OnboardingScreen()),
       ),
@@ -34,8 +34,13 @@ class _SplashScreenState extends State<SplashScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset(Assets.imgSplash),
-          SpinKitFadingCircle(color: Colorr.primaryColor[400], size: 60.w),
+          Image.asset(
+            Assets.imgSplash,
+            fit: BoxFit.cover,
+            width: 260.w,
+            height: 260.h,
+          ),
+          SpinKitCircle(color: Colorr.primaryColor[400], size: 60.w),
         ],
       ),
     );

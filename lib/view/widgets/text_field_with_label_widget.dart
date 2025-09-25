@@ -7,12 +7,13 @@ class CustomTextFieldWithLabel extends StatefulWidget {
   final String label;
   final String hint;
   final bool isPassword;
+  final TextEditingController controller;
 
   const CustomTextFieldWithLabel({
     super.key,
     required this.label,
     required this.hint,
-    required this.isPassword,
+    required this.isPassword, required this.controller,
   });
 
   @override
@@ -52,10 +53,11 @@ class _CustomTextFieldWithLabelState extends State<CustomTextFieldWithLabel> {
         const SizedBox(height: 5),
         TextFormField(
           style: GoogleFonts.poppins(
-            fontSize: 14.sp,
+            fontSize: 13.sp,
             color: Colors.black,
             fontWeight: FontWeight.w600,
           ),
+          controller: widget.controller,
           obscureText: widget.isPassword ? isVisible : false,
           decoration: InputDecoration(
             hintText: widget.hint,

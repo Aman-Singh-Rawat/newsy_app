@@ -22,6 +22,10 @@ class MyApp extends StatelessWidget {
           title: 'News App',
           theme: ThemeData(
             scaffoldBackgroundColor: Colors.white,
+            textSelectionTheme: const TextSelectionThemeData(
+              cursorColor: Colors.green, // Global cursor color
+              selectionHandleColor: Colors.green, // Optional: also change the selection handle color
+            ),
             inputDecorationTheme: InputDecorationTheme(
               contentPadding: EdgeInsets.symmetric(
                 vertical: 12.h,
