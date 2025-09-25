@@ -18,7 +18,7 @@ class OnboardingScreen extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreen> {
   final colorr = Colorr.primaryColor;
   late List<Map<String, dynamic>> onBoardList;
-  final _pageController = PageController();
+  late PageController _pageController;
   int _selectedIndex = 0;
 
   @override
@@ -76,6 +76,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         ),
       },
     ];
+    _pageController = PageController(viewportFraction: 1.0);
     super.initState();
   }
 
@@ -149,12 +150,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       onTap: () {
                         if (_selectedIndex == onBoardList.length - 1) {
                           Navigator.of(context).push(
-                            MaterialPageRoute(builder: (context) => RoleScreen()),
+                            MaterialPageRoute(
+                                builder: (context) => RoleScreen()),
                           );
                         } else {
                           _pageController.nextPage(
-                            duration: Duration(milliseconds: 200),
-                            curve: Curves.easeIn,
+                            duration: Duration(milliseconds: 300),
+                            curve: Curves.easeInOut,
                           );
                         }
                       },
