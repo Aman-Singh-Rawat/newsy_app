@@ -8,9 +8,14 @@ import 'package:newsy/view/widgets/search_view_widget.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../widgets/bottom_navigation_btn.dart';
 
-class ChooseYourTopics extends StatelessWidget {
-  ChooseYourTopics({super.key});
+class ChooseYourTopics extends StatefulWidget {
+  const ChooseYourTopics({super.key});
 
+  @override
+  State<ChooseYourTopics> createState() => _ChooseYourTopicsState();
+}
+
+class _ChooseYourTopicsState extends State<ChooseYourTopics> {
   final List<Map<String, String>> newsTopics = [
     {
       'topic': 'Technology',
@@ -53,6 +58,13 @@ class ChooseYourTopics extends StatelessWidget {
           'https://images.unsplash.com/flagged/photo-1572392640988-ba48d1a74457?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     },
   ];
+  final TextEditingController _searchController = TextEditingController();
+
+  @override
+  void initState() {
+    _searchController.addListener(() => setState(() {}));
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +75,17 @@ class ChooseYourTopics extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 10.h),
-              SearchViewWidget(),
+              SearchViewWidget(
+                isFieldEmpty: _searchController.text.trim().isEmpty,
+                controller: _searchController,
+                onButtonClick: (flag) {
+                  if (flag) {
+                    setState(() {
+                      _searchController.clear();
+                    });
+                  }
+                },
+              ),
 
               SizedBox(height: 15.h),
 
@@ -76,11 +98,11 @@ class ChooseYourTopics extends StatelessWidget {
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 10,
-                  mainAxisSpacing: 10
+                  mainAxisSpacing: 10,
                 ),
               ),
 
-              SizedBox(height: 10.h,)
+              SizedBox(height: 10.h),
             ],
           ).marginSymmetric(horizontal: 20.w),
         ),

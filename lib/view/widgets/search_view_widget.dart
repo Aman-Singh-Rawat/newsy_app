@@ -4,12 +4,25 @@ import 'package:google_fonts/google_fonts.dart';
 
 class SearchViewWidget extends StatelessWidget {
   final bool isFieldEmpty;
+  final Function onButtonClick;
+  final TextEditingController controller;
 
-  const SearchViewWidget({super.key, this.isFieldEmpty = true});
+  const SearchViewWidget({
+    super.key,
+    this.isFieldEmpty = true,
+    required this.controller,
+    required this.onButtonClick,
+  });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: controller,
+      style: GoogleFonts.poppins(
+        fontSize: 13.sp,
+        fontWeight: FontWeight.w600,
+        color: Colors.black,
+      ),
       decoration: InputDecoration(
         filled: true,
         contentPadding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 20.w),
@@ -21,7 +34,7 @@ class SearchViewWidget extends StatelessWidget {
           fontWeight: FontWeight.w500,
         ),
         suffixIcon: IconButton(
-          onPressed: () {},
+          onPressed: () => onButtonClick(isFieldEmpty ? false : true),
           icon: Icon(isFieldEmpty ? Icons.search : Icons.clear),
         ),
         focusedBorder: OutlineInputBorder(
