@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:newsy/view/views/onboarding/splash_screen.dart';
+import 'package:newsy/view/views/profile/select_your_country.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +24,8 @@ class MyApp extends StatelessWidget {
             scaffoldBackgroundColor: Colors.white,
             textSelectionTheme: TextSelectionThemeData(
               cursorColor: Colorr.primaryColor[400]!, // Global cursor color
-              selectionHandleColor: Colorr.primaryColor[400]!, // Optional: also change the selection handle color
+              selectionHandleColor: Colorr
+                  .primaryColor[400]!, // Optional: also change the selection handle color
             ),
             inputDecorationTheme: InputDecorationTheme(
               contentPadding: EdgeInsets.symmetric(
@@ -51,7 +52,15 @@ class MyApp extends StatelessWidget {
                 ),
               ),
             ),
+            checkboxTheme: CheckboxThemeData(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(4),
+              ),
+
+              side: BorderSide(color: Colorr.primaryColor[400]!, width: 1.5.w),
+            ),
             appBarTheme: AppBarTheme(
+              scrolledUnderElevation: 0.0,
               backgroundColor: Colors.white,
               iconTheme: IconThemeData(color: Colorr.primaryColor[400]!),
               titleTextStyle: GoogleFonts.poppins(
@@ -65,7 +74,7 @@ class MyApp extends StatelessWidget {
               seedColor: Colorr.primaryColor[400]!,
             ),
           ),
-          home: const SplashScreen(),
+          home: SelectYourCountry(),
         );
       },
     );
