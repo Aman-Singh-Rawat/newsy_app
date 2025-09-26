@@ -44,43 +44,45 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         ),
         title: Text("Forgot Password"),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(height: 20.h),
-            SvgPicture.asset(
-              Assets.icForgotPassword,
-              height: 190.h,
-              width: 150.w,
-              fit: BoxFit.cover,
-            ),
-            SizedBox(height: 15.h),
-            Text(
-              "Select which contact details should we use to reset your password",
-              style: CustomTextStyle.screenDescTextStyle,
-            ),
-
-            SizedBox(height: 15.h),
-
-            ..._forgotTypeList.asMap().entries.map(
-              (forgotItem) => NewsAgencyWidget(
-                isSelected: _selectedIndex == forgotItem.key,
-                onClick: (selectedIndex) =>
-                    setState(() => _selectedIndex = selectedIndex),
-                dataList: forgotItem.value,
-              ).marginOnly(bottom: 20.h),
-            ),
-
-            SizedBox(height: 25.h),
-            CustomBtn(
-              color: Colorr.primaryColor[400]!,
-              btnText: "Continue",
-              onTap: () => Navigator.of(
-                context,
-              ).push(MaterialPageRoute(builder: (context) => OtpScreen())),
-            ),
-          ],
-        ).padSymmetric(horizontal: 20.w),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 20.h),
+              SvgPicture.asset(
+                Assets.icForgotPassword,
+                height: 190.h,
+                width: 150.w,
+                fit: BoxFit.cover,
+              ),
+              SizedBox(height: 15.h),
+              Text(
+                "Select which contact details should we use to reset your password",
+                style: CustomTextStyle.screenDescTextStyle,
+              ),
+        
+              SizedBox(height: 15.h),
+        
+              ..._forgotTypeList.asMap().entries.map(
+                (forgotItem) => NewsAgencyWidget(
+                  isSelected: _selectedIndex == forgotItem.key,
+                  onClick: (selectedIndex) =>
+                      setState(() => _selectedIndex = selectedIndex),
+                  dataList: forgotItem.value,
+                ).marginOnly(bottom: 20.h),
+              ),
+        
+              SizedBox(height: 25.h),
+              CustomBtn(
+                color: Colorr.primaryColor[400]!,
+                btnText: "Continue",
+                onTap: () => Navigator.of(
+                  context,
+                ).push(MaterialPageRoute(builder: (context) => OtpScreen())),
+              ),
+            ],
+          ).padSymmetric(horizontal: 20.w),
+        ),
       ),
     );
   }

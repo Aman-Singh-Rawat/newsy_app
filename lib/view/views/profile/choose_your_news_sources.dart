@@ -20,7 +20,7 @@ class _ChooseYourNewsSourcesState extends State<ChooseYourNewsSources> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBar(title: "Choose Your Topics"),
+      appBar: getAppBar(title: "Choose Your Topics",  context: context),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(

@@ -74,7 +74,6 @@ class _AuthScreenState extends State<AuthScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 10.h),
 
               /// top image
               Image.asset(
@@ -94,7 +93,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 ),
               ),
 
-              SizedBox(height: 22.h),
+              SizedBox(height: 20.h),
 
               /// email field
               CustomTextFieldWithLabel(
@@ -104,7 +103,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 controller: _emailController,
               ),
 
-              SizedBox(height: 15.h),
+              SizedBox(height: 10.h),
 
               /// password field
               CustomTextFieldWithLabel(
@@ -113,8 +112,8 @@ class _AuthScreenState extends State<AuthScreen> {
                 isPassword: true,
                 controller: _passwordController,
               ),
-
-              SizedBox(height: 5.h),
+  
+              SizedBox(height: 2.h),
 
               /// for remember the user
               RememberMeWidget(
@@ -157,7 +156,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 ),
               ],
 
-              SizedBox(height: 20.h),
+              SizedBox(height: 15.h),
 
               /// or continue with
               Text(
@@ -192,7 +191,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 ],
               ),
 
-              SizedBox(height: 25.h),
+              SizedBox(height: 20.h),
 
               /// bottom navigation text
               Row(

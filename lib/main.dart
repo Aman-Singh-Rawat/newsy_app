@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:newsy/view/views/onboarding/splash_screen.dart';
 import 'package:newsy/view/views/profile/select_your_country.dart';
 
 void main() {
@@ -74,7 +75,7 @@ class MyApp extends StatelessWidget {
               seedColor: Colorr.primaryColor[400]!,
             ),
           ),
-          home: SelectYourCountry(),
+          home: SplashScreen(),
         );
       },
     );

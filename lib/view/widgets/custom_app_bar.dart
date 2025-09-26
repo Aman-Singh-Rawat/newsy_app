@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-AppBar getAppBar({required String title}) {
+AppBar getAppBar({required String title, required BuildContext context}) {
   return AppBar(
-    leading: Icon(Icons.arrow_back_rounded),
+    leading: IconButton(onPressed: () => Navigator.pop(context), icon: Icon(Icons.arrow_back_rounded)),
     title: Text(title),
   );
-}
+} 

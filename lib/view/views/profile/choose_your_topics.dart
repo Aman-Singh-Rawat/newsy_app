@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/utils/extension.dart';
+import 'package:newsy/view/views/profile/fill_your_profile_screen.dart';
 import 'package:newsy/view/widgets/choose_topic_widget.dart';
 import 'package:newsy/view/widgets/custom_app_bar.dart';
 import 'package:newsy/view/widgets/search_view_widget.dart';
@@ -69,7 +70,7 @@ class _ChooseYourTopicsState extends State<ChooseYourTopics> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBar(title: "Choose Your Topics"),
+      appBar: getAppBar(title: "Choose Your Topics", context: context),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -110,7 +111,11 @@ class _ChooseYourTopicsState extends State<ChooseYourTopics> {
       bottomNavigationBar: BottomNavigationBtn(
         btnColor: Colorr.primaryColor[400]!,
         btnText: "Next",
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => FillYourProfileScreen()),
+          );
+        },
       ),
     );
   }

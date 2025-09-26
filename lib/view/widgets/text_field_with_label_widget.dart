@@ -7,13 +7,16 @@ class CustomTextFieldWithLabel extends StatefulWidget {
   final String label;
   final String hint;
   final bool isPassword;
+  final IconData? suffixIcon;
   final TextEditingController controller;
 
   const CustomTextFieldWithLabel({
     super.key,
     required this.label,
     required this.hint,
-    required this.isPassword, required this.controller,
+    this.suffixIcon,
+    required this.isPassword,
+    required this.controller,
   });
 
   @override
@@ -72,7 +75,7 @@ class _CustomTextFieldWithLabelState extends State<CustomTextFieldWithLabel> {
                       size: 20.r,
                     ),
                   )
-                : null,
+                : Icon(widget.suffixIcon, color: Colors.grey,),
           ),
         ),
         Visibility(
