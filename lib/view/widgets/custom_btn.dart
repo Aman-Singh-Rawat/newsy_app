@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 
 class CustomBtn extends StatelessWidget {
@@ -8,6 +9,7 @@ class CustomBtn extends StatelessWidget {
   final VoidCallback onTap;
   final double width;
   final double height;
+  final double btnSize;
   final bool isClickable;
 
   const CustomBtn({
@@ -16,7 +18,8 @@ class CustomBtn extends StatelessWidget {
     required this.btnText,
     required this.onTap,
     this.width = double.infinity,
-    this.height = 54, this.isClickable = true,
+    this.height = 54,
+    this.isClickable = true, this.btnSize = 14,
   });
 
   @override
@@ -34,9 +37,9 @@ class CustomBtn extends StatelessWidget {
         child: Center(
           child: Text(
             btnText,
-            style: TextStyle(
+            style: GoogleFonts.poppins(
               color: Colors.white,
-              fontSize: 14.sp,
+              fontSize: btnSize,
               fontWeight: FontWeight.w600,
             ),
           ),

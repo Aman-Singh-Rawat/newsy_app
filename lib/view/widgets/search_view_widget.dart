@@ -35,7 +35,7 @@ class SearchViewWidget extends StatelessWidget {
         ),
         suffixIcon: IconButton(
           onPressed: () => onButtonClick(isFieldEmpty ? false : true),
-          icon: Icon(isFieldEmpty ? Icons.search : Icons.clear),
+          icon: Icon(isFieldEmpty ? Icons.search : Icons.clear, color: Colors.grey,),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide.none,

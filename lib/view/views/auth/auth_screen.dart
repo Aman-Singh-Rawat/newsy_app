@@ -5,7 +5,7 @@ import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/assets.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/auth/forgot_password_screen.dart';
-import 'package:newsy/view/views/profile/select_your_country.dart';
+import 'package:newsy/view/views/setup-profile/select_your_country.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
 import 'package:newsy/view/widgets/remember_me_widget.dart';
 import 'package:newsy/view/widgets/social_btn.dart';

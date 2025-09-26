@@ -4,7 +4,7 @@ import 'package:newsy/core/theme/app_colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/view/views/main_screen.dart';
 import 'package:newsy/view/views/onboarding/splash_screen.dart';
-import 'package:newsy/view/views/profile/select_your_country.dart';
+import 'package:newsy/view/views/setup-profile/select_your_country.dart';
 
 void main() {
   runApp(const MyApp());

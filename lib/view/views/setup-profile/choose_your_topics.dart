@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/utils/extension.dart';
-import 'package:newsy/view/views/profile/fill_your_profile_screen.dart';
+import 'package:newsy/view/views/setup-profile/fill_your_profile_screen.dart';
 import 'package:newsy/view/widgets/choose_topic_widget.dart';
 import 'package:newsy/view/widgets/custom_app_bar.dart';
 import 'package:newsy/view/widgets/search_view_widget.dart';
