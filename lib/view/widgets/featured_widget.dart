@@ -11,13 +11,13 @@ class FeaturedWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.maxFinite,
-      height: 245.h,
+      height: 243.h,
       child: Stack(
         fit: StackFit.loose,
         children: [
           Positioned.fill(
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(16.r),
+              borderRadius: BorderRadius.circular(20.r),
               child: Image.network(
                 "https://english.cdn.zeenews.com/sites/default/files/2021/02/07/915333-tiger-shroff-pool.jpg?im=Resize=(1200,900)",
                 fit: BoxFit.cover,
@@ -29,7 +29,7 @@ class FeaturedWidget extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.black.withOpacity(0.4),
-                borderRadius: BorderRadius.circular(12.r),
+                borderRadius: BorderRadius.circular(20.r),
               ),
             ),
           ),

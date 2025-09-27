@@ -9,12 +9,12 @@ class BtnWithBg extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+      padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
       decoration: BoxDecoration(
-        color: Colorr.primaryColor[100]!.withOpacity(0.6),
-      borderRadius: BorderRadius.circular(11.r)
+        color: Colorr.primaryColor[100]!.withOpacity(0.4),
+        borderRadius: BorderRadius.circular(11.r),
       ),
-      child: Icon(icon, size: 24, color: Colorr.primaryColor[400],),
+      child: Icon(icon, size: 22, color: Colorr.primaryColor[400]),
     );
   }
 }

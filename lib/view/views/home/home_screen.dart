@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/utils/extension.dart';
+import 'package:newsy/view/views/home/featured_screen.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
 import 'package:newsy/view/widgets/featured_widget.dart';
 import 'package:newsy/view/widgets/get_screen_title_and_see_all';
@@ -91,7 +92,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 // featured and see all
                 getScreenTitleAndSeeAll(
                   title: "Featured",
-                  onTextClick: () {},
+                  onTextClick: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => FeaturedScreen()),
+                    );
+                  },
                 ).marginSymmetric(horizontal: 20.w),
 
                 SizedBox(height: 20.h),
