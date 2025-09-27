@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:introduction_screen/introduction_screen.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/assets.dart';
-import 'package:newsy/models/on_board.dart';
 import 'package:newsy/view/views/onboarding/role_screen.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
 

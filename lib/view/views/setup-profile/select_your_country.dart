@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/view/views/setup-profile/choose_your_topics.dart';
 import 'package:newsy/view/widgets/bottom_navigation_btn.dart';
-import 'package:newsy/view/widgets/custom_btn.dart';
 import 'package:newsy/view/widgets/select_your_widget.dart';
 
 class SelectYourCountry extends StatefulWidget {

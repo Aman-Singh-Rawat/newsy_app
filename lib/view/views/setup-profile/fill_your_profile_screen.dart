@@ -4,7 +4,6 @@ import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/widgets/bottom_navigation_btn.dart';
 import 'package:newsy/view/widgets/custom_app_bar.dart';
-import 'package:newsy/view/widgets/custom_btn.dart';
 import 'package:newsy/view/widgets/show_account_created_dialog.dart';
 import 'package:newsy/view/widgets/text_field_with_label_widget.dart';
 

@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/view/views/bookmark/bookmark_screen.dart';
 import 'package:newsy/view/views/home/home_screen.dart';
 import 'package:newsy/view/views/my-news/my_news_screen.dart';
