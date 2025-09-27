@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/home/featured_screen.dart';
+import 'package:newsy/view/views/home/notification_screen.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
 import 'package:newsy/view/widgets/featured_widget.dart';
 import 'package:newsy/view/widgets/get_screen_title_and_see_all';
@@ -63,7 +64,14 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         actionsPadding: EdgeInsets.only(right: 20.w),
         title: Text("Berita"),
-        actions: [BtnWithBg(icon: CupertinoIcons.bell_fill)],
+        actions: [
+          BtnWithBg(
+            icon: CupertinoIcons.bell_fill,
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => NotificationScreen()),
+            ),
+          ),
+        ],
       ),
       body: SafeArea(
         child: SingleChildScrollView(
