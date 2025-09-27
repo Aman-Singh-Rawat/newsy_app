@@ -7,6 +7,9 @@ class Assets {
   static const String imgSharukhan = "assets/images/img_sharukhan.png";
   static const String imgSplash = "assets/images/img_splash.png";
   static const String imgResetPassword = "assets/images/img_reset_password.png";
+  static const String imgNotification = "assets/images/img_notification_bell.png";
+  static const String imgProfilePlaceholder = "assets/images/img_profile_placeholder.png";
+  static const String imgSuccessDialog = "assets/images/img_success.png";
 
   /// icons
   static const String icForgotPassword = "assets/icons/ic_forgot_password.svg";
