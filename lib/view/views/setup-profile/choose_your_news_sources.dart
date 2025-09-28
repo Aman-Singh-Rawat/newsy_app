@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/extension.dart';
+import 'package:newsy/view/views/setup-profile/fill_your_profile_screen.dart';
+import 'package:newsy/view/widgets/choose_your_news_widget.dart';
 
 import '../../../core/theme/app_colors.dart';
 import '../../widgets/bottom_navigation_btn.dart';
@@ -20,30 +23,33 @@ class _ChooseYourNewsSourcesState extends State<ChooseYourNewsSources> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBar(title: "Choose Your Topics",  context: context),
+      appBar: getAppBar(title: "Choose Your Topics", context: context),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
               SizedBox(height: 10.h),
-              SearchViewWidget(controller: _searchController,onButtonClick: (flag) {
-                setState(() => flag ? _searchController.clear() : null);
-              },),
+              SearchViewWidget(
+                controller: _searchController,
+                onButtonClick: (flag) {
+                  setState(() => flag ? _searchController.clear() : null);
+                },
+              ),
 
               SizedBox(height: 15.h),
 
-              /*GridView.builder(
+              GridView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
-                itemCount: newsTopics.length,
+                itemCount: newsChannels.length,
                 itemBuilder: (context, index) =>
-                    ChooseTopicWidget(newsTopic: newsTopics[index]),
+                    ChooseYourNewsWidget(newsSource: newsChannels[index]),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 14.w,
+                  mainAxisSpacing: 14.h,
                 ),
-              ),*/
+              ),
               SizedBox(height: 10.h),
             ],
           ).marginSymmetric(horizontal: 20.w),
@@ -52,7 +58,11 @@ class _ChooseYourNewsSourcesState extends State<ChooseYourNewsSources> {
       bottomNavigationBar: BottomNavigationBtn(
         btnColor: Colorr.primaryColor[400]!,
         btnText: "Next",
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => FillYourProfileScreen()),
+          );
+        },
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/theme/app_colors.dart';
+import 'package:newsy/core/utils/assets.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/widgets/bottom_navigation_btn.dart';
 import 'package:newsy/view/widgets/custom_app_bar.dart';
@@ -43,9 +44,42 @@ class _FillYourProfileScreenState extends State<FillYourProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: getAppBar(title: "Fill Your Profile", context: context),
       body: Column(
         children: [
+          SizedBox(height: 15.h),
+          Stack(
+            children: [
+              Image.asset(
+                Assets.imgProfilePlaceholder,
+                height: 130.h,
+                width: 130.w,
+              ),
+
+              Positioned(
+                bottom: 0,
+                right: 0,
+                child: InkWell(
+                  onTap: () {},
+                  borderRadius: BorderRadius.circular(35.r),
+                  child: Container(
+                    height: 35.h,
+                    width: 35.w,
+                    decoration: BoxDecoration(
+                      color: Colorr.primaryColor[400],
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.white, width: 2.w),
+                    ),
+                    child: Icon(Icons.edit, color: Colors.white, size: 18.sp),
+                  ),
+                ),
+              ),
+            ],
+          ),
+
+          SizedBox(height: 25.h),
+
           CustomTextFieldWithLabel(
             label: "Username",
             hint: "Username",
@@ -53,7 +87,7 @@ class _FillYourProfileScreenState extends State<FillYourProfileScreen> {
             controller: _usernameController,
           ),
 
-          SizedBox(height: 15.h),
+          SizedBox(height: 20.h),
 
           CustomTextFieldWithLabel(
             label: "Full Name",
@@ -62,7 +96,7 @@ class _FillYourProfileScreenState extends State<FillYourProfileScreen> {
             controller: _fullNameController,
           ),
 
-          SizedBox(height: 15.h),
+          SizedBox(height: 20.h),
 
           CustomTextFieldWithLabel(
             label: "Email",
@@ -72,7 +106,7 @@ class _FillYourProfileScreenState extends State<FillYourProfileScreen> {
             controller: _emailController,
           ),
 
-          SizedBox(height: 15.h),
+          SizedBox(height: 20.h),
 
           CustomTextFieldWithLabel(
             label: "Phone Number",
@@ -93,7 +127,7 @@ class _FillYourProfileScreenState extends State<FillYourProfileScreen> {
         onTap: () {
           showDialog(
             context: context,
-            builder: (context) => showAccountCreatedDialog(),
+            builder: (context) => showAccountCreatedDialog(context: context),
           );
         },
       ),
