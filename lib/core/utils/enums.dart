@@ -1,0 +1,1 @@
+enum NotificationType { news, isFollowingYou, message }
