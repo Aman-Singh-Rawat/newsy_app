@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/view/views/home/home_screen.dart';
 import 'package:newsy/view/views/home/notification_screen.dart';
 import 'package:newsy/view/views/main_screen.dart';
+import 'package:newsy/view/views/onboarding/splash_screen.dart';
 import 'package:newsy/view/views/setup-profile/choose_your_news_sources.dart';
 import 'package:newsy/view/views/setup-profile/fill_your_profile_screen.dart';
 
@@ -78,7 +79,7 @@ class MyApp extends StatelessWidget {
               seedColor: Colorr.primaryColor[400]!,
             ),
           ),
-          home: NotificationScreen(),
+          home: SplashScreen(),
         );
       },
     );

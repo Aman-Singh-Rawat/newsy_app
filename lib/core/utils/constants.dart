@@ -46,7 +46,7 @@ final List<Map<String, String>> newsChannels = [
 ];
 
 final List<NotificationGroup> notificationGroups = [
-  NotificationGroup(
+  NotificationGroup( // object of NotificationGroup
     notificationGroupId: "1",
     notifications: [
       Notification(
