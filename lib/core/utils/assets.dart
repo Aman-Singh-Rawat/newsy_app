@@ -10,6 +10,7 @@ class Assets {
   static const String imgNotification = "assets/images/img_notification_bell.png";
   static const String imgProfilePlaceholder = "assets/images/img_profile_placeholder.png";
   static const String imgSuccessDialog = "assets/images/img_success.png";
+  static const String imgNoResultFound = "assets/images/img_no_result_found.png";
 
   /// icons
   static const String icForgotPassword = "assets/icons/ic_forgot_password.svg";

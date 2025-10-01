@@ -1,6 +1,7 @@
 import 'package:newsy/core/utils/enums.dart';
 import 'package:newsy/models/notification.dart';
 import 'package:newsy/models/notification_group.dart';
+import 'package:newsy/models/users.dart';
 
 final List<Map<String, String>> newsChannels = [
   {
@@ -110,4 +111,61 @@ final List<NotificationGroup> notificationGroups = [
       ),
     ],
   ),
+];
+
+final List<User> users = [
+  User(
+    name: "Jenny Wilson",
+    followers: "79.19K Followers",
+    isFollowing: true,
+    imageUrl: "https://randomuser.me/api/portraits/women/1.jpg",
+  ),
+  User(
+    name: "Darrell Steward",
+    followers: "82.12K Followers",
+    isFollowing: true,
+    imageUrl: "https://randomuser.me/api/portraits/men/2.jpg",
+  ),
+  User(
+    name: "Theresa Webb",
+    followers: "86.67K Followers",
+    isFollowing: false,
+    imageUrl: "https://randomuser.me/api/portraits/women/3.jpg",
+  ),
+  User(
+    name: "Courtney Henry",
+    followers: "84.59K Followers",
+    isFollowing: false,
+    imageUrl: "https://randomuser.me/api/portraits/men/4.jpg",
+  ),
+  User(
+    name: "Dianne Russell",
+    followers: "97.16K Followers",
+    isFollowing: true,
+    imageUrl: "https://randomuser.me/api/portraits/women/5.jpg",
+  ),
+  User(
+    name: "Floyd Miles",
+    followers: "86.3K Followers",
+    isFollowing: false,
+    imageUrl: "https://randomuser.me/api/portraits/men/6.jpg",
+  ),
+  User(
+    name: "Annette Black",
+    followers: "65.72K Followers",
+    isFollowing: true,
+    imageUrl: "https://randomuser.me/api/portraits/women/7.jpg",
+  ),
+];
+
+
+final List<Map<String, String>> hashtags = [
+  {"tag": "#news", "count": "199.19K"},
+  {"tag": "#hotnews", "count": "82.12K"},
+  {"tag": "#trendingnews", "count": "86.67K"},
+  {"tag": "#latestnews", "count": "84.59K"},
+  {"tag": "#newspedia", "count": "97.16K"},
+  {"tag": "#usanews", "count": "86.3K"},
+  {"tag": "#uknews", "count": "65.72K"},
+  {"tag": "#newsdaily", "count": "44.12K"},
 ];

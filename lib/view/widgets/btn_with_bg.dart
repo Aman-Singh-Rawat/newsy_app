@@ -5,7 +5,15 @@ import 'package:newsy/core/theme/app_colors.dart';
 class BtnWithBg extends StatelessWidget {
   final IconData icon;
   final VoidCallback? onTap;
-  const BtnWithBg({super.key, required this.icon, this.onTap});
+  final double padding;
+  final double iconSize;
+  const BtnWithBg({
+    super.key,
+    required this.icon,
+    this.onTap,
+    this.padding = 8,
+    this.iconSize = 22.0,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,12 +21,15 @@ class BtnWithBg extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(11.r),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
+        padding: EdgeInsets.symmetric(
+          horizontal: padding.w,
+          vertical: padding.h,
+        ),
         decoration: BoxDecoration(
           color: Colorr.primaryColor[100]!.withOpacity(0.4),
           borderRadius: BorderRadius.circular(11.r),
         ),
-        child: Icon(icon, size: 22, color: Colorr.primaryColor[400]),
+        child: Icon(icon, size: iconSize.w, color: Colorr.primaryColor[400]),
       ),
     );
   }

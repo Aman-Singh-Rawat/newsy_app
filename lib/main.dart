@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/view/views/home/home_screen.dart';
 import 'package:newsy/view/views/home/notification_screen.dart';
 import 'package:newsy/view/views/main_screen.dart';
 import 'package:newsy/view/views/onboarding/splash_screen.dart';
+import 'package:newsy/view/views/search/hashtag_screen.dart';
+import 'package:newsy/view/views/search/search_screen.dart';
 import 'package:newsy/view/views/setup-profile/choose_your_news_sources.dart';
 import 'package:newsy/view/views/setup-profile/fill_your_profile_screen.dart';
 
@@ -31,6 +34,18 @@ class MyApp extends StatelessWidget {
               cursorColor: Colorr.primaryColor[400]!, // Global cursor color
               selectionHandleColor: Colorr
                   .primaryColor[400]!, // Optional: also change the selection handle color
+            ),
+            tabBarTheme: TabBarThemeData(
+              indicatorSize: TabBarIndicatorSize.tab,
+              dividerColor: Colors.grey.shade300,
+              dividerHeight: 1.5.h,
+
+              unselectedLabelColor: Colors.black,
+              unselectedLabelStyle: CustomTextStyle.tabTextStyle,
+              overlayColor: WidgetStatePropertyAll(Colors.transparent),
+              indicatorColor: Colorr.primaryColor[400],
+              labelColor: Colors.black,
+              labelStyle: CustomTextStyle.tabTextStyle,
             ),
             inputDecorationTheme: InputDecorationTheme(
               contentPadding: EdgeInsets.symmetric(
@@ -79,7 +94,7 @@ class MyApp extends StatelessWidget {
               seedColor: Colorr.primaryColor[400]!,
             ),
           ),
-          home: SplashScreen(),
+          home: SearchScreen(),
         );
       },
     );
