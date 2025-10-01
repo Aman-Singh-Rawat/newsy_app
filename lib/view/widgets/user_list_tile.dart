@@ -7,7 +7,8 @@ import 'package:newsy/models/users.dart';
 
 class UserListTile extends StatelessWidget {
   final User user;
-  const UserListTile({super.key, required this.user});
+  final bool isBorder;
+  const UserListTile({super.key, required this.user, this.isBorder = true});
 
   Widget getButtonText(String btnText) {
     return Text(
@@ -24,18 +25,20 @@ class UserListTile extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 10.h),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(15.r)),
-        border: Border.all(color: Colors.grey.shade200, width: 1.5.w),
+        border: isBorder
+            ? Border.all(color: Colors.grey.shade200, width: 1.5.w)
+            : null,
       ),
       child: ListTile(
         leading: CircleAvatar(
-          radius: 25.r,
+          radius: 23.r,
           backgroundImage: NetworkImage(user.imageUrl),
         ),
         title: Text(
           user.name,
           maxLines: 1,
           style: GoogleFonts.poppins(
-            color: Colors.black,
+            color: isBorder ? Colors.black : Colorr.primaryColor[400],
             fontSize: 13.sp,
             fontWeight: FontWeight.bold,
           ),

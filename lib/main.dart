@@ -4,6 +4,7 @@ import 'package:newsy/core/theme/app_colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/view/views/home/home_screen.dart';
+import 'package:newsy/view/views/home/news_detail_screen.dart';
 import 'package:newsy/view/views/home/notification_screen.dart';
 import 'package:newsy/view/views/main_screen.dart';
 import 'package:newsy/view/views/onboarding/splash_screen.dart';
@@ -94,7 +95,7 @@ class MyApp extends StatelessWidget {
               seedColor: Colorr.primaryColor[400]!,
             ),
           ),
-          home: SearchScreen(),
+          home: NewsDetailScreen(),
         );
       },
     );
