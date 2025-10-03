@@ -85,6 +85,9 @@ class MyApp extends StatelessWidget {
               side: BorderSide(color: Colorr.primaryColor[400]!, width: 1.5.w),
             ),
             dividerTheme: DividerThemeData(color: Colors.grey.shade200),
+            bottomSheetTheme: BottomSheetThemeData(
+              dragHandleColor: Colors.grey.shade200
+            ),
             appBarTheme: AppBarTheme(
               scrolledUnderElevation: 0.0,
               backgroundColor: Colors.white,

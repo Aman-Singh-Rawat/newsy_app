@@ -5,6 +5,7 @@ import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/profile/settings_screen.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
+import 'package:newsy/view/widgets/my_outline_button.dart';
 import 'package:newsy/view/widgets/news_widget.dart';
 import 'package:newsy/view/widgets/profile_placeholder.dart';
 
@@ -99,33 +100,9 @@ class _ProfileScreenState extends State<ProfileScreen>
 
               Divider().padSymmetric(vertical: 20.h),
 
-              SizedBox(
-                width: double.maxFinite,
-                height: 47.h,
-                child: OutlinedButton.icon(
-                  onPressed: () {},
+              MyOutlineButton(onClick: () {}, btnText: "Website", icon: Icons.language,)
 
-                  icon: Icon(
-                    Icons.language,
-                    color: Colorr.primaryColor[400],
-                    size: 20.w,
-                  ),
-                  style: OutlinedButton.styleFrom(
-                    side: BorderSide(
-                      color: Colorr.primaryColor[400]!,
-                      width: 2,
-                    ),
-                  ),
-                  label: Text(
-                    "Website",
-                    style: GoogleFonts.poppins(
-                      fontSize: 14.sp,
-                      color: Colorr.primaryColor[400],
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-              ),
+            ,
 
               SizedBox(height: 20.h),
 

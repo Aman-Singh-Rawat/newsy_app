@@ -7,6 +7,7 @@ import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/auth/auth_screen.dart';
 import 'package:newsy/view/widgets/custom_app_bar.dart';
+import 'package:newsy/view/widgets/logout_dialog.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -54,29 +55,25 @@ class SettingsScreen extends StatelessWidget {
       appBar: getAppBar(title: "Settings", context: context),
       body: Column(
         children: [
-          ListView.builder(
-            itemBuilder: (context, index) {
-              final item = settingsItems[index];
+          ...settingsItems.asMap().entries.map((settingItem) {
+            final item = settingItem.value;
               return Column(
                 children: [
                   Divider().padSymmetric(vertical: 10.h),
                   getSettingItem(
                     icon: item["icon"],
                     title: item["title"],
-                    onClick: () => _handleNavigation(index, context),
+                    onClick: () => _handleNavigation(settingItem.key, context),
                   ),
                 ],
               );
-            },
-          ),
+          }), 
+        
 
           Divider().padSymmetric(vertical: 10.h),
 
           ListTile(
-            onTap: () => Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(builder: (context) => AuthScreen()),
-              (Route<dynamic> route) => false,
-            ),
+            onTap: () => showLogoutDialgo(context),
             leading: Container(
               padding: EdgeInsets.all(14.w),
               decoration: BoxDecoration(
