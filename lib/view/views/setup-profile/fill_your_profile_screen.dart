@@ -5,6 +5,7 @@ import 'package:newsy/core/utils/assets.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/widgets/bottom_navigation_btn.dart';
 import 'package:newsy/view/widgets/custom_app_bar.dart';
+import 'package:newsy/view/widgets/profile_placeholder.dart';
 import 'package:newsy/view/widgets/show_account_created_dialog.dart';
 import 'package:newsy/view/widgets/text_field_with_label_widget.dart';
 
@@ -49,34 +50,7 @@ class _FillYourProfileScreenState extends State<FillYourProfileScreen> {
       body: Column(
         children: [
           SizedBox(height: 15.h),
-          Stack(
-            children: [
-              Image.asset(
-                Assets.imgProfilePlaceholder,
-                height: 130.h,
-                width: 130.w,
-              ),
-
-              Positioned(
-                bottom: 0,
-                right: 0,
-                child: InkWell(
-                  onTap: () {},
-                  borderRadius: BorderRadius.circular(35.r),
-                  child: Container(
-                    height: 35.h,
-                    width: 35.w,
-                    decoration: BoxDecoration(
-                      color: Colorr.primaryColor[400],
-                      shape: BoxShape.circle,
-                      border: Border.all(color: Colors.white, width: 2.w),
-                    ),
-                    child: Icon(Icons.edit, color: Colors.white, size: 18.sp),
-                  ),
-                ),
-              ),
-            ],
-          ),
+          ProfilePlaceholder(),
 
           SizedBox(height: 25.h),
 

@@ -10,6 +10,8 @@ import 'package:newsy/view/views/home/news_detail_screen.dart';
 import 'package:newsy/view/views/home/notification_screen.dart';
 import 'package:newsy/view/views/main_screen.dart';
 import 'package:newsy/view/views/onboarding/splash_screen.dart';
+import 'package:newsy/view/views/profile/profile_screen.dart';
+import 'package:newsy/view/views/profile/settings_screen.dart';
 import 'package:newsy/view/views/search/hashtag_screen.dart';
 import 'package:newsy/view/views/search/search_screen.dart';
 import 'package:newsy/view/views/setup-profile/choose_your_news_sources.dart';
@@ -82,6 +84,7 @@ class MyApp extends StatelessWidget {
 
               side: BorderSide(color: Colorr.primaryColor[400]!, width: 1.5.w),
             ),
+            dividerTheme: DividerThemeData(color: Colors.grey.shade200),
             appBarTheme: AppBarTheme(
               scrolledUnderElevation: 0.0,
               backgroundColor: Colors.white,
@@ -97,7 +100,7 @@ class MyApp extends StatelessWidget {
               seedColor: Colorr.primaryColor[400]!,
             ),
           ),
-          home: AuthScreen(),
+          home: SettingsScreen(),
         );
       },
     );

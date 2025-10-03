@@ -169,3 +169,12 @@ final List<Map<String, String>> hashtags = [
   {"tag": "#uknews", "count": "65.72K"},
   {"tag": "#newsdaily", "count": "44.12K"},
 ];
+
+
+List<Map<String, dynamic>> socialStats = [
+  {
+    'News': 156,
+    'Followers': 2.279,
+    'Following': 178,
+  }
+];
