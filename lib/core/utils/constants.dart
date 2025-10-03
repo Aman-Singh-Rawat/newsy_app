@@ -1,7 +1,17 @@
+import 'package:flutter/material.dart' hide Notification;
 import 'package:newsy/core/utils/enums.dart';
 import 'package:newsy/models/notification.dart';
 import 'package:newsy/models/notification_group.dart';
 import 'package:newsy/models/users.dart';
+import 'package:newsy/view/views/profile/about_us_setting_screen.dart';
+import 'package:newsy/view/views/profile/appearance_setting_screen.dart';
+import 'package:newsy/view/views/profile/contact_us_setting_screen.dart';
+import 'package:newsy/view/views/profile/edit_profile_setting_screen.dart';
+import 'package:newsy/view/views/profile/faq_setting_screen.dart';
+import 'package:newsy/view/views/profile/help_setting_screen.dart';
+import 'package:newsy/view/views/profile/invite_friends_setting_screen.dart';
+import 'package:newsy/view/views/profile/notification_setting_screen.dart';
+import 'package:newsy/view/views/profile/security_setting_screen.dart';
 
 final List<Map<String, String>> newsChannels = [
   {
@@ -47,7 +57,8 @@ final List<Map<String, String>> newsChannels = [
 ];
 
 final List<NotificationGroup> notificationGroups = [
-  NotificationGroup( // object of NotificationGroup
+  NotificationGroup(
+    // object of NotificationGroup
     notificationGroupId: "1",
     notifications: [
       Notification(
@@ -158,7 +169,6 @@ final List<User> users = [
   ),
 ];
 
-
 final List<Map<String, String>> hashtags = [
   {"tag": "#news", "count": "199.19K"},
   {"tag": "#hotnews", "count": "82.12K"},
@@ -170,11 +180,24 @@ final List<Map<String, String>> hashtags = [
   {"tag": "#newsdaily", "count": "44.12K"},
 ];
 
-
 List<Map<String, dynamic>> socialStats = [
-  {
-    'News': 156,
-    'Followers': 2.279,
-    'Following': 178,
-  }
+  {'News': 156, 'Followers': 2.279, 'Following': 178},
+];
+
+final List<Map<String, dynamic>> settingsItems = [
+  {"title": "Edit Profile", "icon": Icons.person},
+  {"title": "Notification", "icon": Icons.notifications},
+  {"title": "Security", "icon": Icons.lock},
+  {"title": "Appearance", "icon": Icons.remove_red_eye},
+  {"title": "Help", "icon": Icons.info},
+  {"title": "Invite Friends", "icon": Icons.group},
+];
+
+final settingScreens = [
+  EditProfileSettingScreen(),
+  NotificationSettingScreen(),
+  SecuritySettingScreen(),
+  AppearanceSettingScreen(),
+  HelpSettingScreen(),
+  InviteFriendsSettingScreen(),
 ];

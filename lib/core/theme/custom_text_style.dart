@@ -35,4 +35,11 @@ class CustomTextStyle {
     fontSize: 14.0.sp,
     fontWeight: FontWeight.w600,
   );
+
+  static TextStyle settingScreenItemTitleStyle = GoogleFonts.poppins(
+    color: Colors.black,
+    fontSize: 13.5.sp,
+    letterSpacing: 0.09,
+    fontWeight: FontWeight.w600,
+  );
 }
