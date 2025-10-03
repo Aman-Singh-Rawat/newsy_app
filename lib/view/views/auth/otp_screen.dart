@@ -18,7 +18,8 @@ class OtpScreen extends StatefulWidget {
 }
 
 class _OtpScreenState extends State<OtpScreen> {
-  int _counter = 59;
+  bool _isCounterMinus = false;
+  int _counter = 10;
   late Timer _timer;
 
   @override
@@ -30,15 +31,17 @@ class _OtpScreenState extends State<OtpScreen> {
   @override
   void initState() {
     super.initState();
-    _counter = 59; // Or any starting value
+    _counter = 10; // Or any starting value
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      setState(() => _counter--);
+      if (_counter > -1) setState(() => _counter--);
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    _isCounterMinus = _counter == -1;
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
@@ -46,48 +49,66 @@ class _OtpScreenState extends State<OtpScreen> {
         ),
         title: Text("Forgot Password"),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Spacer(),
-          Text(
-            "Code has been sent to +91 761844**67",
-            style: CustomTextStyle.screenDescTextStyle,
-          ),
+      body: GestureDetector(
+                behavior: HitTestBehavior.opaque,
 
-          SizedBox(height: 30.h),
-          MyOtpPinField(),
-          SizedBox(height: 30.h),
-          RichText(
-            text: TextSpan(
-              text: "Resend code in ",
+         onTap: () => FocusScope.of(context).requestFocus( FocusNode()),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Spacer(),
+            Text(
+              "Code has been sent to +91 761844**67",
               style: CustomTextStyle.screenDescTextStyle,
+            ),
+        
+            SizedBox(height: 30.h),
+            MyOtpPinField(),
+            SizedBox(height: 30.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                TextSpan(
-                  text: "$_counter",
-                  style: CustomTextStyle.screenDescTextStyle.copyWith(
-                    color: Colorr.primaryColor[400],
-                  ),
-                ),
-                TextSpan(
-                  text: " s",
+                Text(
+                  _isCounterMinus ? "Didn't Receive otp? " : "Resend code in ",
                   style: CustomTextStyle.screenDescTextStyle,
+                ),
+                if (!_isCounterMinus)
+                  Text(
+                    _counter.toString(),
+                    style: CustomTextStyle.screenDescTextStyle.copyWith(
+                      color: Colorr.primaryColor[400],
+                    ),
+                  ),
+                InkWell(
+                  onTap: _isCounterMinus
+                      ? () => setState(() => _counter = 10)
+                      : null,
+                  child: Text(
+                    _isCounterMinus ? "Resend" : " s",
+                    style: CustomTextStyle.screenDescTextStyle.copyWith(
+                      color: _counter == -1
+                          ? Colorr.primaryColor[400]
+                          : Colors.black,
+                    ),
+                  ),
                 ),
               ],
             ),
-          ),
-          Spacer(),
-          CustomBtn(
-            color: Colorr.primaryColor[400]!,
-            btnText: "Verify",
-            onTap: () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => ResetPasswordScreen()),
+        
+            Spacer(),
+            CustomBtn(
+              color: Colorr.primaryColor[400]!,
+              btnText: "Verify",
+              onTap: () => Navigator.of(context).pushAndRemoveUntil(
+                MaterialPageRoute(builder: (context) => ResetPasswordScreen()),
+                (Route<dynamic> route) => false,
+              ),
             ),
-          ),
-
-          SizedBox(height: 20.h),
-        ],
-      ).padSymmetric(horizontal: 20.w),
+        
+            SizedBox(height: 20.h),
+          ],
+        ).padSymmetric(horizontal: 20.w),
+      ),
     );
   }
 }

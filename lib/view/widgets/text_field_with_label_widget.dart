@@ -8,6 +8,7 @@ class CustomTextFieldWithLabel extends StatefulWidget {
   final String hint;
   final bool isPassword;
   final IconData? suffixIcon;
+  final TextInputAction textInputAction;
   final TextEditingController controller;
 
   const CustomTextFieldWithLabel({
@@ -15,6 +16,7 @@ class CustomTextFieldWithLabel extends StatefulWidget {
     required this.label,
     required this.hint,
     this.suffixIcon,
+    this.textInputAction = TextInputAction.next,
     required this.isPassword,
     required this.controller,
   });
@@ -55,6 +57,7 @@ class _CustomTextFieldWithLabelState extends State<CustomTextFieldWithLabel> {
         ),
         const SizedBox(height: 5),
         TextFormField(
+          textInputAction: widget.textInputAction,
           style: GoogleFonts.poppins(
             fontSize: 13.sp,
             color: Colors.black,
@@ -70,12 +73,12 @@ class _CustomTextFieldWithLabelState extends State<CustomTextFieldWithLabel> {
                       setState(() => isVisible = !isVisible);
                     },
                     child: Icon(
-                      isVisible ? Icons.visibility : Icons.visibility_off,
+                      isVisible ? Icons.visibility_off : Icons.visibility,
                       color: Colors.grey,
                       size: 20.r,
                     ),
                   )
-                : Icon(widget.suffixIcon, color: Colors.grey,),
+                : Icon(widget.suffixIcon, color: Colors.grey),
           ),
         ),
         Visibility(

@@ -18,7 +18,6 @@ class ResetPasswordScreen extends StatefulWidget {
 }
 
 class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
-  bool _isRememberMe = false;
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -43,81 +42,66 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: Icon(Icons.arrow_back_rounded),
-        ),
-        title: Text("Reset Password"),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Image.asset(
+      appBar: AppBar(title: Text("Reset Password")),
+      body: Column(
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Center(
+            child: Image.asset(
               Assets.imgResetPassword,
               width: 300.w,
               height: 230.h,
               fit: BoxFit.cover,
             ),
-            Text(
-              "Create a new password",
-              style: GoogleFonts.poppins(
-                fontSize: 20.sp,
-                fontWeight: FontWeight.w600,
-                color: Colors.black,
-              ),
+          ),
+          Text(
+            "Create a new password",
+            style: GoogleFonts.poppins(
+              fontSize: 20.sp,
+              fontWeight: FontWeight.w600,
+              color: Colors.black,
             ),
+          ),
 
-            SizedBox(height: 22.h),
+          SizedBox(height: 22.h),
 
-            /// new password field
-            CustomTextFieldWithLabel(
-              label: "New Password",
-              hint: "New Password",
-              isPassword: true,
-              controller: _emailController,
+          /// new password field
+          CustomTextFieldWithLabel(
+            label: "New Password",
+            hint: "New Password",
+            isPassword: true,
+            controller: _emailController,
+          ),
+
+          SizedBox(height: 15.h),
+
+          /// password field
+          CustomTextFieldWithLabel(
+            label: "Confirm New Password",
+            hint: "Confirm New Password",
+            isPassword: true,
+            controller: _passwordController,
+            textInputAction: TextInputAction.done,
+          ),
+
+          Spacer(),
+
+          CustomBtn(
+            isClickable: !_isFieldEmpty,
+            color: _isFieldEmpty
+                ? Colorr.primaryColor[200]!
+                : Colorr.primaryColor[400]!,
+            btnText: "Save",
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => CongratulationScreen()),
             ),
+          ),
 
-            SizedBox(height: 15.h),
-
-            /// password field
-            CustomTextFieldWithLabel(
-              label: "Confirm New Password",
-              hint: "Confirm New Password",
-              isPassword: true,
-              controller: _passwordController,
-            ),
-
-            SizedBox(height: 5.h),
-
-            /// for remember the user
-            RememberMeWidget(
-              isRememberMe: _isRememberMe,
-              onChanged: (value) {
-                setState(() => _isRememberMe = value!);
-              },
-            ),
-
-            SizedBox(height: 20.h),
-
-            CustomBtn(
-              isClickable: !_isFieldEmpty,
-              color: _isFieldEmpty
-                  ? Colorr.primaryColor[200]!
-                  : Colorr.primaryColor[400]!,
-              btnText: "Save",
-              onTap: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => CongratulationScreen(),
-                ),
-              ),
-            ),
-          ],
-        ).padSymmetric(horizontal: 20.w),
-      ),
+          SizedBox(height: 20.h),
+        ],
+      ).padSymmetric(horizontal: 20.w),
     );
   }
 }

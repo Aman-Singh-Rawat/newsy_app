@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:newsy/core/theme/app_colors.dart';
@@ -11,7 +12,7 @@ class MyOtpPinField extends StatelessWidget {
   Widget build(BuildContext context) {
     final defaultPinTheme = PinTheme(
       width: 65.w,
-      height: 45.h,
+      height: 50.h,
       margin: EdgeInsets.symmetric(horizontal: 2.w),
       textStyle: GoogleFonts.poppins(
         fontSize: 20.sp,
@@ -37,10 +38,11 @@ class MyOtpPinField extends StatelessWidget {
     );
 
     return Pinput(
+      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+      keyboardType: TextInputType.number,
       defaultPinTheme: defaultPinTheme,
       focusedPinTheme: focusedPinTheme,
       submittedPinTheme: submittedPinTheme,
-
       pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
       onCompleted: (pin) => print(pin),
     );

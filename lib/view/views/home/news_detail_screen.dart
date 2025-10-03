@@ -196,7 +196,7 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
             Divider(color: Colors.grey.shade200).padSymmetric(vertical: 17.h),
 
             getScreenTitleAndSeeAll(title: "Related", onTextClick: () {}),
-
+  
             SizedBox(height: 20.h),
             ListView.builder(
               shrinkWrap: true,
