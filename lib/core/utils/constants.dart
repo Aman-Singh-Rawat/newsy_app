@@ -193,6 +193,20 @@ final List<Map<String, dynamic>> settingsItems = [
   {"title": "Invite Friends", "icon": Icons.group},
 ];
 
+final List<String> helpList = [
+  "FAQ",
+  "Contact us",
+  "Terms & Conditions",
+  "Privacy Policy",
+  "About Us",
+];
+
+final helpScreens = [
+  FaqSettingScreen(),
+  ContactUsSettingScreen(),
+  AboutUsSettingScreen(),
+];
+
 final settingScreens = [
   EditProfileSettingScreen(),
   NotificationSettingScreen(),

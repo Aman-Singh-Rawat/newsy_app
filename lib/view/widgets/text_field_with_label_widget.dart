@@ -7,6 +7,7 @@ class CustomTextFieldWithLabel extends StatefulWidget {
   final String label;
   final String hint;
   final bool isPassword;
+  final bool isRequired;
   final IconData? suffixIcon;
   final TextInputAction textInputAction;
   final TextEditingController controller;
@@ -17,8 +18,9 @@ class CustomTextFieldWithLabel extends StatefulWidget {
     required this.hint,
     this.suffixIcon,
     this.textInputAction = TextInputAction.next,
-    required this.isPassword,
+    this.isPassword = false,
     required this.controller,
+    this.isRequired = true,
   });
 
   @override
@@ -45,14 +47,15 @@ class _CustomTextFieldWithLabelState extends State<CustomTextFieldWithLabel> {
                 fontSize: 13.sp,
               ),
             ),
-            const Text(
-              "*",
-              style: TextStyle(
-                color: Colors.red,
-                fontSize: 14,
-                fontWeight: FontWeight.w900,
+            if (widget.isRequired)
+              const Text(
+                "*",
+                style: TextStyle(
+                  color: Colors.red,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w900,
+                ),
               ),
-            ),
           ],
         ),
         const SizedBox(height: 5),

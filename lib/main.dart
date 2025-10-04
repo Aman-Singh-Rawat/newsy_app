@@ -10,6 +10,9 @@ import 'package:newsy/view/views/home/news_detail_screen.dart';
 import 'package:newsy/view/views/home/notification_screen.dart';
 import 'package:newsy/view/views/main_screen.dart';
 import 'package:newsy/view/views/onboarding/splash_screen.dart';
+import 'package:newsy/view/views/profile/edit_profile_setting_screen.dart';
+import 'package:newsy/view/views/profile/help_setting_screen.dart';
+import 'package:newsy/view/views/profile/notification_setting_screen.dart';
 import 'package:newsy/view/views/profile/profile_screen.dart';
 import 'package:newsy/view/views/profile/settings_screen.dart';
 import 'package:newsy/view/views/search/hashtag_screen.dart';
@@ -40,6 +43,7 @@ class MyApp extends StatelessWidget {
               selectionHandleColor: Colorr
                   .primaryColor[400]!, // Optional: also change the selection handle color
             ),
+
             tabBarTheme: TabBarThemeData(
               indicatorSize: TabBarIndicatorSize.tab,
               dividerColor: Colors.grey.shade300,
@@ -86,7 +90,7 @@ class MyApp extends StatelessWidget {
             ),
             dividerTheme: DividerThemeData(color: Colors.grey.shade200),
             bottomSheetTheme: BottomSheetThemeData(
-              dragHandleColor: Colors.grey.shade200
+              dragHandleColor: Colors.grey.shade200,
             ),
             appBarTheme: AppBarTheme(
               scrolledUnderElevation: 0.0,
@@ -103,7 +107,7 @@ class MyApp extends StatelessWidget {
               seedColor: Colorr.primaryColor[400]!,
             ),
           ),
-          home: SettingsScreen(),
+          home: HelpSettingScreen(),
         );
       },
     );

@@ -42,4 +42,5 @@ class CustomTextStyle {
     letterSpacing: 0.09,
     fontWeight: FontWeight.w600,
   );
+
 }
