@@ -215,3 +215,33 @@ final settingScreens = [
   HelpSettingScreen(),
   InviteFriendsSettingScreen(),
 ];
+
+List<String> faqCategories = [
+  "General",
+  "Login",
+  "Account",
+  "Berita",
+  "Tips",
+];
+
+final List<String> newsCategories = [
+    "Trending",
+    "Latest",
+    "Politics",
+    "Business",
+    "Technology",
+    "Entertainment",
+    "Sports",
+    "Health",
+    "Science",
+    "Education",
+    "World",
+    "Lifestyle",
+    "Travel",
+    "Food",
+    "Environment",
+    "Crime",
+    "Opinion",
+    "Finance",
+    "Culture",
+  ];

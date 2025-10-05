@@ -1,36 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/constants.dart';
-import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/widgets/category_widget.dart';
-import 'package:newsy/view/widgets/get_screen_title_and_see_all';
+import 'package:newsy/view/widgets/get_search_result_widget.dart';
 import 'package:newsy/view/widgets/news_widget.dart';
 
-class NewsScreenWidget extends StatefulWidget {
-  const NewsScreenWidget({super.key});
+class NewsTabWidget extends StatefulWidget {
+  const NewsTabWidget({super.key});
 
   @override
-  State<NewsScreenWidget> createState() => _NewsScreenWidgetState();
+  State<NewsTabWidget> createState() => _NewsTabWidgetState();
 }
 
-class _NewsScreenWidgetState extends State<NewsScreenWidget> {
+class _NewsTabWidgetState extends State<NewsTabWidget> {
   int _selectedIndex = 0;
+  Widget getNews() {
+    return Expanded(
+      child: ListView.builder(
+        itemBuilder: (context, index) => NewsWidget(),
+        itemCount: 5,
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 10.h),
+        SizedBox(height: 20.h),
 
-        /// news and see all
-        getScreenTitleAndSeeAll(
-          title: "News",
-          onTextClick: () {},
-        ).marginSymmetric(horizontal: 20.w, vertical: 15.h),
-
-        /// top category list
+        // category widget
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
@@ -46,18 +45,21 @@ class _NewsScreenWidgetState extends State<NewsScreenWidget> {
           ),
         ),
 
-        SizedBox(height: 5.h),
+        SizedBox(height: 22.h),
 
+        // search result -> found
+        GetSearchResultWidget(),
+
+        // empty widget
+        //getEmptyWidget,
         /// news widget
-        ListView.builder(
-          itemBuilder: (context, index) => NewsWidget(),
-          itemCount: 5,
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-        ),
+        SizedBox(height: 16.h),
+
+        getNews(),
 
         SizedBox(height: 15.h),
       ],
     );
+    ;
   }
 }

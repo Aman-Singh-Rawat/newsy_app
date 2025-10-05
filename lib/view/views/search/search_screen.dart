@@ -9,7 +9,9 @@ import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
 import 'package:newsy/view/widgets/category_widget.dart';
 import 'package:newsy/view/widgets/custom_app_bar.dart';
+import 'package:newsy/view/widgets/get_search_result_widget.dart';
 import 'package:newsy/view/widgets/hashtag_widget.dart';
+import 'package:newsy/view/widgets/news_tab.dart';
 import 'package:newsy/view/widgets/news_widget.dart';
 import 'package:newsy/view/widgets/search_view_widget.dart';
 import 'package:newsy/view/widgets/user_list_tile.dart';
@@ -66,71 +68,13 @@ class _SearchScreenState extends State<SearchScreen>
     ).padSymmetric(horizontal: 20.w);
   }
 
-  Widget get getNews {
-    return Expanded(
-      child: ListView.builder(
-        itemBuilder: (context, index) => NewsWidget(),
-        itemCount: 5,
-      ),
-    );
-  }
-
-  Widget get getSearchResultWidget {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Text(
-          "Search Results",
-          style: GoogleFonts.poppins(
-            color: Colors.black54,
-            fontSize: 13.sp,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-
-        Text(
-          "0 found",
-          style: GoogleFonts.poppins(
-            fontWeight: FontWeight.w600,
-            color: Colorr.primaryColor[400],
-          ),
-        ),
-      ],
-    ).padSymmetric(horizontal: 20.w);
-  }
-
-  Widget get getNewsTab {
-    return Column(
-      children: [
-        SizedBox(height: 20.h),
-
-        // category widget
-        CategoryWidget(),
-
-        SizedBox(height: 22.h),
-        // search result -> found
-        getSearchResultWidget,
-
-        // empty widget
-        //getEmptyWidget,
-        /// news widget
-        SizedBox(height: 16.h),
-
-        getNews,
-
-        SizedBox(height: 15.h),
-      ],
-    );
-  }
-
   Widget get getPeopleTab {
     return Column(
       children: [
         SizedBox(height: 20.h),
 
         // search text
-        getSearchResultWidget,
+        GetSearchResultWidget(),
 
         SizedBox(height: 20.h),
 
@@ -150,7 +94,7 @@ class _SearchScreenState extends State<SearchScreen>
         SizedBox(height: 20.h),
 
         // search text
-        getSearchResultWidget,
+        GetSearchResultWidget(),
 
         SizedBox(height: 20.h),
 
@@ -208,7 +152,7 @@ class _SearchScreenState extends State<SearchScreen>
                 controller: tabController,
                 children: [
                   // News Tab
-                  getNewsTab,
+                  NewsTabWidget(),
 
                   // People Tab
                   getPeopleTab,
