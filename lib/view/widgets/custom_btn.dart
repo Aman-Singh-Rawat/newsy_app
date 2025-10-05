@@ -9,6 +9,7 @@ class CustomBtn extends StatelessWidget {
   final double width;
   final double height;
   final double btnSize;
+  final IconData? icon;
   final bool isClickable;
 
   const CustomBtn({
@@ -18,7 +19,9 @@ class CustomBtn extends StatelessWidget {
     required this.onTap,
     this.width = double.infinity,
     this.height = 54,
-    this.isClickable = true, this.btnSize = 14,
+    this.icon,
+    this.isClickable = true,
+    this.btnSize = 14,
   });
 
   @override
@@ -33,15 +36,23 @@ class CustomBtn extends StatelessWidget {
           color: color,
           borderRadius: BorderRadius.circular(25.r),
         ),
-        child: Center(
-          child: Text(
-            btnText,
-            style: GoogleFonts.poppins(
-              color: Colors.white,
-              fontSize: btnSize,
-              fontWeight: FontWeight.w600,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              btnText,
+              style: GoogleFonts.poppins(
+                color: Colors.white,
+                fontSize: btnSize,
+                fontWeight: FontWeight.w600,
+              ),
             ),
-          ),
+            if (icon != null) ...[
+              SizedBox(width: 6.w),
+              Icon(icon, color: Colors.white, size: 14.w),
+            ],
+          ],
         ),
       ),
     );

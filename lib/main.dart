@@ -10,6 +10,8 @@ import 'package:newsy/view/views/home/news_detail_screen.dart';
 import 'package:newsy/view/views/home/notification_screen.dart';
 import 'package:newsy/view/views/main_screen.dart';
 import 'package:newsy/view/views/onboarding/splash_screen.dart';
+import 'package:newsy/view/views/profile/about_us_setting_screen.dart';
+import 'package:newsy/view/views/profile/contact_us_setting_screen.dart';
 import 'package:newsy/view/views/profile/edit_profile_setting_screen.dart';
 import 'package:newsy/view/views/profile/help_setting_screen.dart';
 import 'package:newsy/view/views/profile/notification_setting_screen.dart';
@@ -107,7 +109,7 @@ class MyApp extends StatelessWidget {
               seedColor: Colorr.primaryColor[400]!,
             ),
           ),
-          home: HelpSettingScreen(),
+          home: ContactUsSettingScreen(),
         );
       },
     );
