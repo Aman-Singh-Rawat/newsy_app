@@ -5,6 +5,7 @@ import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/extension.dart';
+import 'package:newsy/view/views/home/news_agency_detail_screen.dart';
 import 'package:newsy/view/widgets/beautiful_comment_widget.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
 import 'package:newsy/view/widgets/get_screen_title_and_see_all';
@@ -99,7 +100,15 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
               ],
             ),
 
-            UserListTile(user: users[0], isBorder: false),
+            UserListTile(
+              user: users[0],
+              isBorder: false,
+              onClick: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => NewsAgencyDetailScreen(),
+                ),
+              ),
+            ),
 
             // desc
             Text(
@@ -192,7 +201,7 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
             Divider(color: Colors.grey.shade200).padSymmetric(vertical: 17.h),
 
             getScreenTitleAndSeeAll(title: "Related", onTextClick: () {}),
-  
+
             SizedBox(height: 20.h),
             ListView.builder(
               shrinkWrap: true,
@@ -205,6 +214,4 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
       ),
     );
   }
-
-
 }

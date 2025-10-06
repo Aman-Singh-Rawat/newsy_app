@@ -168,7 +168,148 @@ final List<User> users = [
     isFollowing: true,
     imageUrl: "https://randomuser.me/api/portraits/women/7.jpg",
   ),
+  User(
+    name: "Cody Fisher",
+    followers: "91.04K Followers",
+    isFollowing: true,
+    imageUrl: "https://randomuser.me/api/portraits/men/8.jpg",
+  ),
+  User(
+    name: "Savannah Nguyen",
+    followers: "99.88K Followers",
+    isFollowing: false,
+    imageUrl: "https://randomuser.me/api/portraits/women/9.jpg",
+  ),
+  User(
+    name: "Emily Clark",
+    followers: "103.45K Followers",
+    isFollowing: true,
+    imageUrl: "https://randomuser.me/api/portraits/women/10.jpg",
+  ),
+  User(
+    name: "Olivia Martin",
+    followers: "112.67K Followers",
+    isFollowing: true,
+    imageUrl: "https://randomuser.me/api/portraits/women/11.jpg",
+  ),
+  User(
+    name: "Sophia Johnson",
+    followers: "89.22K Followers",
+    isFollowing: false,
+    imageUrl: "https://randomuser.me/api/portraits/women/12.jpg",
+  ),
+  User(
+    name: "Amelia Brown",
+    followers: "121.34K Followers",
+    isFollowing: true,
+    imageUrl: "https://randomuser.me/api/portraits/women/13.jpg",
+  ),
+  User(
+    name: "Charlotte Garcia",
+    followers: "76.93K Followers",
+    isFollowing: false,
+    imageUrl: "https://randomuser.me/api/portraits/women/14.jpg",
+  ),
+  User(
+    name: "Isabella Rodriguez",
+    followers: "108.50K Followers",
+    isFollowing: true,
+    imageUrl: "https://randomuser.me/api/portraits/women/15.jpg",
+  ),
+
+  // New 15 users below
+  User(
+    name: "Ava Martinez",
+    followers: "118.75K Followers",
+    isFollowing: false,
+    imageUrl: "https://randomuser.me/api/portraits/women/16.jpg",
+  ),
+  User(
+    name: "Mia Thompson",
+    followers: "91.46K Followers",
+    isFollowing: true,
+    imageUrl: "https://randomuser.me/api/portraits/women/17.jpg",
+  ),
+  User(
+    name: "Harper Davis",
+    followers: "85.28K Followers",
+    isFollowing: false,
+    imageUrl: "https://randomuser.me/api/portraits/women/18.jpg",
+  ),
+  User(
+    name: "Evelyn Moore",
+    followers: "107.31K Followers",
+    isFollowing: true,
+    imageUrl: "https://randomuser.me/api/portraits/women/19.jpg",
+  ),
+  User(
+    name: "Abigail Taylor",
+    followers: "94.18K Followers",
+    isFollowing: false,
+    imageUrl: "https://randomuser.me/api/portraits/women/20.jpg",
+  ),
+  User(
+    name: "Ella Anderson",
+    followers: "121.02K Followers",
+    isFollowing: true,
+    imageUrl: "https://randomuser.me/api/portraits/women/21.jpg",
+  ),
+  User(
+    name: "Scarlett Thomas",
+    followers: "97.84K Followers",
+    isFollowing: false,
+    imageUrl: "https://randomuser.me/api/portraits/women/22.jpg",
+  ),
+  User(
+    name: "Grace Jackson",
+    followers: "105.69K Followers",
+    isFollowing: true,
+    imageUrl: "https://randomuser.me/api/portraits/women/23.jpg",
+  ),
+  User(
+    name: "Luna White",
+    followers: "115.03K Followers",
+    isFollowing: true,
+    imageUrl: "https://randomuser.me/api/portraits/women/24.jpg",
+  ),
+  User(
+    name: "Zoe Harris",
+    followers: "99.45K Followers",
+    isFollowing: false,
+    imageUrl: "https://randomuser.me/api/portraits/women/25.jpg",
+  ),
+  User(
+    name: "Lily Young",
+    followers: "104.76K Followers",
+    isFollowing: true,
+    imageUrl: "https://randomuser.me/api/portraits/women/26.jpg",
+  ),
+  User(
+    name: "Eleanor King",
+    followers: "87.23K Followers",
+    isFollowing: false,
+    imageUrl: "https://randomuser.me/api/portraits/women/27.jpg",
+  ),
+  User(
+    name: "James Scott",
+    followers: "92.19K Followers",
+    isFollowing: true,
+    imageUrl: "https://randomuser.me/api/portraits/men/28.jpg",
+  ),
+  User(
+    name: "Benjamin Adams",
+    followers: "83.57K Followers",
+    isFollowing: false,
+    imageUrl: "https://randomuser.me/api/portraits/men/29.jpg",
+  ),
+  User(
+    name: "Lucas Nelson",
+    followers: "90.11K Followers",
+    isFollowing: true,
+    imageUrl: "https://randomuser.me/api/portraits/men/30.jpg",
+  ),
 ];
+
 
 final List<Map<String, String>> hashtags = [
   {"tag": "#news", "count": "199.19K"},

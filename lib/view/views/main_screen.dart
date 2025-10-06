@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:newsy/view/views/bookmark/bookmark_screen.dart';
 import 'package:newsy/view/views/home/home_screen.dart';
 import 'package:newsy/view/views/my-news/my_news_screen.dart';
-import 'package:newsy/view/views/profile/profile_screen.dart';
+import 'package:newsy/view/views/profile/user-profile/profile_screen.dart';
 import 'package:newsy/view/views/search/search_screen.dart';
 import 'package:newsy/view/widgets/custom_bottom_navigation_bar.dart';
 

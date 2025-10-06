@@ -5,6 +5,7 @@ import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/assets.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/extension.dart';
+import 'package:newsy/view/views/home/news_agency_detail_screen.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
 import 'package:newsy/view/widgets/custom_app_bar.dart';
 import 'package:newsy/view/widgets/get_search_result_widget.dart';
@@ -78,7 +79,14 @@ class _SearchScreenState extends State<SearchScreen>
         Expanded(
           child: ListView.builder(
             itemCount: users.length,
-            itemBuilder: (context, index) => UserListTile(user: users[index]),
+            itemBuilder: (context, index) => UserListTile(
+              user: users[index],
+              onClick: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => NewsAgencyDetailScreen(),
+                ),
+              ),
+            ),
           ).padSymmetric(horizontal: 20.w),
         ),
       ],
@@ -143,7 +151,6 @@ class _SearchScreenState extends State<SearchScreen>
       body: SafeArea(
         child: Column(
           children: [
-            // searchview and filter
             Expanded(
               child: TabBarView(
                 controller: tabController,

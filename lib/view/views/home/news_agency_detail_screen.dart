@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/profile/settings_screen.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
+import 'package:newsy/view/widgets/custom_app_bar.dart';
+import 'package:newsy/view/widgets/custom_btn.dart';
 import 'package:newsy/view/widgets/my_outline_button.dart';
 import 'package:newsy/view/widgets/news_widget.dart';
 import 'package:newsy/view/widgets/profile_placeholder.dart';
+import 'package:newsy/view/widgets/social_stats_widget.dart';
 
-class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({super.key});
+class NewsAgencyDetailScreen extends StatefulWidget {
+  const NewsAgencyDetailScreen({super.key});
 
   @override
-  State<ProfileScreen> createState() => _ProfileScreenState();
+  State<NewsAgencyDetailScreen> createState() => _NewsAgencyDetailScreenState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen>
+class _NewsAgencyDetailScreenState extends State<NewsAgencyDetailScreen>
     with SingleTickerProviderStateMixin {
   late TabController tabController;
 
@@ -28,14 +32,14 @@ class _ProfileScreenState extends State<ProfileScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("My Profile"),
-        actionsPadding: EdgeInsets.only(right: 20.w),
+      appBar: getAppBar(
+        title: "",
+        context: context,
         actions: [
-          BtnWithBg(icon: Icons.edit).padOnly(right: 20.w),
+          BtnWithBg(icon: Icons.share).padOnly(right: 20.w),
 
           BtnWithBg(
-            icon: Icons.settings,
+            icon: Icons.more_vert,
             onTap: () => Navigator.of(
               context,
             ).push(MaterialPageRoute(builder: (context) => SettingsScreen())),
@@ -51,9 +55,14 @@ class _ProfileScreenState extends State<ProfileScreen>
               SizedBox(height: 15.h),
 
               // perons image
-              ProfilePlaceholder(),
+              CircleAvatar(
+                radius: 55.r,
+                backgroundImage: NetworkImage(
+                  "https://plus.unsplash.com/premium_photo-1690406382707-16d9cc7a83d5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fHw%3D",
+                ),
+              ),
 
-              SizedBox(height: 20.h),
+              SizedBox(height: 15.h),
 
               // name
               Text(
@@ -65,7 +74,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                 ),
               ),
 
-              SizedBox(height: 20.h),
+              SizedBox(height: 15.h),
 
               // profile desc
               Text(
@@ -73,7 +82,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                 textAlign: TextAlign.center,
                 style: GoogleFonts.poppins(
                   color: Colors.black54,
-                  fontSize: 12.sp,
+                  fontSize: 11.sp,
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -84,24 +93,42 @@ class _ProfileScreenState extends State<ProfileScreen>
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    socialStatsWidget(cateogry: "News", value: "156"),
+                    SocialStatsWidget(category: "News", value: "156"),
 
                     VerticalDivider(),
 
-                    socialStatsWidget(cateogry: "Followers", value: "2.279"),
+                    SocialStatsWidget(category: "Followers", value: "2.279"),
 
                     VerticalDivider(),
 
-                    socialStatsWidget(cateogry: "Following", value: "178"),
+                    SocialStatsWidget(category: "Following", value: "178"),
                   ],
                 ),
               ),
 
-              Divider().padSymmetric(vertical: 20.h),
+              Divider().padSymmetric(vertical: 18.h),
 
-              MyOutlineButton(onClick: () {}, btnText: "Website", icon: Icons.language,)
-
-            ,
+              Row(
+                children: [
+                  Expanded(
+                    child: CustomBtn(
+                      color: Colorr.primaryColor[400]!,
+                      btnText: "Follow",
+                      onTap: () {},
+                      isPrefixIcon: true,
+                      icon: Icons.person_add,
+                    ),
+                  ),
+                  SizedBox(width: 10.w),
+                  Expanded(
+                    child: MyOutlineButton(
+                      onClick: () {},
+                      btnText: "Website",
+                      icon: Icons.language,
+                    ),
+                  ),
+                ],
+              ),
 
               SizedBox(height: 20.h),
 
@@ -137,35 +164,6 @@ class _ProfileScreenState extends State<ProfileScreen>
           ).marginSymmetric(horizontal: 20.w),
         ),
       ),
-    );
-  }
-
-  Widget socialStatsWidget({required String cateogry, required String value}) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Text(
-          value,
-          maxLines: 1,
-          style: GoogleFonts.poppins(
-            color: Colors.black,
-            fontSize: 20.sp,
-
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-
-        SizedBox(height: 10.h),
-
-        Text(
-          cateogry,
-          maxLines: 1,
-          style: GoogleFonts.poppins(
-            fontSize: 14.sp,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-      ],
     );
   }
 }

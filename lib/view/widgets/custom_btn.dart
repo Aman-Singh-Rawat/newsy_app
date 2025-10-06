@@ -10,6 +10,7 @@ class CustomBtn extends StatelessWidget {
   final double height;
   final double btnSize;
   final IconData? icon;
+  final bool isPrefixIcon;
   final bool isClickable;
 
   const CustomBtn({
@@ -22,6 +23,7 @@ class CustomBtn extends StatelessWidget {
     this.icon,
     this.isClickable = true,
     this.btnSize = 14,
+    this.isPrefixIcon = false,
   });
 
   @override
@@ -40,6 +42,10 @@ class CustomBtn extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            if (isPrefixIcon) ...[
+              Icon(icon, color: Colors.white, size: 14.w),
+              SizedBox(width: 6.w),
+            ],
             Text(
               btnText,
               style: GoogleFonts.poppins(
@@ -48,7 +54,7 @@ class CustomBtn extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
-            if (icon != null) ...[
+            if (icon != null && !isPrefixIcon) ...[
               SizedBox(width: 6.w),
               Icon(icon, color: Colors.white, size: 14.w),
             ],
