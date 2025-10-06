@@ -38,6 +38,7 @@ class UserListTile extends StatelessWidget {
               : null,
         ),
         child: ListTile(
+          contentPadding: EdgeInsets.symmetric(horizontal: 8.w),
           leading: CircleAvatar(
             radius: 23.r,
             backgroundImage: NetworkImage(user.imageUrl),
@@ -67,7 +68,7 @@ class UserListTile extends StatelessWidget {
                     : Border.all(width: 2.w, color: Colorr.primaryColor[400]!),
                 borderRadius: BorderRadius.all(Radius.circular(20.r)),
               ),
-              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.5.h),
+              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 6.5.h),
               duration: const Duration(microseconds: 200),
               child: user.isFollowing
                   ? Row(

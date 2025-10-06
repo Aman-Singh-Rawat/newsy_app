@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/profile/settings_screen.dart';
+import 'package:newsy/view/views/profile/user-profile/followers_and_following_screen.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
 import 'package:newsy/view/widgets/custom_app_bar.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
@@ -97,11 +98,33 @@ class _NewsAgencyDetailScreenState extends State<NewsAgencyDetailScreen>
 
                     VerticalDivider(),
 
-                    SocialStatsWidget(category: "Followers", value: "2.279"),
+                    GestureDetector(
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              FollowersAndFollowingScreen(),
+                        ),
+                      ),
+                      child: SocialStatsWidget(
+                        category: "Followers",
+                        value: "2.279",
+                      ),
+                    ),
 
                     VerticalDivider(),
 
-                    SocialStatsWidget(category: "Following", value: "178"),
+                    GestureDetector(
+                       onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              FollowersAndFollowingScreen(title: "Following"),
+                        ),
+                      ),
+                      child: SocialStatsWidget(
+                        category: "Following",
+                        value: "178",
+                      ),
+                    ),
                   ],
                 ),
               ),

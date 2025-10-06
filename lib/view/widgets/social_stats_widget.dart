@@ -23,7 +23,7 @@ class SocialStatsWidget extends StatelessWidget {
           ),
         ),
 
-        SizedBox(height: 10.h),
+        SizedBox(height: 6.h),
 
         Text(
           category,

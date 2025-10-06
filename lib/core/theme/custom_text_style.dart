@@ -27,7 +27,7 @@ class CustomTextStyle {
   static TextStyle followFollowingTextStyle = GoogleFonts.poppins(
     color: Colors.black,
     fontWeight: FontWeight.bold,
-    fontSize: 11.sp,
+    fontSize: 10.sp,
   );
 
   static TextStyle tabTextStyle = GoogleFonts.poppins(
