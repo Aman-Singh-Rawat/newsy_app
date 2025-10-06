@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart' hide Notification;
 import 'package:newsy/core/utils/enums.dart';
+import 'package:newsy/models/comment_model.dart';
 import 'package:newsy/models/notification.dart';
 import 'package:newsy/models/notification_group.dart';
 import 'package:newsy/models/users.dart';
@@ -216,32 +217,82 @@ final settingScreens = [
   InviteFriendsSettingScreen(),
 ];
 
-List<String> faqCategories = [
-  "General",
-  "Login",
-  "Account",
-  "Berita",
-  "Tips",
-];
+List<String> faqCategories = ["General", "Login", "Account", "Berita", "Tips"];
 
 final List<String> newsCategories = [
-    "Trending",
-    "Latest",
-    "Politics",
-    "Business",
-    "Technology",
-    "Entertainment",
-    "Sports",
-    "Health",
-    "Science",
-    "Education",
-    "World",
-    "Lifestyle",
-    "Travel",
-    "Food",
-    "Environment",
-    "Crime",
-    "Opinion",
-    "Finance",
-    "Culture",
-  ];
+  "Trending",
+  "Latest",
+  "Politics",
+  "Business",
+  "Technology",
+  "Entertainment",
+  "Sports",
+  "Health",
+  "Science",
+  "Education",
+  "World",
+  "Lifestyle",
+  "Travel",
+  "Food",
+  "Environment",
+  "Crime",
+  "Opinion",
+  "Finance",
+  "Culture",
+];
+
+List<CommentModel> comments = [
+  CommentModel(
+    userName: "Jenny Wilson",
+    userImage: "https://randomuser.me/api/portraits/women/44.jpg",
+    timeAgo: "3 days ago",
+    comment:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.",
+    likes: 879,
+    dislikes: 68,
+    comments: 365,
+    replies: 187,
+  ),
+  CommentModel(
+    userName: "Sofia Turner",
+    userImage: "https://randomuser.me/api/portraits/women/65.jpg",
+    timeAgo: "1 day ago",
+    comment: "This is so insightful! I completely agree with your point here.",
+    likes: 456,
+    dislikes: 32,
+    comments: 120,
+    replies: 54,
+  ),
+  CommentModel(
+    userName: "Emily Carter",
+    userImage: "https://randomuser.me/api/portraits/women/71.jpg",
+    timeAgo: "2 hours ago",
+    comment:
+        "Thanks for sharing this! It really helped me understand the topic better.",
+    likes: 233,
+    dislikes: 15,
+    comments: 89,
+    replies: 25,
+  ),
+  CommentModel(
+    userName: "Olivia Brown",
+    userImage: "https://randomuser.me/api/portraits/women/56.jpg",
+    timeAgo: "5 days ago",
+    comment:
+        "Wow! Such a detailed explanation. Appreciate the effort behind this.",
+    likes: 982,
+    dislikes: 45,
+    comments: 450,
+    replies: 210,
+  ),
+  CommentModel(
+    userName: "Sophia Williams",
+    userImage: "https://randomuser.me/api/portraits/women/24.jpg",
+    timeAgo: "6 hours ago",
+    comment: "Absolutely loved this! Keep posting more content like this.",
+    likes: 678,
+    dislikes: 23,
+    comments: 199,
+    replies: 80,
+  ),
+];

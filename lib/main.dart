@@ -3,25 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
-import 'package:newsy/view/views/auth/auth_screen.dart';
-import 'package:newsy/view/views/auth/otp_screen.dart';
-import 'package:newsy/view/views/home/home_screen.dart';
 import 'package:newsy/view/views/home/news_detail_screen.dart';
-import 'package:newsy/view/views/home/notification_screen.dart';
-import 'package:newsy/view/views/main_screen.dart';
-import 'package:newsy/view/views/onboarding/splash_screen.dart';
-import 'package:newsy/view/views/profile/about_us_setting_screen.dart';
-import 'package:newsy/view/views/profile/contact_us_setting_screen.dart';
-import 'package:newsy/view/views/profile/edit_profile_setting_screen.dart';
-import 'package:newsy/view/views/profile/faq_setting_screen.dart';
-import 'package:newsy/view/views/profile/help_setting_screen.dart';
-import 'package:newsy/view/views/profile/notification_setting_screen.dart';
-import 'package:newsy/view/views/profile/profile_screen.dart';
-import 'package:newsy/view/views/profile/settings_screen.dart';
-import 'package:newsy/view/views/search/hashtag_screen.dart';
-import 'package:newsy/view/views/search/search_screen.dart';
-import 'package:newsy/view/views/setup-profile/choose_your_news_sources.dart';
-import 'package:newsy/view/views/setup-profile/fill_your_profile_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -110,7 +92,7 @@ class MyApp extends StatelessWidget {
               seedColor: Colorr.primaryColor[400]!,
             ),
           ),
-          home: FaqSettingScreen(),
+          home: NewsDetailScreen(),
         );
       },
     );

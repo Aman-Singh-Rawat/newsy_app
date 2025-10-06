@@ -60,6 +60,5 @@ class _NewsTabWidgetState extends State<NewsTabWidget> {
         SizedBox(height: 15.h),
       ],
     );
-    ;
   }
 }

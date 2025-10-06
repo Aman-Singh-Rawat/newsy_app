@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:newsy/core/theme/app_colors.dart';
+import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/widgets/beautiful_comment_widget.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
-import 'package:newsy/view/widgets/custom_app_bar.dart';
 import 'package:newsy/view/widgets/get_screen_title_and_see_all';
+import 'package:newsy/view/widgets/my_text_button.dart';
 import 'package:newsy/view/widgets/news_widget.dart';
 import 'package:newsy/view/widgets/user_list_tile.dart';
 
@@ -89,12 +90,12 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                 SizedBox(width: 15.w),
 
                 // buttons
-                myTextButton(icon: Icons.visibility, text: "638.8k"),
+                MyTextButton(icon: Icons.visibility, text: "638.8k"),
                 SizedBox(width: 10.w),
 
-                myTextButton(icon: Icons.thumb_up, text: "638.8k"),
+                MyTextButton(icon: Icons.thumb_up, text: "638.8k"),
                 SizedBox(width: 10.w),
-                myTextButton(icon: Icons.message, text: "638.8k"),
+                MyTextButton(icon: Icons.message, text: "638.8k"),
               ],
             ),
 
@@ -126,12 +127,7 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
             SizedBox(height: 20.h),
             Text(
               "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.",
-              style: GoogleFonts.poppins(
-                fontSize: 12.sp,
-                height: 1.5.h,
-                fontWeight: FontWeight.w500,
-                color: Colors.black54,
-              ),
+              style: CustomTextStyle.userCommentTextStyle,
             ),
 
             SizedBox(height: 10.h),
@@ -182,9 +178,9 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                 ),
 
                 Spacer(),
-                myTextButton(icon: Icons.thumb_up, text: "381.4k"),
+                MyTextButton(icon: Icons.thumb_up, text: "381.4k"),
                 SizedBox(width: 10.w),
-                myTextButton(icon: Icons.thumb_down, text: "21.4k"),
+                MyTextButton(icon: Icons.thumb_down, text: "21.4k"),
               ],
             ),
 
@@ -210,21 +206,5 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
     );
   }
 
-  Widget myTextButton({required IconData icon, required String text}) {
-    return TextButton.icon(
-      onPressed: () {},
-      style: TextButton.styleFrom(padding: const EdgeInsets.all(2)),
-      icon: Icon(icon, size: 18.w, color: Colorr.primaryColor[400]),
-      label: Text(
-        text,
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-        style: GoogleFonts.poppins(
-          color: Colors.black,
-          fontSize: 12.sp,
-          fontWeight: FontWeight.w600,
-        ),
-      ),
-    );
-  }
+
 }

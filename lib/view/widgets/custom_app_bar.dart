@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:newsy/view/widgets/btn_with_bg.dart';
-import 'package:newsy/view/widgets/search_view_widget.dart';
 
 AppBar getAppBar({
   required String title,

@@ -14,10 +14,12 @@ class Assets {
   static const String imgSuccessDialog = "assets/images/img_success.png";
   static const String imgNoResultFound =
       "assets/images/img_no_result_found.png";
+  static const String imgReplies = "assets/images/img_replies.png";
 
   /// icons
   static const String icForgotPassword = "assets/icons/ic_forgot_password.svg";
   static const String ic_google = "assets/icons/ic_google.svg";
   static const String ic_meta = "assets/icons/ic_meta.svg";
-  static const String icTopBottomArrow = "assets/images/ic_top_to_bottom_arrow.svg";
+  static const String icTopBottomArrow =
+      "assets/images/ic_top_to_bottom_arrow.svg";
 }

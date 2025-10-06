@@ -5,7 +5,6 @@ import 'package:newsy/core/utils/enums.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/models/notification.dart' as notification_model;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:newsy/view/widgets/custom_btn.dart';
 
 class NotificationItem extends StatelessWidget {
   final notification_model.Notification notification;

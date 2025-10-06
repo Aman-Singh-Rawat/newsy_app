@@ -43,4 +43,35 @@ class CustomTextStyle {
     fontWeight: FontWeight.w600,
   );
 
+  static TextStyle commentBsTextStyle = GoogleFonts.poppins(
+    color: Colors.black,
+    fontWeight: FontWeight.w600,
+    fontSize: 14.sp,
+  );
+
+  static TextStyle commentNumberTextStyle = GoogleFonts.poppins(
+    color: Colorr.primaryColor[400],
+    fontWeight: FontWeight.w600,
+    fontSize: 14.sp,
+  );
+
+  static TextStyle userNameTextStyle = GoogleFonts.poppins(
+    color: Colors.black,
+    fontSize: 13.sp,
+    fontWeight: FontWeight.bold,
+  );
+
+  static TextStyle userNameSubTextStyle = GoogleFonts.poppins(
+    color: Colors.black87,
+    fontSize: 10.sp,
+    height: 2.1.h,
+    fontWeight: FontWeight.w500,
+  );
+
+  static TextStyle userCommentTextStyle = GoogleFonts.poppins(
+    fontSize: 12.sp,
+    height: 1.5.h,
+    fontWeight: FontWeight.w500,
+    color: Colors.black54,
+  );
 }

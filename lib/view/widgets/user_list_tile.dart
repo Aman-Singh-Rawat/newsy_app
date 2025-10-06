@@ -37,21 +37,14 @@ class UserListTile extends StatelessWidget {
         title: Text(
           user.name,
           maxLines: 1,
-          style: GoogleFonts.poppins(
+          style: CustomTextStyle.userNameTextStyle.copyWith(
             color: isBorder ? Colors.black : Colorr.primaryColor[400],
-            fontSize: 13.sp,
-            fontWeight: FontWeight.bold,
           ),
         ),
         subtitle: Text(
           user.followers,
           maxLines: 1,
-          style: GoogleFonts.poppins(
-            color: Colors.black87,
-            fontSize: 10.sp,
-            height: 2.1.h,
-            fontWeight: FontWeight.w500,
-          ),
+          style: CustomTextStyle.userNameSubTextStyle,
         ),
         trailing: InkWell(
           borderRadius: BorderRadius.all(Radius.circular(20.r)),

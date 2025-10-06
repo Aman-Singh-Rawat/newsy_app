@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/assets.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
-import 'package:newsy/view/widgets/category_widget.dart';
 import 'package:newsy/view/widgets/custom_app_bar.dart';
 import 'package:newsy/view/widgets/get_search_result_widget.dart';
 import 'package:newsy/view/widgets/hashtag_widget.dart';
 import 'package:newsy/view/widgets/news_tab.dart';
-import 'package:newsy/view/widgets/news_widget.dart';
 import 'package:newsy/view/widgets/search_view_widget.dart';
 import 'package:newsy/view/widgets/user_list_tile.dart';
 
@@ -68,7 +65,7 @@ class _SearchScreenState extends State<SearchScreen>
     ).padSymmetric(horizontal: 20.w);
   }
 
-  Widget get getPeopleTab {
+  Widget getPeopleTab() {
     return Column(
       children: [
         SizedBox(height: 20.h),
@@ -155,7 +152,7 @@ class _SearchScreenState extends State<SearchScreen>
                   NewsTabWidget(),
 
                   // People Tab
-                  getPeopleTab,
+                  getPeopleTab(),
 
                   // hashtag tab
                   getHashtag,

@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/assets.dart';
-import 'package:newsy/view/views/home/home_screen.dart';
 import 'package:newsy/view/views/main_screen.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
 

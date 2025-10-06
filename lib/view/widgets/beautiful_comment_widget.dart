@@ -3,8 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:newsy/core/theme/app_colors.dart';
+import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/assets.dart';
 import 'package:newsy/core/utils/extension.dart';
+import 'package:newsy/view/widgets/show_comment_dialog.dart';
+import 'package:newsy/view/widgets/user_comment_field.dart';
 
 class BeautifulCommentWidget extends StatelessWidget {
   const BeautifulCommentWidget({super.key});
@@ -21,60 +24,27 @@ class BeautifulCommentWidget extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text(
-                "Comments",
-                style: GoogleFonts.poppins(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 14.sp,
-                ),
-              ),
+              Text("Comments", style: CustomTextStyle.commentBsTextStyle),
 
               SizedBox(width: 10.w),
 
-              Text(
-                "170.5k",
-                style: GoogleFonts.poppins(
-                  color: Colorr.primaryColor[400],
-                  fontWeight: FontWeight.w600,
-                  fontSize: 14.sp,
-                ),
-              ),
+              Text("170.5k", style: CustomTextStyle.commentNumberTextStyle),
 
               Spacer(),
-              SvgPicture.asset(
-                Assets.icTopBottomArrow,
-                width: 24,
-                height: 24,
+              InkWell(
+                onTap: () => showCommentDialog(context),
+                child: SvgPicture.asset(
+                  Assets.icTopBottomArrow,
+                  width: 24,
+                  height: 24,
+                ),
               ),
             ],
           ),
 
           Divider(color: Colors.grey.shade200).padSymmetric(vertical: 17.h),
 
-          Row(
-            children: [
-              CircleAvatar(
-                radius: 24.r,
-                backgroundImage: NetworkImage(
-                  "https://media.istockphoto.com/id/1326417862/photo/young-woman-laughing-while-relaxing-at-home.jpg?s=612x612&w=0&k=20&c=cd8e6RBGOe4b8a8vTcKW0Jo9JONv1bKSMTKcxaCra8c=",
-                ),
-              ),
-
-              SizedBox(width: 10.w),
-
-              Expanded(
-                child: TextFormField(
-                  style: GoogleFonts.poppins(
-                    fontSize: 13.sp,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w600,
-                  ),
-                  decoration: InputDecoration(hintText: "Add a Comment..."),
-                ),
-              ),
-            ],
-          ),
+          UserCommentField()
         ],
       ),
     );

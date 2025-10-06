@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grouped_list/grouped_list.dart';
 import 'package:intl/intl.dart';
-import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/assets.dart';
 import 'package:newsy/core/utils/constants.dart';

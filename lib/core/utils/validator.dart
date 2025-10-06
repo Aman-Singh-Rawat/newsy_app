@@ -9,5 +9,6 @@ class Validator {
 
   static String? validateOtp(String? value) {
     if (value == null || value.isEmpty) return 'Pin required';
+    return null;
   }
 }
