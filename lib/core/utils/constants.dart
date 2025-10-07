@@ -437,3 +437,106 @@ List<CommentModel> comments = [
     replies: 80,
   ),
 ];
+
+final List<Map<String, String>> inviteUser = [
+  {
+    "name": "Jenny Wilson",
+    "phone": "+62-819-5558-60",
+    "imageUrl": "https://randomuser.me/api/portraits/women/1.jpg",
+  },
+  {
+    "name": "Cody Fisher",
+    "phone": "+62-838-5544-71",
+    "imageUrl": "https://randomuser.me/api/portraits/women/2.jpg",
+  },
+  {
+    "name": "Courtney Henry",
+    "phone": "+62-819-3344-12",
+    "imageUrl": "https://randomuser.me/api/portraits/women/3.jpg",
+  },
+  {
+    "name": "Leslie Alexander",
+    "phone": "+62-878-5512-45",
+    "imageUrl": "https://randomuser.me/api/portraits/women/4.jpg",
+  },
+  {
+    "name": "Theresa Webb",
+    "phone": "+62-838-5554-60",
+    "imageUrl": "https://randomuser.me/api/portraits/women/5.jpg",
+  },
+  {
+    "name": "Eleanor Pena",
+    "phone": "+62-819-3344-11",
+    "imageUrl": "https://randomuser.me/api/portraits/women/6.jpg",
+  },
+  {
+    "name": "Annette Black",
+    "phone": "+62-838-5559-21",
+    "imageUrl": "https://randomuser.me/api/portraits/women/7.jpg",
+  },
+  {
+    "name": "Kathryn Murphy",
+    "phone": "+62-819-8888-90",
+    "imageUrl": "https://randomuser.me/api/portraits/women/8.jpg",
+  },
+  {
+    "name": "Eleanor Rigby",
+    "phone": "+62-878-5551-22",
+    "imageUrl": "https://randomuser.me/api/portraits/women/9.jpg",
+  },
+  {
+    "name": "Jane Cooper",
+    "phone": "+62-838-7777-50",
+    "imageUrl": "https://randomuser.me/api/portraits/women/10.jpg",
+  },
+  {
+    "name": "Savannah Nguyen",
+    "phone": "+62-819-5558-99",
+    "imageUrl": "https://randomuser.me/api/portraits/women/11.jpg",
+  },
+  {
+    "name": "Arlene McCoy",
+    "phone": "+62-838-2222-31",
+    "imageUrl": "https://randomuser.me/api/portraits/women/12.jpg",
+  },
+  {
+    "name": "Darlene Robertson",
+    "phone": "+62-819-4444-77",
+    "imageUrl": "https://randomuser.me/api/portraits/women/13.jpg",
+  },
+  {
+    "name": "Esther Howard",
+    "phone": "+62-878-7777-60",
+    "imageUrl": "https://randomuser.me/api/portraits/women/14.jpg",
+  },
+  {
+    "name": "Kristin Watson",
+    "phone": "+62-838-3333-91",
+    "imageUrl": "https://randomuser.me/api/portraits/women/15.jpg",
+  },
+  {
+    "name": "Bessie Cooper",
+    "phone": "+62-819-5555-60",
+    "imageUrl": "https://randomuser.me/api/portraits/women/16.jpg",
+  },
+  {
+    "name": "Marvin McKinney",
+    "phone": "+62-838-1111-20",
+    "imageUrl": "https://randomuser.me/api/portraits/women/17.jpg",
+  },
+  {
+    "name": "Brooklyn Simmons",
+    "phone": "+62-819-4444-10",
+    "imageUrl": "https://randomuser.me/api/portraits/women/18.jpg",
+  },
+  {
+    "name": "Cameron Williamson",
+    "phone": "+62-838-2222-80",
+    "imageUrl": "https://randomuser.me/api/portraits/women/19.jpg",
+  },
+  {
+    "name": "Kathleen Smith",
+    "phone": "+62-819-5554-70",
+    "imageUrl": "https://randomuser.me/api/portraits/women/20.jpg",
+  },
+];

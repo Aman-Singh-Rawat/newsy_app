@@ -6,6 +6,7 @@ import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/view/views/bookmark/bookmark_screen.dart';
 import 'package:newsy/view/views/home/home_screen.dart';
 import 'package:newsy/view/views/home/news_agency_detail_screen.dart';
+import 'package:newsy/view/views/profile/invite_friends_setting_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -94,7 +95,7 @@ class MyApp extends StatelessWidget {
               seedColor: Colorr.primaryColor[400]!,
             ),
           ),
-          home: BookmarkScreen(),
+          home: InviteFriendsSettingScreen(),
         );
       },
     );
