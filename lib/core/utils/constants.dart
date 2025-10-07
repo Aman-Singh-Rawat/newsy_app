@@ -540,3 +540,31 @@ final List<Map<String, String>> inviteUser = [
     "imageUrl": "https://randomuser.me/api/portraits/women/20.jpg",
   },
 ];
+
+
+final List<Map<String, String>> faqData = [
+  {
+    "question": "What is Berita?",
+    "answer": "Berita is one of the greatest News Reader Mobile App platforms, providing you the latest news from around the world in an easy-to-read format."
+  },
+  {
+    "question": "How to use Berita?",
+    "answer": "To use Berita, simply download the app, sign up or log in, and start exploring news articles. You can browse by categories, search for topics, and save your favorite articles."
+  },
+  {
+    "question": "Can I create my own news?",
+    "answer": "Yes, you can create your own news articles on Berita. You just need to register as a contributor and follow the guidelines for submitting news content."
+  },
+  {
+    "question": "How to create news on Berita?",
+    "answer": "After registering as a contributor, go to the 'Create News' section, write your article, add images if needed, and submit it. The editorial team will review it before publishing."
+  },
+  {
+    "question": "How can I upload images?",
+    "answer": "When creating news, you can upload images directly from your phone or tablet. Simply click the 'Add Image' button in the news editor and select the images you want to attach."
+  },
+  {
+    "question": "Is there a free tips to use this app?",
+    "answer": "Yes! Berita offers free tips and tutorials within the app to help you navigate features, improve your news writing, and make the most of the platform."
+  },
+];

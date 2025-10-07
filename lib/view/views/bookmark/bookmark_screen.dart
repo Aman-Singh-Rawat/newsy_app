@@ -30,8 +30,9 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
   Widget getNews() {
     return Expanded(
       child: ListView.builder(
-        itemBuilder: (context, index) =>
-            NewsWidget(onBookmarkClick: () => showBookmarkRemoveBottomSheet(context)),
+        itemBuilder: (context, index) => NewsWidget(
+          onBookmarkClick: () => showBookmarkRemoveBottomSheet(context),
+        ),
         itemCount: 5,
       ).padSymmetric(horizontal: 20.w),
     );
@@ -79,6 +80,7 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
               return GestureDetector(
                 onTap: () => setState(() => _selectedIndex = cat.key),
                 child: CategoryWidget(
+                  index: cat.key,
                   categoryName: cat.value,
                   isSelected: cat.key == _selectedIndex,
                 ),

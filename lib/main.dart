@@ -8,6 +8,7 @@ import 'package:newsy/view/views/home/home_screen.dart';
 import 'package:newsy/view/views/home/news_agency_detail_screen.dart';
 import 'package:newsy/view/views/main_screen.dart';
 import 'package:newsy/view/views/my-news/my_news_screen.dart';
+import 'package:newsy/view/views/profile/faq_setting_screen.dart';
 import 'package:newsy/view/views/profile/invite_friends_setting_screen.dart';
 
 void main() {
@@ -96,7 +97,7 @@ class MyApp extends StatelessWidget {
               seedColor: Colorr.primaryColor[400]!,
             ),
           ),
-          home: MainScreen(),
+          home: FaqSettingScreen(),
         );
       },
     );

@@ -37,6 +37,7 @@ class _NewsTabWidgetState extends State<NewsTabWidget> {
               return GestureDetector(
                 onTap: () => setState(() => _selectedIndex = cat.key),
                 child: CategoryWidget(
+                  index: cat.key,
                   categoryName: cat.value,
                   isSelected: cat.key == _selectedIndex,
                 ),
