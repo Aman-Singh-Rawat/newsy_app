@@ -7,7 +7,8 @@ import 'package:newsy/view/views/home/news_detail_screen.dart';
 
 class NewsWidget extends StatefulWidget {
   final VoidCallback? onBookmarkClick;
-  const NewsWidget({super.key, this.onBookmarkClick});
+  final VoidCallback? onEdit;
+  const NewsWidget({super.key, this.onBookmarkClick, this.onEdit});
 
   @override
   State<NewsWidget> createState() => _NewsWidgetState();
@@ -155,10 +156,23 @@ class _NewsWidgetState extends State<NewsWidget> {
                       InkWell(
                         onTap: widget.onBookmarkClick,
                         child: Icon(
+                          size: 18.w,
                           Icons.bookmark_outline,
                           color: Colorr.primaryColor[400],
                         ),
                       ),
+
+                      SizedBox(width: 10.w),
+
+                      if (widget.onEdit != null)
+                        InkWell(
+                          onTap: widget.onEdit,
+                          child: Icon(
+                            Icons.edit,
+                            size: 18.w,
+                            color: Colorr.primaryColor[400],
+                          ),
+                        ),
                     ],
                   ),
                 ],

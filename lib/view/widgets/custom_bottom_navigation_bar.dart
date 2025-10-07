@@ -40,59 +40,66 @@ class CustomBottomNavigationBar extends StatelessWidget {
           topRight: Radius.circular(25.r),
         ),
       ),
-      child: BottomNavigationBar(
-        iconSize: 25.w,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        onTap: onTap,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        selectedIconTheme: IconThemeData(color: Colors.white),
-        unselectedIconTheme: IconThemeData(color: Colorr.primaryColor[400]),
-        currentIndex: currentBottomSelectedIndex,
-        type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(
-            icon: getBottomNavBarItem(
-              icon: Icons.home,
-              isSelected: currentBottomSelectedIndex == 0,
-            ),
-            label: "Home",
-          ),
-
-          BottomNavigationBarItem(
-            icon: getBottomNavBarItem(
-              icon: Icons.search,
-              isSelected: currentBottomSelectedIndex == 1,
-            ),
-            label: "Search",
-          ),
-
-          BottomNavigationBarItem(
-            icon: getBottomNavBarItem(
-              icon: CupertinoIcons.bookmark,
-              isSelected: currentBottomSelectedIndex == 2,
+      child: Theme(
+        data: Theme.of(context).copyWith(
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          hoverColor: Colors.transparent,
+        ),
+        child: BottomNavigationBar(
+          iconSize: 20.w,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          onTap: onTap,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          selectedIconTheme: IconThemeData(color: Colors.white),
+          unselectedIconTheme: IconThemeData(color: Colorr.primaryColor[400]),
+          currentIndex: currentBottomSelectedIndex,
+          type: BottomNavigationBarType.fixed,
+          items: [
+            BottomNavigationBarItem(
+              icon: getBottomNavBarItem(
+                icon: Icons.home,
+                isSelected: currentBottomSelectedIndex == 0,
+              ),
+              label: "Home",
             ),
 
-            label: "Bookmark",
-          ),
-
-          BottomNavigationBarItem(
-            icon: getBottomNavBarItem(
-              icon: CupertinoIcons.list_bullet,
-              isSelected: currentBottomSelectedIndex == 3,
+            BottomNavigationBarItem(
+              icon: getBottomNavBarItem(
+                icon: Icons.search,
+                isSelected: currentBottomSelectedIndex == 1,
+              ),
+              label: "Search",
             ),
-            label: "List",
-          ),
 
-          BottomNavigationBarItem(
-            icon: getBottomNavBarItem(
-              icon: Icons.person,
-              isSelected: currentBottomSelectedIndex == 4,
+            BottomNavigationBarItem(
+              icon: getBottomNavBarItem(
+                icon: CupertinoIcons.bookmark,
+                isSelected: currentBottomSelectedIndex == 2,
+              ),
+
+              label: "Bookmark",
             ),
-            label: "Profile",
-          ),
-        ],
+
+            BottomNavigationBarItem(
+              icon: getBottomNavBarItem(
+                icon: CupertinoIcons.list_bullet,
+                isSelected: currentBottomSelectedIndex == 3,
+              ),
+              label: "List",
+            ),
+
+            BottomNavigationBarItem(
+              icon: getBottomNavBarItem(
+                icon: Icons.person,
+                isSelected: currentBottomSelectedIndex == 4,
+              ),
+              label: "Profile",
+            ),
+          ],
+        ),
       ),
     );
   }

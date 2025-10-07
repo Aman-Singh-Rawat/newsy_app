@@ -6,6 +6,8 @@ import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/view/views/bookmark/bookmark_screen.dart';
 import 'package:newsy/view/views/home/home_screen.dart';
 import 'package:newsy/view/views/home/news_agency_detail_screen.dart';
+import 'package:newsy/view/views/main_screen.dart';
+import 'package:newsy/view/views/my-news/my_news_screen.dart';
 import 'package:newsy/view/views/profile/invite_friends_setting_screen.dart';
 
 void main() {
@@ -27,11 +29,10 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             scaffoldBackgroundColor: Colors.white,
             textSelectionTheme: TextSelectionThemeData(
-              cursorColor: Colorr.primaryColor[400]!, // Global cursor color
+              cursorColor: Colorr.primaryColor[400]!,
               selectionHandleColor: Colorr
-                  .primaryColor[400]!, // Optional: also change the selection handle color
+                  .primaryColor[400]!, 
             ),
-
             tabBarTheme: TabBarThemeData(
               indicatorSize: TabBarIndicatorSize.tab,
               dividerColor: Colors.grey.shade300,
@@ -95,7 +96,7 @@ class MyApp extends StatelessWidget {
               seedColor: Colorr.primaryColor[400]!,
             ),
           ),
-          home: InviteFriendsSettingScreen(),
+          home: MainScreen(),
         );
       },
     );

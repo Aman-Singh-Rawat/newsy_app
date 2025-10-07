@@ -52,7 +52,7 @@ class _NewsScreenWidgetState extends State<NewsScreenWidget> {
           itemCount: 5,
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
-        ),
+        ).padSymmetric(horizontal: 20.w),
 
         SizedBox(height: 15.h),
       ],
