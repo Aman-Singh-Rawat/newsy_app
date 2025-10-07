@@ -19,7 +19,7 @@ class CustomTextStyle {
   );
 
   static TextStyle emptyTextStyle = GoogleFonts.poppins(
-    fontSize: 20.sp,
+    fontSize: 19.sp,
     color: Colorr.primaryColor[400],
     fontWeight: FontWeight.w600,
   );

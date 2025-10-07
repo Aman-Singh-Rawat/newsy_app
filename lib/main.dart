@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
+import 'package:newsy/view/views/bookmark/bookmark_screen.dart';
+import 'package:newsy/view/views/home/home_screen.dart';
 import 'package:newsy/view/views/home/news_agency_detail_screen.dart';
 
 void main() {
@@ -92,7 +94,7 @@ class MyApp extends StatelessWidget {
               seedColor: Colorr.primaryColor[400]!,
             ),
           ),
-          home: NewsAgencyDetailScreen(),
+          home: BookmarkScreen(),
         );
       },
     );

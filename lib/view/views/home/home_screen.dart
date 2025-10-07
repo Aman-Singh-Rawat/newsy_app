@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:newsy/core/utils/assets.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/home/featured_screen.dart';
 import 'package:newsy/view/views/home/notification_screen.dart';
@@ -62,6 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Image.asset(Assets.imgSix),
         actionsPadding: EdgeInsets.only(right: 20.w),
         title: Text("Berita"),
         actions: [

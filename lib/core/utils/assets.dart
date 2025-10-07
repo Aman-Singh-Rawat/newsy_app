@@ -15,6 +15,7 @@ class Assets {
   static const String imgNoResultFound =
       "assets/images/img_no_result_found.png";
   static const String imgReplies = "assets/images/img_replies.png";
+  static const String imgSix = "assets/images/img_six.png";
 
   /// icons
   static const String icForgotPassword = "assets/icons/ic_forgot_password.svg";
@@ -22,4 +23,6 @@ class Assets {
   static const String ic_meta = "assets/icons/ic_meta.svg";
   static const String icTopBottomArrow =
       "assets/images/ic_top_to_bottom_arrow.svg";
+
+  static const String icBookmark = "assets/icons/ic_bookmark.svg";
 }
