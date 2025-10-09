@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:newsy/core/theme/app_colors.dart';
+import 'package:newsy/core/theme/custom_text_style.dart';
 
 class CustomTextFieldWithLabel extends StatefulWidget {
   final String label;
@@ -39,14 +40,7 @@ class _CustomTextFieldWithLabelState extends State<CustomTextFieldWithLabel> {
         Row(
           children: [
             const SizedBox(width: 10),
-            Text(
-              widget.label,
-              style: GoogleFonts.poppins(
-                color: Colors.black54,
-                fontWeight: FontWeight.w600,
-                fontSize: 13.sp,
-              ),
-            ),
+            Text(widget.label, style: CustomTextStyle.fieldLabelStyle),
             if (widget.isRequired)
               const Text(
                 "*",
@@ -61,11 +55,7 @@ class _CustomTextFieldWithLabelState extends State<CustomTextFieldWithLabel> {
         const SizedBox(height: 5),
         TextFormField(
           textInputAction: widget.textInputAction,
-          style: GoogleFonts.poppins(
-            fontSize: 13.sp,
-            color: Colors.black,
-            fontWeight: FontWeight.w600,
-          ),
+          style: CustomTextStyle.fieldFormStyle,
           controller: widget.controller,
           obscureText: widget.isPassword ? isVisible : false,
           decoration: InputDecoration(

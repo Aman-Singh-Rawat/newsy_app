@@ -7,9 +7,11 @@ import 'package:newsy/view/views/bookmark/bookmark_screen.dart';
 import 'package:newsy/view/views/home/home_screen.dart';
 import 'package:newsy/view/views/home/news_agency_detail_screen.dart';
 import 'package:newsy/view/views/main_screen.dart';
+import 'package:newsy/view/views/my-news/create_new_news.dart';
 import 'package:newsy/view/views/my-news/my_news_screen.dart';
 import 'package:newsy/view/views/profile/faq_setting_screen.dart';
 import 'package:newsy/view/views/profile/invite_friends_setting_screen.dart';
+import 'package:newsy/view/views/profile/settings_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -97,7 +99,7 @@ class MyApp extends StatelessWidget {
               seedColor: Colorr.primaryColor[400]!,
             ),
           ),
-          home: FaqSettingScreen(),
+          home: CreateNewNews(),
         );
       },
     );

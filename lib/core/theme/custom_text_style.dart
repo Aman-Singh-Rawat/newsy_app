@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 
 class CustomTextStyle {
+  CustomTextStyle._();
   static TextStyle onboardingTextStyle = GoogleFonts.poppins(
     fontSize: 28.sp,
     height: 1.3.h,
@@ -73,5 +74,17 @@ class CustomTextStyle {
     height: 1.5.h,
     fontWeight: FontWeight.w500,
     color: Colors.black54,
+  );
+
+  static TextStyle fieldLabelStyle = GoogleFonts.poppins(
+    color: Colors.black54,
+    fontWeight: FontWeight.w600,
+    fontSize: 13.sp,
+  );
+
+  static TextStyle fieldFormStyle = GoogleFonts.poppins(
+    fontSize: 13.sp,
+    color: Colors.black,
+    fontWeight: FontWeight.w600,
   );
 }

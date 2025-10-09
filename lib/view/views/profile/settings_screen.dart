@@ -27,7 +27,7 @@ class SettingsScreen extends StatelessWidget {
             final item = settingItem.value;
             return Column(
               children: [
-                Divider().padSymmetric(vertical: 10.h),
+                Divider().padSymmetric(vertical: 8.h),
                 getSettingItem(
                   icon: item["icon"],
                   title: item["title"],
