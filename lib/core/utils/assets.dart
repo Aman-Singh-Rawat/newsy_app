@@ -21,6 +21,7 @@ class Assets {
   static const String icForgotPassword = "assets/icons/ic_forgot_password.svg";
   static const String ic_google = "assets/icons/ic_google.svg";
   static const String ic_meta = "assets/icons/ic_meta.svg";
+  static const String icSave = "assets/icons/ic_save.svg";
   static const String icTopBottomArrow =
       "assets/images/ic_top_to_bottom_arrow.svg";
 

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -29,12 +31,18 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'News App',
+          localizationsDelegates: const [
+            FlutterQuillLocalizations.delegate, // ← Add this
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
           theme: ThemeData(
+            dialogTheme: DialogThemeData(backgroundColor: Colors.white),
             scaffoldBackgroundColor: Colors.white,
             textSelectionTheme: TextSelectionThemeData(
               cursorColor: Colorr.primaryColor[400]!,
-              selectionHandleColor: Colorr
-                  .primaryColor[400]!, 
+              selectionHandleColor: Colorr.primaryColor[400]!,
             ),
             tabBarTheme: TabBarThemeData(
               indicatorSize: TabBarIndicatorSize.tab,
