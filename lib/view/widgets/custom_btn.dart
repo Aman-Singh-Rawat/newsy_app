@@ -29,7 +29,7 @@ class CustomBtn extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: isClickable ? onTap : null,
-      borderRadius: BorderRadius.circular(20.r),
+      borderRadius: BorderRadius.circular(25.r),
       child: Container(
         width: width,
         height: height,

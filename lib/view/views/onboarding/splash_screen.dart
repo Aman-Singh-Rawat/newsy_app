@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:newsy/core/navigation/app_navigation.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/view/views/onboarding/onboarding_screen.dart';
@@ -20,9 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(
       const Duration(seconds: 3),
-      () => Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => OnboardingScreen()),
-      ),
+      () => AppNavigator.pushReplacement(context, OnboardingScreen()),
     );
   }
 

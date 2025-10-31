@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:newsy/core/navigation/app_navigation.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/constants/text_strings.dart';
@@ -66,16 +67,15 @@ class _RoleScreenState extends State<RoleScreen> {
           }),
 
           Spacer(),
-          CustomBtn(
-            color: Colorr.primaryColor[400]!,
-            btnText: TextStrings.continueText,
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => AuthScreen()),
-              );
-            },
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: () =>
+                  AppNavigator.pushAndRemoveAll(context, const AuthScreen()),
+              child: Text(TextStrings.continueText),
+            ),
           ),
+
           const SizedBox(height: 20),
         ],
       ).padSymmetric(horizontal: 20.w),

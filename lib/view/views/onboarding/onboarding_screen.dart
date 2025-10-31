@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:newsy/core/navigation/app_navigation.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/view/views/onboarding/role_screen.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
+import 'package:newsy/view/widgets/onboarding_content.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -25,7 +27,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     super.initState();
     onBoardList = [
       {
-        "image": ImageStrings.imgGandhiJi,
+        "image": ImageStrings.imgOnboardingOne,
         "title": RichText(
           text: TextSpan(
             style: CustomTextStyle.onboardingTextStyle,
@@ -42,7 +44,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         ),
       },
       {
-        "image": ImageStrings.imgSharukhan,
+        "image": ImageStrings.imgOnboardingTwo,
         "title": RichText(
           text: TextSpan(
             style: CustomTextStyle.onboardingTextStyle,
@@ -59,7 +61,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         ),
       },
       {
-        "image": ImageStrings.imgRonaldo,
+        "image": ImageStrings.imgOnboardingThree,
         "title": RichText(
           text: TextSpan(
             style: CustomTextStyle.onboardingTextStyle,
@@ -102,7 +104,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
           // Fixed Bottom Controls
           Positioned(
-            bottom: 35.h,
+            bottom: 20.h,
             left: 20.w,
             right: 20.w,
             child: Column(
@@ -126,45 +128,28 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     );
                   }),
                 ),
-                SizedBox(height: 25.h),
+                SizedBox(height: 20.h),
 
                 // Skip button
-                InkWell(
-                  onTap: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(builder: (_) => const RoleScreen()),
-                    );
-                  },
-                  child: Text(
-                    TextStrings.skip,
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w500,
-                      color: Colorr.primaryColor[300],
+                TextButton(
+                  onPressed: () => AppNavigator.push(context, const RoleScreen()) ,
+                  child: Text(TextStrings.skip),
+                ),
+                SizedBox(height: 15.h),
+
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () => _handleNextButton(context),
+                    child: Text(
+                      _selectedIndex == onBoardList.length - 1
+                          ? TextStrings.getStarted
+                          : TextStrings.next,
                     ),
                   ),
                 ),
-                SizedBox(height: 20.h),
 
                 // Next button
-                CustomBtn(
-                  color: Colorr.primaryColor[400]!,
-                  btnText: _selectedIndex == onBoardList.length - 1
-                      ? TextStrings.getStarted
-                      : TextStrings.next,
-                  onTap: () {
-                    if (_selectedIndex == onBoardList.length - 1) {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => const RoleScreen()),
-                      );
-                    } else {
-                      _pageController.nextPage(
-                        duration: const Duration(milliseconds: 300),
-                        curve: Curves.easeInOut,
-                      );
-                    }
-                  },
-                ),
               ],
             ),
           ),
@@ -172,52 +157,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ),
     );
   }
-}
 
-// Widget for image + text content
-class OnboardingContent extends StatelessWidget {
-  final String image;
-  final RichText titleWidget;
-
-  const OnboardingContent({
-    super.key,
-    required this.image,
-    required this.titleWidget,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        // Background image
-        Positioned.fill(child: Image.asset(image, fit: BoxFit.cover)),
-
-        // Gradient overlay
-        Positioned.fill(
-          child: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Colorr.dark.withOpacity(0.002),
-                  Colorr.dark.withOpacity(0.2),
-                  Colorr.dark,
-                ],
-              ),
-            ),
-          ),
-        ),
-
-        // Centered text
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Padding(
-            padding: EdgeInsets.only(bottom: 180.h, left: 20.w, right: 20.w),
-            child: titleWidget,
-          ),
-        ),
-      ],
-    );
+  void _handleNextButton(BuildContext context) {
+    if (_selectedIndex == onBoardList.length - 1) {
+      AppNavigator.push(context, const RoleScreen());
+    } else {
+      _pageController.nextPage(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    }
   }
 }

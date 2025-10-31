@@ -24,7 +24,7 @@ class Colorr {
     950: Color(0xFF480907),
   };
 
-  static const primary = Color(0xFFfe6f69);
+  static const primary = Color(0xFFFF7672);
   static const onPrimary = Color(0xFFFFFFFF);
 
   // text colors
@@ -38,7 +38,8 @@ class Colorr {
   static const dark = Color(0xFF1a1a22);
 
   // button colors
-  static const Color buttonDisabled = Color(0xFFefa8a4);
+  static Color buttonDisabled = const Color(0xFFefa8a4);
+  static const Color buttonColor = Color(0xFFff847d);
 
   // Error & Validation Colors
   static const Color error = Color(0xFFF5322F);
@@ -59,6 +60,7 @@ class Colorr {
   static const Color darkTextSecondary = Color(0xFFD4D4DC);
   static const Color darkDivider = Color(0xFF2C2C2E);
   static const Color iconBg = Color(0xFF382b34);
+  static const Color darkerTextColor = Color(0xFF3c434d);
 
   // white colors
   static const Color whiteSurface = Color(0xFF);

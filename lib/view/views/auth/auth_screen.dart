@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:newsy/core/navigation/app_navigation.dart';
 
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/constants/image_strings.dart';
+import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
+import 'package:newsy/core/utils/helpers/helper_function.dart';
 import 'package:newsy/view/views/auth/forgot_password_screen.dart';
 import 'package:newsy/view/views/setup-profile/select_your_country.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
@@ -27,24 +30,18 @@ class _AuthScreenState extends State<AuthScreen> {
 
   void _handleAuthNavigation() {
     if (widget.isSignIn) {
-      Navigator.pop(context);
+      AppNavigator.pop(context);
     } else {
-      Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => AuthScreen(isSignIn: true)),
-      );
+      AppNavigator.push(context, const AuthScreen(isSignIn: true));
     }
   }
 
   void _handleSignUp() {
-    Navigator.of(
-      context,
-    ).push(MaterialPageRoute(builder: (context) => SelectYourCountry()));
+    AppNavigator.pushAndRemoveAll(context, const SelectYourCountry());
   }
 
   void _handleSignIn() {
-    Navigator.of(
-      context,
-    ).push(MaterialPageRoute(builder: (context) => SelectYourCountry()));
+    AppNavigator.pushAndRemoveAll(context, const SelectYourCountry());
   }
 
   @override
@@ -67,6 +64,7 @@ class _AuthScreenState extends State<AuthScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = HelperFunction.isDarkMode(context);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -77,40 +75,43 @@ class _AuthScreenState extends State<AuthScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 /// top image
-                Image.asset(
-                  ImageStrings.imgSplash,
-                  height: 200.h,
-                  width: 200.w,
-                  fit: BoxFit.cover,
+                Padding(
+                  padding: EdgeInsets.only(top: 20.h),
+                  child: Image.asset(
+                    ImageStrings.imgSplash,
+                    height: 200.h,
+                    width: 200.w,
+                    fit: BoxFit.cover,
+                  ),
                 ),
 
                 /// top heading
                 Text(
-                  widget.isSignIn ? "Let's Sign You In" : "Create an Account",
-                  style: TextStyle(
-                    fontSize: 20.sp,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.black,
-                  ),
+                  widget.isSignIn
+                      ? TextStrings.signInTitle
+                      : TextStrings.signupTitle,
+                  style: Theme.of(context).textTheme.headlineMedium,
                 ),
 
                 SizedBox(height: 20.h),
 
                 /// email field
                 CustomTextFieldWithLabel(
-                  label: "Email",
-                  hint: "Email",
+                  label: TextStrings.email,
+                  hint: TextStrings.email,
+                  isFieldEmpty: _emailController.text.trim().isEmpty,
                   isPassword: false,
                   controller: _emailController,
                 ),
 
-                SizedBox(height: 10.h),
+                SizedBox(height: 20.h),
 
                 /// password field
                 CustomTextFieldWithLabel(
-                  label: "Password",
-                  hint: "Password",
+                  label: TextStrings.password,
+                  hint: TextStrings.password,
                   isPassword: true,
+                  isFieldEmpty: _passwordController.text.trim().isEmpty,
                   textInputAction: TextInputAction.done,
                   controller: _passwordController,
                 ),
@@ -128,49 +129,42 @@ class _AuthScreenState extends State<AuthScreen> {
                 SizedBox(height: 10.h),
 
                 // custom button for sign in or sign up
-                CustomBtn(
-                  isClickable: !_isFieldEmpty,
-                  color: _isFieldEmpty
-                      ? Colorr.primaryColor[200]!
-                      : Colorr.primaryColor[400]!,
-                  btnText: widget.isSignIn ? "Sign in" : "Sign up",
-                  onTap: () =>
-                      widget.isSignIn ? _handleSignIn() : _handleSignUp(),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: _isFieldEmpty
+                        ? null
+                        : widget.isSignIn
+                        ? _handleSignIn
+                        : _handleSignUp,
+
+                    child: Text(
+                      widget.isSignIn
+                          ? TextStrings.signIn
+                          : TextStrings.signupBtnText,
+                    ),
+                  ),
                 ),
 
                 /// if user is sign in then show forgot password
                 if (widget.isSignIn) ...[
-                  SizedBox(height: 15.h),
-                  InkWell(
-                    onTap: () => Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => ForgotPasswordScreen(),
-                      ),
-                    ),
-                    child: Text(
-                      "Forgot the password?",
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                        color: Colorr.primaryColor[500],
-                      ),
-                    ),
+                  SizedBox(height: 12.h),
+                  TextButton(
+                    onPressed: () =>
+                        AppNavigator.push(context, ForgotPasswordScreen()),
+                    child: Text(TextStrings.forgetThePassword),
                   ),
                 ],
 
-                SizedBox(height: 15.h),
+                SizedBox(height: widget.isSignIn ? 19.h : 30.h),
 
                 /// or continue with
                 Text(
-                  "or continue with",
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black,
-                  ),
+                  TextStrings.orContinueWith,
+                  style: Theme.of(context).textTheme.labelLarge,
                 ),
 
-                SizedBox(height: 20.h),
+                SizedBox(height: 25.h),
 
                 /// login with social media
                 Row(
@@ -178,16 +172,16 @@ class _AuthScreenState extends State<AuthScreen> {
                     Expanded(
                       child: SocialBtn(
                         icon: ImageStrings.ic_meta,
-                        onTap: () {},
-                        btnText: "Facebook",
+                        onTap: _handleSignIn,
+                        btnText: TextStrings.facebook,
                       ),
                     ),
                     SizedBox(width: 15.w),
                     Expanded(
                       child: SocialBtn(
                         icon: ImageStrings.ic_google,
-                        onTap: () {},
-                        btnText: "Google",
+                        onTap: _handleSignIn,
+                        btnText: TextStrings.google,
                       ),
                     ),
                   ],
@@ -201,23 +195,16 @@ class _AuthScreenState extends State<AuthScreen> {
                   children: [
                     Text(
                       widget.isSignIn
-                          ? "Don't have an account? "
-                          : "Already have an account? ",
-                      style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.grey,
-                      ),
+                          ? TextStrings.dontHaveAnAccount
+                          : TextStrings.alreadyHaveAnAccount,
+                      style: Theme.of(context).textTheme.bodyMedium,
                     ),
-                    InkWell(
-                      onTap: _handleAuthNavigation,
+                    TextButton(
+                      onPressed: _handleAuthNavigation,
                       child: Text(
-                        widget.isSignIn ? "Sign up" : "Sign in",
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                          color: Colorr.primaryColor[500]!,
-                        ),
+                        widget.isSignIn
+                            ? TextStrings.signupBtnText
+                            : TextStrings.signIn,
                       ),
                     ),
                   ],

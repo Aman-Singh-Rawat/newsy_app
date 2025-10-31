@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:newsy/core/utils/constants/text_strings.dart';
 
 import '../../core/theme/app_colors.dart';
 
@@ -18,17 +19,13 @@ class RememberMeWidget extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Checkbox(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
-          side: BorderSide(color: Colorr.primaryColor[400]!, width: 1.5.w),
-          value: isRememberMe,
-          onChanged: onChanged,
-          activeColor: Colorr.primaryColor[400]!,
-        ),
+        Checkbox(value: isRememberMe, onChanged: onChanged),
 
         Text(
-          "Remember me",
-          style: TextStyle(fontWeight: FontWeight.w600, color: Colors.black),
+          TextStrings.rememberMe,
+          style: Theme.of(
+            context,
+          ).textTheme.displaySmall!.copyWith(fontSize: 12.sp),
         ),
       ],
     );

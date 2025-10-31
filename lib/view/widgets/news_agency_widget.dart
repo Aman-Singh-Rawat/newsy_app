@@ -47,7 +47,7 @@ class NewsAgencyWidget extends StatelessWidget {
           color: isDark ? Colorr.darkSurface : Colors.white,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            width: isSelected ? 2.w : 1.5.w,
+            width: 2.w,
             color: isSelected
                 ? (Colorr.primaryColor[300]!)
                 : isDark

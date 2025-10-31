@@ -2,9 +2,9 @@ class ImageStrings {
   /// images
   static const String imgForgotPassword =
       "assets/images/img_forgot_password.png"; // TODO REMOVE THIS
-  static const String imgGandhiJi = "assets/images/img_gandhi_ji.png";
-  static const String imgRonaldo = "assets/images/img_ronaldo.png";
-  static const String imgSharukhan = "assets/images/img_sharukhan.png";
+  static const String imgOnboardingOne = "assets/images/img_onboarding_one.jpg";
+  static const String imgOnboardingThree = "assets/images/img_onboarding_three.jpg";
+  static const String imgOnboardingTwo = "assets/images/img_onboarding_two.jpg";
   static const String imgSplash = "assets/images/img_splash.png";
   static const String imgResetPassword = "assets/images/img_reset_password.png";
   static const String imgNotification =
