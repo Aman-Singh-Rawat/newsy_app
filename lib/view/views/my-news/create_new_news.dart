@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
+
+import 'package:image_picker/image_picker.dart';
 import 'package:mobkit_dashed_border/mobkit_dashed_border.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
-import 'package:newsy/core/utils/assets.dart';
+import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
 import 'package:newsy/view/widgets/custom_app_bar.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
 import 'package:newsy/view/widgets/html_editor.dart';
+import 'package:newsy/view/widgets/open_select_image_dialog.dart';
 import 'package:newsy/view/widgets/text_field_with_label_widget.dart';
 
 class CreateNewNews extends StatefulWidget {
@@ -40,6 +42,10 @@ class _CreateNewNewsState extends State<CreateNewNews> {
     );
   }
 
+  _selectImage(bool flag) {
+    final source = flag ? ImageSource.camera : ImageSource.gallery;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,39 +56,52 @@ class _CreateNewNewsState extends State<CreateNewNews> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AspectRatio(
-                aspectRatio: 16 / 8,
-                child: Container(
-                  decoration: BoxDecoration(
-                    border: DashedBorder.fromBorderSide(
-                      dashLength: 10,
-                      side: BorderSide(color: Colors.grey.shade400, width: 2),
-                    ),
-                    color: Colors.grey.shade100.withOpacity(0.8),
-                    borderRadius: BorderRadius.circular(20.r),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(Icons.add, color: Colorr.primaryColor[300]),
-                      Text(
-                        "Add Cover Photos",
-                        style: GoogleFonts.poppins(
-                          color: Colors.grey,
-                          fontWeight: FontWeight.w500,
+              GestureDetector(
+                onTap: () {
+                  //openSelectingImageTypeDialog(context: context);
+                },
+                child: AspectRatio(
+                  aspectRatio: 16 / 8,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: DashedBorder.fromBorderSide(
+                        dashLength: 10,
+                        side: BorderSide(
+                          color: Colors.grey.shade400,
+                          width: 1.5,
                         ),
                       ),
-                    ],
+                      color: Colors.grey.shade100.withOpacity(0.6),
+                      borderRadius: BorderRadius.circular(20.r),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.add,
+                          color: Colorr.primaryColor[400],
+                          size: 24,
+                        ),
+                        SizedBox(height: 5.0.h),
+                        Text(
+                          "Add Cover Photos",
+                          style: TextStyle(
+                            color: Colors.black54,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-              ).padOnly(top: 10.h),
+                ).padOnly(top: 10.h),
+              ),
 
               Divider().padSymmetric(vertical: 20.h),
 
               Text(
                 "News Details",
-                style: GoogleFonts.poppins(
+                style: TextStyle(
                   color: Colors.black,
                   fontSize: 16.sp,
                   fontWeight: FontWeight.w600,
@@ -196,7 +215,7 @@ class _CreateNewNewsState extends State<CreateNewNews> {
                   return Chip(
                     label: Text(
                       chipItem,
-                      style: GoogleFonts.poppins(
+                      style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w600,
                       ),
@@ -242,7 +261,7 @@ class _CreateNewNewsState extends State<CreateNewNews> {
         ),
         child: Row(
           children: [
-            bottomButton(imagePath: Assets.icSave),
+            bottomButton(imagePath: ImageStrings.icSave),
             SizedBox(width: 10.w),
             bottomButton(icon: Icons.calendar_today),
             SizedBox(width: 10.w),

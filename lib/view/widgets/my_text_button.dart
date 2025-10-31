@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:newsy/core/theme/app_colors.dart';
 
 class MyTextButton extends StatelessWidget {
@@ -18,7 +18,7 @@ class MyTextButton extends StatelessWidget {
         text,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
-        style: GoogleFonts.poppins(
+        style: TextStyle(
           color: Colors.black,
           fontSize: 12.sp,
           fontWeight: FontWeight.w600,

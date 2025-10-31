@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:newsy/core/theme/custom_text_style.dart';
-import 'package:newsy/core/utils/assets.dart';
+import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/home/news_agency_detail_screen.dart';
@@ -51,7 +51,7 @@ class _SearchScreenState extends State<SearchScreen>
     return Column(
       children: [
         Image.asset(
-          Assets.imgNoResultFound,
+          ImageStrings.imgNoResultFound,
           fit: BoxFit.cover,
           width: 200.w,
           height: 200.h,
@@ -61,7 +61,7 @@ class _SearchScreenState extends State<SearchScreen>
         SizedBox(height: 12.h),
         Text(
           "Please try another keyword",
-          style: GoogleFonts.poppins(fontWeight: FontWeight.w500),
+          style: TextStyle(fontWeight: FontWeight.w500),
         ),
       ],
     ).padSymmetric(horizontal: 20.w);

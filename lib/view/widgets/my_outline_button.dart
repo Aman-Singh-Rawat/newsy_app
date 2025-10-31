@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:newsy/core/theme/app_colors.dart';
 
 class MyOutlineButton extends StatelessWidget {
@@ -35,7 +35,7 @@ class MyOutlineButton extends StatelessWidget {
         ),
         label: Text(
           btnText,
-          style: GoogleFonts.poppins(
+          style: TextStyle(
             fontSize: 14.sp,
             color: Colorr.primaryColor[400],
             fontWeight: FontWeight.w600,

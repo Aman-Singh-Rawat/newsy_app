@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_quill/flutter_quill.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
+import 'package:newsy/core/theme/theme.dart';
+import 'package:newsy/view/views/auth/auth_screen.dart';
 import 'package:newsy/view/views/bookmark/bookmark_screen.dart';
 import 'package:newsy/view/views/home/home_screen.dart';
 import 'package:newsy/view/views/home/news_agency_detail_screen.dart';
 import 'package:newsy/view/views/main_screen.dart';
 import 'package:newsy/view/views/my-news/create_new_news.dart';
 import 'package:newsy/view/views/my-news/my_news_screen.dart';
+import 'package:newsy/view/views/onboarding/splash_screen.dart';
 import 'package:newsy/view/views/profile/faq_setting_screen.dart';
 import 'package:newsy/view/views/profile/invite_friends_setting_screen.dart';
 import 'package:newsy/view/views/profile/settings_screen.dart';
@@ -29,6 +32,9 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       builder: (_, ctx) {
         return MaterialApp(
+          themeMode: ThemeMode.system,
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
           debugShowCheckedModeBanner: false,
           title: 'News App',
           localizationsDelegates: const [
@@ -37,7 +43,16 @@ class MyApp extends StatelessWidget {
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
-          theme: ThemeData(
+
+          home: SplashScreen(),
+        );
+      },
+    );
+  }
+}
+
+/* 
+  theme: ThemeData(
             dialogTheme: DialogThemeData(backgroundColor: Colors.white),
             scaffoldBackgroundColor: Colors.white,
             textSelectionTheme: TextSelectionThemeData(
@@ -61,7 +76,7 @@ class MyApp extends StatelessWidget {
                 vertical: 12.h,
                 horizontal: 14.w,
               ),
-              hintStyle: GoogleFonts.poppins(
+              hintStyle: TextStyle(
                 color: Colors.grey.shade400,
                 fontSize: 13.sp,
                 fontWeight: FontWeight.w500,
@@ -96,20 +111,15 @@ class MyApp extends StatelessWidget {
               scrolledUnderElevation: 0.0,
               backgroundColor: Colors.white,
               iconTheme: IconThemeData(color: Colorr.primaryColor[400]!),
-              titleTextStyle: GoogleFonts.poppins(
+              titleTextStyle: TextStyle(
                 fontSize: 18.sp,
                 fontWeight: FontWeight.w600,
                 color: Colors.black,
               ),
             ),
-            fontFamily: GoogleFonts.poppins().fontFamily,
+            fontFamily: TextStyle().fontFamily,
             colorScheme: ColorScheme.fromSeed(
               seedColor: Colorr.primaryColor[400]!,
             ),
           ),
-          home: CreateNewNews(),
-        );
-      },
-    );
-  }
-}
+ */

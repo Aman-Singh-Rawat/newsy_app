@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:newsy/core/theme/app_colors.dart';
-import 'package:newsy/core/utils/assets.dart';
+import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/view/views/onboarding/onboarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -17,13 +17,13 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
+    super.initState();
     Timer(
       const Duration(seconds: 3),
       () => Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => OnboardingScreen()),
       ),
     );
-    super.initState();
   }
 
   @override
@@ -34,13 +34,22 @@ class _SplashScreenState extends State<SplashScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset(
-            Assets.imgSplash,
-            fit: BoxFit.cover,
-            width: 260.w,
-            height: 260.h,
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height: 80.h),
+                Image.asset(
+                  ImageStrings.imgSplash,
+                  fit: BoxFit.cover,
+                  width: 260.w,
+                  height: 260.h,
+                ),
+              ],
+            ),
           ),
           SpinKitCircle(color: Colorr.primaryColor[400], size: 60.w),
+          SizedBox(height: 80.h),
         ],
       ),
     );

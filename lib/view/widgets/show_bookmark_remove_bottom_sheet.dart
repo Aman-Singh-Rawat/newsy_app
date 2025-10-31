@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
@@ -20,13 +20,13 @@ void showBookmarkRemoveBottomSheet(BuildContext context) {
           SizedBox(height: 20.h),
           Text(
             "Remove from your bookmark?",
-            style: GoogleFonts.poppins(
+            style: TextStyle(
               color: Colors.black,
               fontSize: 15.sp,
               fontWeight: FontWeight.w600,
             ),
           ),
-          
+
           Row(
             children: [
               Expanded(
@@ -49,7 +49,6 @@ void showBookmarkRemoveBottomSheet(BuildContext context) {
               ),
             ],
           ).padSymmetric(vertical: 20.h),
-          
         ],
       ).padSymmetric(horizontal: 20.w);
     },

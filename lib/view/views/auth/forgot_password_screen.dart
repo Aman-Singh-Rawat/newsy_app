@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
-import 'package:newsy/core/utils/assets.dart';
+import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/auth/otp_screen.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
@@ -50,7 +50,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             children: [
               SizedBox(height: 20.h),
               SvgPicture.asset(
-                Assets.icForgotPassword,
+                ImageStrings.icForgotPassword,
                 height: 190.h,
                 width: 150.w,
                 fit: BoxFit.cover,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../core/theme/app_colors.dart';
 
@@ -49,14 +48,14 @@ class _SelectYourWidgetState extends State<SelectYourWidget> {
           children: [
             Text(
               widget.country["flag"] as String,
-              style: GoogleFonts.poppins(fontSize: 25.sp),
+              style: TextStyle(fontSize: 25.sp),
             ),
 
             SizedBox(width: 15.w),
 
             Text(
               widget.country["code"] as String,
-              style: GoogleFonts.poppins(
+              style: TextStyle(
                 fontSize: 11.sp,
                 color: Colors.grey,
                 fontWeight: FontWeight.w400,
@@ -69,10 +68,7 @@ class _SelectYourWidgetState extends State<SelectYourWidget> {
               widget.country["name"] as String,
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
-              style: GoogleFonts.poppins(
-                fontSize: 12.sp,
-                fontWeight: FontWeight.w500,
-              ),
+              style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500),
             ),
             const Spacer(),
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/auth/auth_screen.dart';
@@ -21,7 +21,7 @@ showLogoutDialgo(BuildContext context) {
           Icon(Icons.logout, size: 48, color: Colorr.primaryColor[400]),
           Text(
             "Are you sure want to logout?",
-            style: GoogleFonts.poppins(
+            style: TextStyle(
               color: Colors.black,
               fontSize: 14.sp,
               fontWeight: FontWeight.w600,
@@ -44,7 +44,7 @@ showLogoutDialgo(BuildContext context) {
                   height: 48,
                   color: Colorr.primaryColor[400]!,
                   btnText: "Yes, Logout",
-                  onTap:() => Navigator.of(context).pushAndRemoveUntil(
+                  onTap: () => Navigator.of(context).pushAndRemoveUntil(
                     MaterialPageRoute(builder: (context) => AuthScreen()),
                     (Route<dynamic> route) => false,
                   ),

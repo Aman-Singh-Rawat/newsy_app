@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
-import 'package:newsy/core/utils/assets.dart';
+import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/models/comment_model.dart';
 import 'package:newsy/view/widgets/my_text_button.dart';
@@ -76,14 +76,14 @@ class CommentWidget extends StatelessWidget {
             children: [
               Text(
                 "${comment.replies} Reply",
-                style: GoogleFonts.poppins(
+                style: TextStyle(
                   color: Colorr.primaryColor[400],
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w600,
                 ),
               ),
 
-              Image.asset(Assets.imgReplies),
+              Image.asset(ImageStrings.imgReplies),
             ],
           ).padSymmetric(vertical: 6.h),
         ],

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/enums.dart';
 import 'package:newsy/core/utils/extension.dart';
@@ -16,7 +16,7 @@ class NotificationItem extends StatelessWidget {
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
         notification.title,
-        style: GoogleFonts.roboto(
+        style: TextStyle(
           fontSize: 14.sp,
           fontWeight: FontWeight.bold,
           color: Colors.black,
@@ -28,7 +28,7 @@ class NotificationItem extends StatelessWidget {
         overflow: TextOverflow.ellipsis,
         text: TextSpan(
           text: notification.title.split(" ").first,
-          style: GoogleFonts.roboto(
+          style: TextStyle(
             fontSize: 13.sp,
             fontWeight: FontWeight.bold,
             color: Colorr.primaryColor[400],
@@ -36,7 +36,7 @@ class NotificationItem extends StatelessWidget {
           children: [
             TextSpan(
               text: " ${notification.title.split(" ").skip(1).join(" ")}",
-              style: GoogleFonts.roboto(
+              style: TextStyle(
                 fontSize: 13.sp,
                 fontWeight: FontWeight.bold,
                 color: Colors.black,
@@ -64,7 +64,7 @@ class NotificationItem extends StatelessWidget {
         ),
         label: Text(
           "Follow",
-          style: GoogleFonts.roboto(
+          style: TextStyle(
             fontSize: 11.sp,
 
             fontWeight: FontWeight.w600,
@@ -117,7 +117,7 @@ class NotificationItem extends StatelessWidget {
                   SizedBox(height: 6.h),
                   Text(
                     notification.description!,
-                    style: GoogleFonts.roboto(
+                    style: TextStyle(
                       fontSize: 12.5.sp,
                       fontWeight: FontWeight.w500,
                       color: Colors.black.withOpacity(0.4),
@@ -129,7 +129,7 @@ class NotificationItem extends StatelessWidget {
                   SizedBox(height: 6.h),
                   Text(
                     notification.timeAgo,
-                    style: GoogleFonts.roboto(
+                    style: TextStyle(
                       fontSize: 10.sp,
                       fontWeight: FontWeight.w500,
                       color: Colors.black87,

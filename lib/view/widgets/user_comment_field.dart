@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class UserCommentField extends StatelessWidget {
   const UserCommentField({super.key});
@@ -22,7 +21,7 @@ class UserCommentField extends StatelessWidget {
 
         Expanded(
           child: TextFormField(
-            style: GoogleFonts.poppins(
+            style: TextStyle(
               fontSize: 13.sp,
               color: Colors.black,
               fontWeight: FontWeight.w600,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:newsy/core/utils/assets.dart';
+
+import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/widgets/custom_app_bar.dart';
 
@@ -17,7 +17,7 @@ class AboutUsSettingScreen extends StatelessWidget {
           child: Column(
             children: [
               Image.asset(
-                Assets.imgSplash,
+                ImageStrings.imgSplash,
                 fit: BoxFit.cover,
                 width: 260.w,
                 height: 260.h,
@@ -25,7 +25,7 @@ class AboutUsSettingScreen extends StatelessWidget {
 
               Text(
                 "We Focus on the Digital News",
-                style: GoogleFonts.poppins(
+                style: TextStyle(
                   fontSize: 16.sp,
                   fontWeight: FontWeight.w600,
                   color: Colors.black,

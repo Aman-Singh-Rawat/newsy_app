@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:newsy/core/theme/app_colors.dart';
 
 class CategoryWidget extends StatelessWidget {
@@ -32,7 +32,7 @@ class CategoryWidget extends StatelessWidget {
       ),
       child: Text(
         categoryName,
-        style: GoogleFonts.poppins(
+        style: TextStyle(
           fontSize: 12.sp,
           fontWeight: FontWeight.w600,
           color: isSelected ? Colors.white : Colorr.primaryColor[400],

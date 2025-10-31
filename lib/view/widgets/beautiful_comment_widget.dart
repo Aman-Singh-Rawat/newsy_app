@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
-import 'package:newsy/core/utils/assets.dart';
+import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/widgets/show_comment_dialog.dart';
 import 'package:newsy/view/widgets/user_comment_field.dart';
@@ -34,7 +34,7 @@ class BeautifulCommentWidget extends StatelessWidget {
               InkWell(
                 onTap: () => showCommentDialog(context),
                 child: SvgPicture.asset(
-                  Assets.icTopBottomArrow,
+                  ImageStrings.icTopBottomArrow,
                   width: 24,
                   height: 24,
                 ),
@@ -44,7 +44,7 @@ class BeautifulCommentWidget extends StatelessWidget {
 
           Divider(color: Colors.grey.shade200).padSymmetric(vertical: 17.h),
 
-          UserCommentField()
+          UserCommentField(),
         ],
       ),
     );

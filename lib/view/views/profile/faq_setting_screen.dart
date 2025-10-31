@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/constants.dart';
@@ -74,7 +74,7 @@ class _FaqSettingScreenState extends State<FaqSettingScreen> {
                       Text(
                         faq["answer"] as String,
 
-                        style: GoogleFonts.poppins(
+                        style: TextStyle(
                           height: 1.5.h,
                           color: Colors.grey[800],
                           fontWeight: FontWeight.w500,

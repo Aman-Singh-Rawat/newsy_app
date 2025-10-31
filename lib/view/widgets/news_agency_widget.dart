@@ -1,8 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:newsy/core/theme/app_colors.dart';
+import 'package:newsy/core/utils/helpers/helper_function.dart';
 
 class NewsAgencyWidget extends StatelessWidget {
   final bool isSelected;
@@ -18,41 +17,26 @@ class NewsAgencyWidget extends StatelessWidget {
     this.isForgotPassword = true,
   });
 
-  TextStyle get getHeadingStyle {
+  TextStyle getHeadingStyle(BuildContext context) {
     if (isForgotPassword) {
-      return GoogleFonts.poppins(
-        color: Colors.black54,
-        fontSize: 11,
-        fontWeight: FontWeight.w500,
-      );
+      return Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 11.sp);
     } else {
-      return GoogleFonts.poppins(
-        color: Colors.black,
-        fontSize: 14,
-        fontWeight: FontWeight.w600,
-      );
+      return Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 14.sp);
     }
   }
 
-  TextStyle get getSubHeadingStyle {
+  TextStyle getSubHeadingStyle(BuildContext context) {
     if (isForgotPassword) {
-      return GoogleFonts.poppins(
-        color: Colors.black,
-        fontSize: 14,
-        fontWeight: FontWeight.w600,
-      );
+      return Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 14.sp);
     } else {
-      return GoogleFonts.poppins(
-        color: Colors.black54,
-        fontSize: 11,
-        fontWeight: FontWeight.w500,
-      );
+      return Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 11.sp);
     }
   }
 
   @override
   Widget build(BuildContext context) {
-  
+    final isDark = HelperFunction.isDarkMode(context);
+
     return GestureDetector(
       onTap: () {
         onClick(dataList["index"]);
@@ -60,21 +44,16 @@ class NewsAgencyWidget extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
         decoration: BoxDecoration(
+          color: isDark ? Colorr.darkSurface : Colors.white,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
             width: isSelected ? 2.w : 1.5.w,
             color: isSelected
-                ? (Colorr.primaryColor[400]!).withOpacity(0.8)
+                ? (Colorr.primaryColor[300]!)
+                : isDark
+                ? Colorr.darkSurface
                 : Colors.grey.shade100,
           ),
-          boxShadow: [
-            BoxShadow(
-              color: Colorr.primaryColor[20]!.withOpacity(0.2), // Shadow color
-              offset: const Offset(4, 4), // X and Y offset
-              blurRadius: 8, // Blur intensity
-              spreadRadius: 2, // Spread of the shadow
-            ),
-          ],
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -83,11 +62,15 @@ class NewsAgencyWidget extends StatelessWidget {
             Center(
               child: CircleAvatar(
                 radius: 40,
-                backgroundColor: Colorr.primaryColor[20],
+                backgroundColor: isDark
+                    ? Colorr.iconBg
+                    : Colorr.primaryColor[20],
                 child: Icon(
                   dataList["icon"],
                   size: 30.w,
-                  color: Colorr.primaryColor[400]!.withOpacity(0.8),
+                  color: isDark
+                      ? Colorr.primaryColor[400]
+                      : Colorr.primaryColor[400]!.withOpacity(0.8),
                 ),
               ),
             ),
@@ -97,10 +80,13 @@ class NewsAgencyWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(dataList["category"], style: getHeadingStyle),
+                  Text(dataList["category"], style: getHeadingStyle(context)),
 
                   const SizedBox(height: 10),
-                  Text(dataList["description"], style: getSubHeadingStyle),
+                  Text(
+                    dataList["description"],
+                    style: getSubHeadingStyle(context),
+                  ),
                 ],
               ),
             ),

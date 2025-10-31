@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
-import 'package:newsy/core/utils/assets.dart';
+import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/home/notification_screen.dart';
@@ -48,7 +48,7 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
             children: [
-              SvgPicture.asset(Assets.icBookmark, width: 180.w, height: 180.h),
+              SvgPicture.asset(ImageStrings.icBookmark, width: 180.w, height: 180.h),
               SizedBox(height: 20),
               Text(
                 "You have No bookmarked news",
@@ -102,7 +102,7 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Image.asset(Assets.imgSix),
+        leading: Image.asset(ImageStrings.imgSix),
         actionsPadding: EdgeInsets.only(right: 20.w),
         title: Text("My Bookmark"),
         actions: [BtnWithBg(icon: Icons.more_vert_rounded)],

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/extension.dart';
 
@@ -15,7 +14,7 @@ class GetSearchResultWidget extends StatelessWidget {
       children: [
         Text(
           "Search Results",
-          style: GoogleFonts.poppins(
+          style: TextStyle(
             color: Colors.black54,
             fontSize: 13.sp,
             fontWeight: FontWeight.w500,
@@ -24,7 +23,7 @@ class GetSearchResultWidget extends StatelessWidget {
 
         Text(
           "0 found",
-          style: GoogleFonts.poppins(
+          style: TextStyle(
             fontWeight: FontWeight.w600,
             color: Colorr.primaryColor[400],
           ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/view/views/search/hashtag_screen.dart';
 
@@ -27,7 +27,7 @@ class HashtagWidget extends StatelessWidget {
           children: [
             Text(
               hashtag["tag"] as String,
-              style: GoogleFonts.poppins(
+              style: TextStyle(
                 color: Colors.black,
                 fontSize: 13.sp,
                 fontWeight: FontWeight.w600,
@@ -37,7 +37,7 @@ class HashtagWidget extends StatelessWidget {
             Spacer(),
             Text(
               hashtag["count"] as String,
-              style: GoogleFonts.poppins(
+              style: TextStyle(
                 fontSize: 12.5.sp,
                 fontWeight: FontWeight.w600,
                 color: Colorr.primaryColor[400],
@@ -47,7 +47,7 @@ class HashtagWidget extends StatelessWidget {
             SizedBox(width: 6.w),
             Text(
               "News",
-              style: GoogleFonts.poppins(
+              style: TextStyle(
                 fontSize: 12.5.sp,
                 fontWeight: FontWeight.w500,
                 color: Colors.black87,

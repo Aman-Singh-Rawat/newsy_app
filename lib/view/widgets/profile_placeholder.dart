@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/theme/app_colors.dart';
-import 'package:newsy/core/utils/assets.dart';
+import 'package:newsy/core/utils/constants/image_strings.dart';
 
 class ProfilePlaceholder extends StatefulWidget {
   const ProfilePlaceholder({super.key});
@@ -15,7 +15,7 @@ class _ProfilePlaceholderState extends State<ProfilePlaceholder> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.asset(Assets.imgProfilePlaceholder, height: 120.h, width: 120.w),
+        Image.asset(ImageStrings.imgProfilePlaceholder, height: 120.h, width: 120.w),
 
         Positioned(
           bottom: 0,

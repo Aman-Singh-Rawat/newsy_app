@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+ 
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/view/widgets/get_screen_title_and_see_all';
 
@@ -14,7 +14,7 @@ Widget getScreenTitleAndSeeAll({
       children: [
         Text(
           title,
-          style: GoogleFonts.poppins(
+          style: TextStyle(
             fontSize: 15.sp,
             color: Colors.black,
             fontWeight: FontWeight.w600,
@@ -25,7 +25,7 @@ Widget getScreenTitleAndSeeAll({
           onTap: onTextClick,
           child: Text(
             "See all",
-            style: GoogleFonts.poppins(
+            style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w600,
               color: Colorr.primaryColor[400],

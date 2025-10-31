@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/home/news_detail_screen.dart';
@@ -54,7 +54,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                     "Wow! USA Developers New Way of Faster and More",
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.roboto(
+                    style: TextStyle(
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w500,
                     ),
@@ -75,7 +75,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                         "BBC News",
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: GoogleFonts.roboto(
+                        style: TextStyle(
                           fontSize: 11.sp,
                           color: Colors.black,
                           fontWeight: FontWeight.w600,
@@ -101,7 +101,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                             "Health",
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
-                            style: GoogleFonts.roboto(
+                            style: TextStyle(
                               fontSize: 9.sp,
                               color: Colorr.primaryColor[400],
                               fontWeight: FontWeight.w600,
@@ -127,10 +127,7 @@ class _NewsWidgetState extends State<NewsWidget> {
 
                       Text(
                         "316k",
-                        style: GoogleFonts.roboto(
-                          color: Colors.black,
-                          fontSize: 11.sp,
-                        ),
+                        style: TextStyle(color: Colors.black, fontSize: 11.sp),
                       ),
 
                       SizedBox(width: 10.w),
@@ -145,10 +142,7 @@ class _NewsWidgetState extends State<NewsWidget> {
 
                       Text(
                         "316k",
-                        style: GoogleFonts.roboto(
-                          color: Colors.black,
-                          fontSize: 11.sp,
-                        ),
+                        style: TextStyle(color: Colors.black, fontSize: 11.sp),
                       ),
 
                       Spacer(),

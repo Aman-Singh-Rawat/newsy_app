@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:newsy/core/theme/app_colors.dart';
-import 'package:newsy/core/utils/assets.dart';
+import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/view/views/main_screen.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
 
@@ -15,7 +15,7 @@ showAccountCreatedDialog({required BuildContext context}) {
       children: [
         SizedBox(height: 24.h),
         Image.asset(
-          Assets.imgSuccessDialog,
+          ImageStrings.imgSuccessDialog,
           height: 140.h,
           width: 140.w,
           color: Colorr.primaryColor[400]!.withOpacity(0.9),
@@ -27,7 +27,7 @@ showAccountCreatedDialog({required BuildContext context}) {
         Text(
           "Great!\nYour account has been created successfully",
           textAlign: TextAlign.center,
-          style: GoogleFonts.poppins(
+          style: TextStyle(
             height: 1.5,
             color: Colorr.primaryColor[400]!.withOpacity(0.9),
             fontSize: 17.sp,

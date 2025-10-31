@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../core/theme/app_colors.dart';
 
@@ -64,7 +63,7 @@ class ForgotTypeWidget extends StatelessWidget {
                 children: [
                   Text(
                     forgotTypeList["category"],
-                    style: GoogleFonts.poppins(
+                    style: TextStyle(
                       color: Colors.black,
                       fontSize: 17,
                       fontWeight: FontWeight.w600,
@@ -74,7 +73,7 @@ class ForgotTypeWidget extends StatelessWidget {
                   const SizedBox(height: 10),
                   Text(
                     forgotTypeList["description"],
-                    style: GoogleFonts.poppins(
+                    style: TextStyle(
                       color: Colors.black54,
                       fontSize: 11,
                       fontWeight: FontWeight.w500,

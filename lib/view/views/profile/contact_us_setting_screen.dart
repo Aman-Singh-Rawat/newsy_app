@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/widgets/custom_app_bar.dart';
@@ -56,7 +56,7 @@ class _ContactUsSettingScreenState extends State<ContactUsSettingScreen> {
                 children: [
                   Text(
                     "Message",
-                    style: GoogleFonts.poppins(
+                    style: TextStyle(
                       color: Colors.black54,
                       fontWeight: FontWeight.w600,
                       fontSize: 13.sp,
@@ -76,7 +76,7 @@ class _ContactUsSettingScreenState extends State<ContactUsSettingScreen> {
 
                   Text(
                     "Max 250 words",
-                    style: GoogleFonts.poppins(
+                    style: TextStyle(
                       color: Colors.black54,
                       fontWeight: FontWeight.w400,
                       fontSize: 13.sp,
@@ -88,7 +88,7 @@ class _ContactUsSettingScreenState extends State<ContactUsSettingScreen> {
               TextFormField(
                 maxLines: 6,
                 textInputAction: TextInputAction.done,
-                style: GoogleFonts.poppins(
+                style: TextStyle(
                   fontSize: 13.sp,
                   color: Colors.black,
                   fontWeight: FontWeight.w600,

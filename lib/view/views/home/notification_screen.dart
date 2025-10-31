@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:grouped_list/grouped_list.dart';
 import 'package:intl/intl.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
-import 'package:newsy/core/utils/assets.dart';
+import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/date_formats.dart';
 import 'package:newsy/core/utils/extension.dart';
@@ -28,7 +28,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Image.asset(
-          Assets.imgNotification,
+          ImageStrings.imgNotification,
           width: 150.w,
           height: 150.h,
           fit: BoxFit.contain,
@@ -36,7 +36,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
         SizedBox(height: 20),
         Text(
           "You have No Notifications",
-          style: CustomTextStyle.emptyTextStyle
+          style: CustomTextStyle.emptyTextStyle,
         ),
         SizedBox(height: 20),
       ],
@@ -55,7 +55,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
         elements: notificationGroups,
         groupHeaderBuilder: (element) => Text(
           DateFormat(DateFormats.articleDateFormat12).format(element.dateTime),
-          style: GoogleFonts.poppins(
+          style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w500,
             color: Colors.black54,
@@ -67,7 +67,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
         order: GroupedListOrder.DESC,
         groupSeparatorBuilder: (String date) => Text(
           date,
-          style: GoogleFonts.roboto(
+          style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
             color: Colors.black.withOpacity(0.9),

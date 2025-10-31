@@ -1,4 +1,4 @@
-class Assets {
+class ImageStrings {
   /// images
   static const String imgForgotPassword =
       "assets/images/img_forgot_password.png"; // TODO REMOVE THIS

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../core/theme/app_colors.dart';
 
@@ -29,10 +28,7 @@ class RememberMeWidget extends StatelessWidget {
 
         Text(
           "Remember me",
-          style: GoogleFonts.poppins(
-            fontWeight: FontWeight.w600,
-            color: Colors.black,
-          ),
+          style: TextStyle(fontWeight: FontWeight.w600, color: Colors.black),
         ),
       ],
     );

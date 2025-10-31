@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:pinput/pinput.dart';
 
@@ -14,7 +14,7 @@ class MyOtpPinField extends StatelessWidget {
       width: 65.w,
       height: 50.h,
       margin: EdgeInsets.symmetric(horizontal: 2.w),
-      textStyle: GoogleFonts.poppins(
+      textStyle: TextStyle(
         fontSize: 20.sp,
         color: Colors.black,
         fontWeight: FontWeight.w600,

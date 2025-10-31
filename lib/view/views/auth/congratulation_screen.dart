@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
 
-import '../../../core/utils/assets.dart';
+import '../../../core/utils/constants/image_strings.dart';
 
 class CongratulationScreen extends StatefulWidget {
   const CongratulationScreen({super.key});
@@ -25,7 +25,7 @@ class _CongratulationScreenState extends State<CongratulationScreen> {
         children: [
           Spacer(),
           Image.asset(
-            Assets.imgSplash,
+            ImageStrings.imgSplash,
             fit: BoxFit.cover,
             width: 260.w,
             height: 260.h,
@@ -34,7 +34,7 @@ class _CongratulationScreenState extends State<CongratulationScreen> {
           /// congratulation text
           Text(
             "Congratulation!",
-            style: GoogleFonts.poppins(
+            style: TextStyle(
               color: Colorr.primaryColor[400]!,
               fontSize: 24.sp,
               fontWeight: FontWeight.w600,
@@ -58,7 +58,7 @@ class _CongratulationScreenState extends State<CongratulationScreen> {
 
           SizedBox(height: 20.h),
         ],
-      ).padSymmetric(horizontal: 20.w)
+      ).padSymmetric(horizontal: 20.w),
     );
   }
 }

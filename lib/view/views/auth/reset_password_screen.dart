@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:newsy/core/utils/assets.dart';
+
+import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
 
 import '../../../core/theme/app_colors.dart';
@@ -49,7 +49,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
         children: [
           Center(
             child: Image.asset(
-              Assets.imgResetPassword,
+              ImageStrings.imgResetPassword,
               width: 300.w,
               height: 230.h,
               fit: BoxFit.cover,
@@ -57,7 +57,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
           ),
           Text(
             "Create a new password",
-            style: GoogleFonts.poppins(
+            style: TextStyle(
               fontSize: 20.sp,
               fontWeight: FontWeight.w600,
               color: Colors.black,

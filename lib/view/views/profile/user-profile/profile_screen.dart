@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/profile/settings_screen.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
@@ -59,7 +59,7 @@ class _ProfileScreenState extends State<ProfileScreen>
               // name
               Text(
                 "Adam Smith",
-                style: GoogleFonts.poppins(
+                style: TextStyle(
                   fontSize: 17.sp,
                   fontWeight: FontWeight.w600,
                   color: Colors.black,
@@ -72,7 +72,7 @@ class _ProfileScreenState extends State<ProfileScreen>
               Text(
                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
                 textAlign: TextAlign.center,
-                style: GoogleFonts.poppins(
+                style: TextStyle(
                   color: Colors.black54,
                   fontSize: 11.sp,
                   fontWeight: FontWeight.w500,
@@ -100,9 +100,11 @@ class _ProfileScreenState extends State<ProfileScreen>
 
               Divider().padSymmetric(vertical: 20.h),
 
-              MyOutlineButton(onClick: () {}, btnText: "Website", icon: Icons.language,)
-
-            ,
+              MyOutlineButton(
+                onClick: () {},
+                btnText: "Website",
+                icon: Icons.language,
+              ),
 
               SizedBox(height: 20.h),
 
@@ -140,5 +142,4 @@ class _ProfileScreenState extends State<ProfileScreen>
       ),
     );
   }
-
- }
+}

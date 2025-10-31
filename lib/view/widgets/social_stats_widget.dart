@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class SocialStatsWidget extends StatelessWidget {
   final String category;
   final String value;
-  const SocialStatsWidget({super.key, required this.category, required this.value});
+  const SocialStatsWidget({
+    super.key,
+    required this.category,
+    required this.value,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +18,7 @@ class SocialStatsWidget extends StatelessWidget {
         Text(
           value,
           maxLines: 1,
-          style: GoogleFonts.poppins(
+          style: TextStyle(
             color: Colors.black,
             fontSize: 20.sp,
 
@@ -28,10 +31,7 @@ class SocialStatsWidget extends StatelessWidget {
         Text(
           category,
           maxLines: 1,
-          style: GoogleFonts.poppins(
-            fontSize: 14.sp,
-            fontWeight: FontWeight.w500,
-          ),
+          style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
         ),
       ],
     );

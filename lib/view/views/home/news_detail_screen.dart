@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/constants.dart';
@@ -56,7 +56,7 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
             SizedBox(height: 10.h),
             Text(
               "Joe Biden at Press Confrence USA Announces New Political Policy",
-              style: GoogleFonts.poppins(
+              style: TextStyle(
                 height: 1.6.h,
                 color: Colors.black,
                 fontSize: 16.sp,
@@ -81,7 +81,7 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                   ),
                   child: Text(
                     "Politics",
-                    style: GoogleFonts.poppins(
+                    style: TextStyle(
                       color: Colorr.primaryColor[400],
                       fontSize: 11.sp,
                     ),
@@ -113,7 +113,7 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
             // desc
             Text(
               "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.",
-              style: GoogleFonts.poppins(
+              style: TextStyle(
                 fontSize: 12.sp,
                 height: 1.5.h,
                 fontWeight: FontWeight.w500,
@@ -157,7 +157,7 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                     return Chip(
                       label: Text(value),
                       backgroundColor: Colors.white,
-                      labelStyle: GoogleFonts.poppins(
+                      labelStyle: TextStyle(
                         color: Colorr.primaryColor[400],
                         fontSize: 11.sp,
                         fontWeight: FontWeight.w600,
@@ -179,7 +179,7 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
               children: [
                 Text(
                   "Is this news helpful?",
-                  style: GoogleFonts.poppins(
+                  style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w600,
                     fontSize: 14.sp,

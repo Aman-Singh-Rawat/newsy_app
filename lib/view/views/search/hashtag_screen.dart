@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
@@ -53,7 +53,7 @@ class _HashtagScreenState extends State<HashtagScreen>
                   child: Center(
                     child: Text(
                       widget.hashtag["tag"] as String,
-                      style: GoogleFonts.poppins(
+                      style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w600,
                         fontSize: 13.sp,
@@ -70,7 +70,7 @@ class _HashtagScreenState extends State<HashtagScreen>
               children: [
                 Text(
                   widget.hashtag["count"] as String,
-                  style: GoogleFonts.poppins(
+                  style: TextStyle(
                     fontWeight: FontWeight.w600,
                     color: Colorr.primaryColor[400],
                     fontSize: 14.sp,
@@ -79,7 +79,7 @@ class _HashtagScreenState extends State<HashtagScreen>
                 SizedBox(width: 3.w),
                 Text(
                   "news",
-                  style: GoogleFonts.poppins(
+                  style: TextStyle(
                     fontWeight: FontWeight.w600,
                     color: Colors.black,
                     fontSize: 14.sp,
