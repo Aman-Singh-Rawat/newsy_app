@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:newsy/core/navigation/app_navigation.dart';
 
 import 'package:newsy/core/utils/constants/image_strings.dart';
+import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
 
 import '../../../core/theme/app_colors.dart';
@@ -41,7 +43,9 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Reset Password")),
+      resizeToAvoidBottomInset: false,
+
+      appBar: AppBar(title: Text(TextStrings.resetPassword)),
       body: Column(
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,21 +59,21 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
               fit: BoxFit.cover,
             ),
           ),
+
+          SizedBox(height: 30.h),
+
           Text(
-            "Create a new password",
-            style: TextStyle(
-              fontSize: 20.sp,
-              fontWeight: FontWeight.w600,
-              color: Colors.black,
-            ),
+            TextStrings.resetPasswordTitle,
+            style: Theme.of(context).textTheme.headlineMedium,
           ),
 
           SizedBox(height: 22.h),
 
           /// new password field
           CustomTextFieldWithLabel(
-            label: "New Password",
-            hint: "New Password",
+            isFieldEmpty: _isFieldEmpty,
+            label: TextStrings.newPassword,
+            hint: TextStrings.newPassword,
             isPassword: true,
             controller: _emailController,
           ),
@@ -78,8 +82,9 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
 
           /// password field
           CustomTextFieldWithLabel(
-            label: "Confirm New Password",
-            hint: "Confirm New Password",
+            isFieldEmpty: _isFieldEmpty,
+            label: TextStrings.confirmNewPass,
+            hint: TextStrings.confirmNewPass,
             isPassword: true,
             controller: _passwordController,
             textInputAction: TextInputAction.done,
@@ -87,14 +92,16 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
 
           Spacer(),
 
-          CustomBtn(
-            isClickable: !_isFieldEmpty,
-            color: _isFieldEmpty
-                ? Colorr.primaryColor[200]!
-                : Colorr.primaryColor[400]!,
-            btnText: "Save",
-            onTap: () => Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => CongratulationScreen()),
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+              onPressed: _isFieldEmpty
+                  ? null
+                  : () => AppNavigator.pushAndRemoveAll(
+                      context,
+                      const CongratulationScreen(),
+                    ),
+              child: Text(TextStrings.save),
             ),
           ),
 
