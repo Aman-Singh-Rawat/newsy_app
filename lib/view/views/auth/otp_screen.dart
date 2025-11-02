@@ -2,9 +2,13 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:newsy/core/navigation/app_navigation.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
+import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
+import 'package:newsy/core/utils/helpers/helper_function.dart';
 import 'package:newsy/view/views/auth/reset_password_screen.dart';
+import 'package:newsy/view/widgets/custom_app_bar.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
 import 'package:newsy/view/widgets/otp_pin_field.dart';
 
@@ -39,38 +43,40 @@ class _OtpScreenState extends State<OtpScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = HelperFunction.isDarkMode(context);
+
     _isCounterMinus = _counter == -1;
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () => Navigator.pop(context),
-          icon: Icon(Icons.arrow_back_rounded),
-        ),
-        title: Text("Forgot Password"),
-      ),
+      appBar: getAppBar(title: TextStrings.forgotPassword, context: context),
       body: GestureDetector(
-                behavior: HitTestBehavior.opaque,
+        behavior: HitTestBehavior.opaque,
 
-         onTap: () => FocusScope.of(context).requestFocus( FocusNode()),
+        onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Spacer(),
             Text(
-              "Code has been sent to +91 761844**67",
-              style: CustomTextStyle.screenDescTextStyle,
+              "${TextStrings.otpTitle} +91 7618447467",
+              style: Theme.of(
+                context,
+              ).textTheme.bodyLarge!.copyWith(fontSize: 13.sp),
             ),
-        
-            SizedBox(height: 30.h),
+
+            SizedBox(height: 60.h),
             MyOtpPinField(),
             SizedBox(height: 30.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  _isCounterMinus ? "Didn't Receive otp? " : "Resend code in ",
-                  style: CustomTextStyle.screenDescTextStyle,
+                  _isCounterMinus
+                      ? TextStrings.didNotRecieveCode
+                      : TextStrings.otpResendCode,
+                  style: Theme.of(
+                    context,
+                  ).textTheme.bodyLarge!.copyWith(fontSize: 13.sp),
                 ),
                 if (!_isCounterMinus)
                   Text(
@@ -84,27 +90,34 @@ class _OtpScreenState extends State<OtpScreen> {
                       ? () => setState(() => _counter = 10)
                       : null,
                   child: Text(
-                    _isCounterMinus ? "Resend" : " s",
-                    style: CustomTextStyle.screenDescTextStyle.copyWith(
-                      color: _counter == -1
-                          ? Colorr.primaryColor[400]
-                          : Colors.black,
-                    ),
+                    _isCounterMinus ? TextStrings.resend : " s",
+                    style: Theme.of(context).textTheme.bodyLarge!
+                        .copyWith(fontSize: 13.sp)
+                        .copyWith(
+                          color: _counter == -1
+                              ? Colorr.primaryColor[400]
+                              : isDark
+                              ? Colors.white
+                              : Colors.black,
+                        ),
                   ),
                 ),
               ],
             ),
-        
+
             Spacer(),
-            CustomBtn(
-              color: Colorr.primaryColor[400]!,
-              btnText: "Verify",
-              onTap: () => Navigator.of(context).pushAndRemoveUntil(
-                MaterialPageRoute(builder: (context) => ResetPasswordScreen()),
-                (Route<dynamic> route) => false,
+
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () => AppNavigator.pushAndRemoveAll(
+                  context,
+                  const ResetPasswordScreen(),
+                ),
+                child: Text(TextStrings.verify),
               ),
             ),
-        
+
             SizedBox(height: 20.h),
           ],
         ).padSymmetric(horizontal: 20.w),

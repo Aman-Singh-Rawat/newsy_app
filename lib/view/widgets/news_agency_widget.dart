@@ -21,13 +21,17 @@ class NewsAgencyWidget extends StatelessWidget {
     if (isForgotPassword) {
       return Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 11.sp);
     } else {
-      return Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 14.sp);
+      return Theme.of(
+        context,
+      ).textTheme.headlineMedium!.copyWith(fontSize: 14.sp);
     }
   }
 
   TextStyle getSubHeadingStyle(BuildContext context) {
     if (isForgotPassword) {
-      return Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 14.sp);
+      return Theme.of(
+        context,
+      ).textTheme.headlineMedium!.copyWith(fontSize: 14.sp);
     } else {
       return Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 11.sp);
     }

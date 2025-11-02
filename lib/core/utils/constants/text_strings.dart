@@ -14,6 +14,7 @@ class TextStrings {
   static const String next = "Next";
   static const String getStarted = "Get Started";
   static const String continueText = "Continue";
+  static const String verify = "Verify";
 
   // news agency
   static const String newsAgencyAppBarText = "Do You?";
@@ -55,8 +56,10 @@ class TextStrings {
   static const String forgotPassItemTitle2 = "via Email";
 
   // otp forgot password
+  static const String resend = "Resend";
   static const String otpTitle = "Code has been send to";
-  static const String otpResendCode = "Resend Code in";
+  static const String otpResendCode = "Resend Code in ";
+  static const String didNotRecieveCode = "Didn't Receive otp? ";
 
   // reset password
   static const String resetPasswordTitle = "Create a new password";
