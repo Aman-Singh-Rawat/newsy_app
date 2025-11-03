@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
@@ -63,5 +62,5 @@ class Colorr {
   static const Color darkerTextColor = Color(0xFF3c434d);
 
   // white colors
-  static const Color whiteSurface = Color(0xFF);
+  static const Color whiteSurface = Color(0x000000ff);
 }

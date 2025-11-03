@@ -7,7 +7,6 @@ import 'package:newsy/view/views/home/news_agency_detail_screen.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
 import 'package:newsy/view/widgets/custom_app_bar.dart';
 import 'package:newsy/view/widgets/search_view_and_filter.dart';
-import 'package:newsy/view/widgets/search_view_widget.dart';
 import 'package:newsy/view/widgets/user_list_tile.dart';
 
 class FollowersAndFollowingScreen extends StatefulWidget {

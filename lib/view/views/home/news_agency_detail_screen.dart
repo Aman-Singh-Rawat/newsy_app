@@ -10,7 +10,6 @@ import 'package:newsy/view/widgets/custom_app_bar.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
 import 'package:newsy/view/widgets/my_outline_button.dart';
 import 'package:newsy/view/widgets/news_widget.dart';
-import 'package:newsy/view/widgets/profile_placeholder.dart';
 import 'package:newsy/view/widgets/social_stats_widget.dart';
 
 class NewsAgencyDetailScreen extends StatefulWidget {

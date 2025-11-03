@@ -6,6 +6,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:newsy/core/navigation/app_navigation.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/constants/image_strings.dart';
+import 'package:newsy/core/utils/helpers/helper_function.dart';
 import 'package:newsy/view/views/onboarding/onboarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -27,6 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = HelperFunction.isDarkMode(context);
     return Scaffold(
       appBar: AppBar(),
       body: Column(
@@ -39,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
               children: [
                 SizedBox(height: 80.h),
                 Image.asset(
-                  ImageStrings.imgSplash,
+                  isDark ? ImageStrings.imgSplashDark : ImageStrings.imgSplash,
                   fit: BoxFit.cover,
                   width: 260.w,
                   height: 260.h,

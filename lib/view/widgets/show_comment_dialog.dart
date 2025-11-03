@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/theme/app_colors.dart';
@@ -14,7 +13,7 @@ void showCommentDialog(BuildContext context) {
     showDragHandle: true,
     isScrollControlled: true,
     backgroundColor: Colors.white,
-    builder: (context) => Container(
+    builder: (context) => SizedBox(
       height: MediaQuery.of(context).size.height * 0.7,
       child: Column(
         children: [

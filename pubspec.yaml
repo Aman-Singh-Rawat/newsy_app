@@ -36,6 +36,7 @@ dependencies:
   flutter_quill_extensions: ^11.0.0
   image_picker: ^1.2.0
 
+  path: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -50,6 +51,9 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/auth/
+    - assets/images/logo/
+    - assets/images/onboarding/
     - assets/icons/
     - assets/fonts/
 

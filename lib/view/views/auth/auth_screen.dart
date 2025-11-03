@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/navigation/app_navigation.dart';
 
-import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/core/utils/helpers/helper_function.dart';
 import 'package:newsy/view/views/auth/forgot_password_screen.dart';
 import 'package:newsy/view/views/setup-profile/select_your_country.dart';
-import 'package:newsy/view/widgets/custom_btn.dart';
 import 'package:newsy/view/widgets/remember_me_widget.dart';
 import 'package:newsy/view/widgets/social_btn.dart';
 import 'package:newsy/view/widgets/text_field_with_label_widget.dart';
@@ -78,7 +76,9 @@ class _AuthScreenState extends State<AuthScreen> {
                 Padding(
                   padding: EdgeInsets.only(top: 20.h),
                   child: Image.asset(
-                    ImageStrings.imgSplash,
+                    isDark
+                        ? ImageStrings.imgSplashDark
+                        : ImageStrings.imgSplash,
                     height: 200.h,
                     width: 200.w,
                     fit: BoxFit.cover,

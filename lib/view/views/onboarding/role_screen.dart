@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/navigation/app_navigation.dart';
-import 'package:newsy/core/theme/app_colors.dart';
-import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/core/utils/helpers/helper_function.dart';
 import 'package:newsy/view/views/auth/auth_screen.dart';
 import 'package:newsy/view/widgets/custom_app_bar.dart';
-import 'package:newsy/view/widgets/custom_btn.dart';
 import 'package:newsy/view/widgets/news_agency_widget.dart';
 
 class RoleScreen extends StatefulWidget {

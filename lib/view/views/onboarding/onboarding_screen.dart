@@ -6,7 +6,6 @@ import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/view/views/onboarding/role_screen.dart';
-import 'package:newsy/view/widgets/custom_btn.dart';
 import 'package:newsy/view/widgets/onboarding_content.dart';
 
 class OnboardingScreen extends StatefulWidget {

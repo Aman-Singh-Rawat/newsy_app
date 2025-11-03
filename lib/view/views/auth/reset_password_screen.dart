@@ -6,8 +6,6 @@ import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
 
-import '../../../core/theme/app_colors.dart';
-import '../../widgets/custom_btn.dart';
 import '../../widgets/text_field_with_label_widget.dart';
 import 'congratulation_screen.dart';
 

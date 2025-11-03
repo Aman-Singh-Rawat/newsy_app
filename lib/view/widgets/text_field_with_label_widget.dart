@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:newsy/core/theme/app_colors.dart';
-import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/helpers/helper_function.dart';
 
 class CustomTextFieldWithLabel extends StatefulWidget {

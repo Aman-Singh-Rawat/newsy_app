@@ -6,13 +6,11 @@ import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/home/news_agency_detail_screen.dart';
-import 'package:newsy/view/widgets/btn_with_bg.dart';
 import 'package:newsy/view/widgets/custom_app_bar.dart';
 import 'package:newsy/view/widgets/get_search_result_widget.dart';
 import 'package:newsy/view/widgets/hashtag_widget.dart';
 import 'package:newsy/view/widgets/news_tab.dart';
 import 'package:newsy/view/widgets/search_view_and_filter.dart';
-import 'package:newsy/view/widgets/search_view_widget.dart';
 import 'package:newsy/view/widgets/user_list_tile.dart';
 
 class SearchScreen extends StatefulWidget {

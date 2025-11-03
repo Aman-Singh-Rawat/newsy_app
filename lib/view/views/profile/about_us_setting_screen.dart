@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
+import 'package:newsy/core/utils/helpers/helper_function.dart';
 import 'package:newsy/view/widgets/custom_app_bar.dart';
 
 class AboutUsSettingScreen extends StatelessWidget {
@@ -10,6 +11,7 @@ class AboutUsSettingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = HelperFunction.isDarkMode(context);
     return Scaffold(
       appBar: getAppBar(title: "About us", context: context),
       body: SafeArea(
@@ -17,7 +19,7 @@ class AboutUsSettingScreen extends StatelessWidget {
           child: Column(
             children: [
               Image.asset(
-                ImageStrings.imgSplash,
+                isDark ? ImageStrings.imgSplashDark : ImageStrings.imgSplash,
                 fit: BoxFit.cover,
                 width: 260.w,
                 height: 260.h,

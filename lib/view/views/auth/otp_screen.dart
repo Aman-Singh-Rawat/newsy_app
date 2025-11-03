@@ -9,7 +9,6 @@ import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/core/utils/helpers/helper_function.dart';
 import 'package:newsy/view/views/auth/reset_password_screen.dart';
 import 'package:newsy/view/widgets/custom_app_bar.dart';
-import 'package:newsy/view/widgets/custom_btn.dart';
 import 'package:newsy/view/widgets/otp_pin_field.dart';
 
 import '../../../core/theme/app_colors.dart';

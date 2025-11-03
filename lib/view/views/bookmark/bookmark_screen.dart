@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -7,16 +6,12 @@ import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/extension.dart';
-import 'package:newsy/view/views/home/notification_screen.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
 import 'package:newsy/view/widgets/category_widget.dart';
-import 'package:newsy/view/widgets/custom_app_bar.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
-import 'package:newsy/view/widgets/get_search_result_widget.dart';
 import 'package:newsy/view/widgets/news_widget.dart';
 import 'package:newsy/view/widgets/search_view_and_filter.dart';
 import 'package:newsy/view/widgets/show_bookmark_remove_bottom_sheet.dart';
-import 'package:newsy/view/widgets/show_comment_dialog.dart';
 
 class BookmarkScreen extends StatefulWidget {
   const BookmarkScreen({super.key});

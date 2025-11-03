@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/utils/constants/text_strings.dart';
 
-import '../../core/theme/app_colors.dart';
 
 class RememberMeWidget extends StatelessWidget {
   final bool isRememberMe;

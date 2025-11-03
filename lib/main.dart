@@ -2,21 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 
-import 'package:newsy/core/theme/app_colors.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/theme/theme.dart';
-import 'package:newsy/view/views/auth/auth_screen.dart';
-import 'package:newsy/view/views/bookmark/bookmark_screen.dart';
-import 'package:newsy/view/views/home/home_screen.dart';
-import 'package:newsy/view/views/home/news_agency_detail_screen.dart';
-import 'package:newsy/view/views/main_screen.dart';
-import 'package:newsy/view/views/my-news/create_new_news.dart';
-import 'package:newsy/view/views/my-news/my_news_screen.dart';
 import 'package:newsy/view/views/onboarding/splash_screen.dart';
-import 'package:newsy/view/views/profile/faq_setting_screen.dart';
-import 'package:newsy/view/views/profile/invite_friends_setting_screen.dart';
-import 'package:newsy/view/views/profile/settings_screen.dart';
 
 void main() {
   runApp(const MyApp());

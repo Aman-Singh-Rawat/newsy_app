@@ -2,11 +2,16 @@ class ImageStrings {
   /// images
   static const String imgForgotPassword =
       "assets/images/img_forgot_password.png"; // TODO REMOVE THIS
-  static const String imgOnboardingOne = "assets/images/img_onboarding_one.jpg";
-  static const String imgOnboardingThree = "assets/images/img_onboarding_three.jpg";
-  static const String imgOnboardingTwo = "assets/images/img_onboarding_two.jpg";
-  static const String imgSplash = "assets/images/img_splash.png";
-  static const String imgResetPassword = "assets/images/img_reset_password.png";
+  static const String imgOnboardingOne =
+      "assets/images/onboarding/img_onboarding_one.jpg";
+  static const String imgOnboardingThree =
+      "assets/images/onboarding/img_onboarding_three.jpg";
+  static const String imgOnboardingTwo =
+      "assets/images/onboarding/img_onboarding_two.jpg";
+  static const String imgSplash = "assets/images/logo/img_splash.png";
+  static const String imgSplashDark = "assets/images/logo/img_splash_dark.png";
+  static const String imgResetPassword =
+      "assets/images/auth/img_reset_password.png";
   static const String imgNotification =
       "assets/images/img_notification_bell.png";
   static const String imgProfilePlaceholder =
