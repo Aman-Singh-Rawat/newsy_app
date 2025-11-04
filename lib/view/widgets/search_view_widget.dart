@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:newsy/core/theme/app_colors.dart';
+import 'package:newsy/core/utils/constants/text_strings.dart';
+import 'package:newsy/core/utils/helpers/helper_function.dart';
 
 class SearchViewWidget extends StatelessWidget {
   final bool isFieldEmpty;
-  final Function onButtonClick;
+  final VoidCallback onButtonClick;
   final TextEditingController controller;
 
   const SearchViewWidget({
@@ -15,28 +18,22 @@ class SearchViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = HelperFunction.isDarkMode(context);
+
     return TextFormField(
       controller: controller,
-      style: TextStyle(
-        fontSize: 13.sp,
-        fontWeight: FontWeight.w600,
-        color: Colors.black,
-      ),
+      style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 13.sp),
       decoration: InputDecoration(
         filled: true,
         contentPadding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 20.w),
-        fillColor: const Color(0xFFf5f6fa),
-        hintText: 'Search',
-        hintStyle: TextStyle(
-          color: Colors.black54,
-          fontSize: 13.sp,
-          fontWeight: FontWeight.w500,
-        ),
+        fillColor: isDark ? Colorr.darkSurface : Colorr.textHintColor,
+        hintText: TextStrings.search,
+        hintStyle: Theme.of(context).textTheme.bodyMedium,
         suffixIcon: IconButton(
-          onPressed: () => onButtonClick(isFieldEmpty ? false : true),
+          onPressed: onButtonClick,
           icon: Icon(
             isFieldEmpty ? Icons.search : Icons.clear,
-            color: Colors.grey,
+            color: Colorr.darkerGrey,
           ),
         ),
         focusedBorder: OutlineInputBorder(

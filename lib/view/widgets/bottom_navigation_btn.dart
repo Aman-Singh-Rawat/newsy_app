@@ -1,34 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:newsy/core/theme/app_colors.dart';
+import 'package:newsy/core/utils/helpers/helper_function.dart';
 
 import 'custom_btn.dart';
 
 class BottomNavigationBtn extends StatelessWidget {
-  final Color btnColor;
   final String btnText;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
-  const BottomNavigationBtn({
-    super.key,
-    required this.btnColor,
-    required this.btnText,
-    required this.onTap,
-  });
+  const BottomNavigationBtn({super.key, required this.btnText, this.onTap});
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = HelperFunction.isDarkMode(context);
+
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+      padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 25.h),
       decoration: BoxDecoration(
+        color: isDark ? Colors.black54 : Colors.white,
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(25.r),
-          topRight: Radius.circular(25.r),
+          topLeft: Radius.circular(21.r),
+          topRight: Radius.circular(21.r),
         ),
-        border: Border.symmetric(
-          horizontal: BorderSide(width: 1.5, color: Colors.grey.shade200),
+        border: Border(
+          top: BorderSide(
+            width: 1.5,
+            color: isDark ? Colorr.darkSurface : Colors.grey.shade200,
+          ),
         ),
       ),
-      child: CustomBtn(color: btnColor, btnText: btnText, onTap: onTap),
+
+      child: ElevatedButton(onPressed: onTap, child: Text(btnText)),
     );
   }
 }

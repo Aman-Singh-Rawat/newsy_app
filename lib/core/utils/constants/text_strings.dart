@@ -72,4 +72,8 @@ class TextStrings {
   static const String congratulationTitle = "Congratulations!";
   static const String congratulationSubtitle = "Your account is ready to use";
   static const String congratulationBtnText = "Go to Homepage";
+
+  /// Select Your country
+  static const String selectYourCountry = "Select Your Country";
+  static const String search = "Search";
 }

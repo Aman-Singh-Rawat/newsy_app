@@ -93,9 +93,6 @@ class _FillYourProfileScreenState extends State<FillYourProfileScreen> {
         ],
       ).marginSymmetric(horizontal: 20.w),
       bottomNavigationBar: BottomNavigationBtn(
-        btnColor: getIsFieldsEmpty
-            ? Colorr.primaryColor[200]!
-            : Colorr.primaryColor[400]!,
         btnText: "Continue",
         onTap: () {
           showDialog(

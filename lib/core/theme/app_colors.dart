@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class Colorr {
@@ -51,7 +50,7 @@ class Colorr {
   static const borderSecondary = Color(0xFFf2f2f2);
 
   // dark colors
-  static const Color darkBackground = Color(0xFF0F0F0F);
+  static const Color darkBackground = Color(0xFF1a1a22);
   static const Color darkSurface = Color(0xFF23262f);
   static const Color darkPrimaryRed = Color(0xFFE94057);
   static const Color darkBorderRed = Color(0xFFFF4C5E);
@@ -60,6 +59,7 @@ class Colorr {
   static const Color darkDivider = Color(0xFF2C2C2E);
   static const Color iconBg = Color(0xFF382b34);
   static const Color darkerTextColor = Color(0xFF3c434d);
+  static const Color darkerGrey = Color(0XFF7b7f88);
 
   // white colors
   static const Color whiteSurface = Color(0x000000ff);

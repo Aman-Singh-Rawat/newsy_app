@@ -18,6 +18,7 @@ class AppTheme {
     textSelectionTheme: TextSelectionThemeData().copyWith(
       cursorColor: Colorr.primary,
     ),
+
     appBarTheme: AppBarTheme(backgroundColor: Colors.white),
     textTheme: AppTextStyles.lightTextTheme,
     textButtonTheme: CustomTextBtnTheme.lightTheme,

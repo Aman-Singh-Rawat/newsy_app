@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:newsy/core/utils/helpers/helper_function.dart';
 
 import '../../core/theme/app_colors.dart';
 
@@ -30,16 +31,20 @@ class _SelectYourWidgetState extends State<SelectYourWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = HelperFunction.isDarkMode(context);
+
     return GestureDetector(
       onTap: () => widget.onTap(widget.country["code"] as String),
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: 5.h, horizontal: 20.h),
-        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 12.h),
+        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 14.h),
         decoration: BoxDecoration(
+          color: isDark ? Colorr.darkSurface : Colors.white,
           borderRadius: BorderRadius.circular(16.r),
           border: Border.all(
             color: widget.isSelected
                 ? Colorr.primaryColor[400]!
+                : isDark
+                ? Colorr.darkSurface
                 : Colors.grey.shade200,
             width: widget.isSelected ? 2.w : 1.4.w,
           ),
@@ -68,7 +73,7 @@ class _SelectYourWidgetState extends State<SelectYourWidget> {
               widget.country["name"] as String,
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
-              style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w500),
+              style: Theme.of(context).textTheme.labelLarge,
             ),
             const Spacer(),
 

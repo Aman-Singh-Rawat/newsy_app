@@ -31,9 +31,7 @@ class _ChooseYourNewsSourcesState extends State<ChooseYourNewsSources> {
               SizedBox(height: 10.h),
               SearchViewWidget(
                 controller: _searchController,
-                onButtonClick: (flag) {
-                  setState(() => flag ? _searchController.clear() : null);
-                },
+                onButtonClick: () {}
               ),
 
               SizedBox(height: 15.h),
@@ -56,7 +54,6 @@ class _ChooseYourNewsSourcesState extends State<ChooseYourNewsSources> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBtn(
-        btnColor: Colorr.primaryColor[400]!,
         btnText: "Next",
         onTap: () {
           Navigator.of(context).push(

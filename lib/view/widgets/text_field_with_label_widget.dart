@@ -93,7 +93,7 @@ class _CustomTextFieldWithLabelState extends State<CustomTextFieldWithLabel> {
                     )
                   : Icon(
                       widget.suffixIcon,
-                      color: isDark ? Colorr.darkerTextColor : Colors.grey,
+                      color: isDark ? Colorr.darkerGrey : Colors.grey,
                     ),
             ),
           ),

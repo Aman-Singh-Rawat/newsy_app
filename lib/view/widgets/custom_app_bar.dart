@@ -8,12 +8,14 @@ AppBar getAppBar({
   List<Widget>? actions,
   Widget? bottomWidget,
   double prefSize = 110,
+  final bool showLeading = true
 }) {
   return AppBar(
-    leading: IconButton(
+    leading: showLeading ? IconButton(
       onPressed: () => Navigator.pop(context),
       icon: Icon(Icons.arrow_back_rounded, color: Colorr.primary),
-    ),
+    ) : null
+    ,
     actionsPadding: EdgeInsets.only(right: 20.w),
     title: Text(title),
     actions: actions,

@@ -34,8 +34,10 @@ class TextFormFieldTheme {
     filled: true,
     fillColor: Colorr.darkSurface,
     enabledBorder: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(25.r),
+      borderSide: BorderSide.none,
+      borderRadius: BorderRadius.circular( 25.r),
     ),
+
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(25.r),
       borderSide: BorderSide(color: Colorr.primaryColor[400]!, width: 2.w),

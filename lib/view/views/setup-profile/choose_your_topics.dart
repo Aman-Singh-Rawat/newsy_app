@@ -79,13 +79,7 @@ class _ChooseYourTopicsState extends State<ChooseYourTopics> {
               SearchViewWidget(
                 isFieldEmpty: _searchController.text.trim().isEmpty,
                 controller: _searchController,
-                onButtonClick: (flag) {
-                  if (flag) {
-                    setState(() {
-                      _searchController.clear();
-                    });
-                  }
-                },
+                onButtonClick: () {}
               ),
 
               SizedBox(height: 15.h),
@@ -109,7 +103,6 @@ class _ChooseYourTopicsState extends State<ChooseYourTopics> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBtn(
-        btnColor: Colorr.primaryColor[400]!,
         btnText: "Next",
         onTap: () {
           Navigator.of(context).push(
