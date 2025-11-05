@@ -22,7 +22,7 @@ class CustomCheckboxTheme {
       if (states.contains(WidgetState.selected)) {
         return Colorr.primary;
       }
-      return Colors.transparent;
+      return Colorr.darkBackground;
     }),
     checkColor: WidgetStatePropertyAll(Colors.white),
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),

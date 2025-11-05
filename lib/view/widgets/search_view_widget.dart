@@ -26,7 +26,7 @@ class SearchViewWidget extends StatelessWidget {
       decoration: InputDecoration(
         filled: true,
         contentPadding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 20.w),
-        fillColor: isDark ? Colorr.darkSurface : Colorr.textHintColor,
+        fillColor: isDark ? Colorr.darkSurface : Colorr.lightGrey,
         hintText: TextStrings.search,
         hintStyle: Theme.of(context).textTheme.bodyMedium,
         suffixIcon: IconButton(
@@ -35,6 +35,10 @@ class SearchViewWidget extends StatelessWidget {
             isFieldEmpty ? Icons.search : Icons.clear,
             color: Colorr.darkerGrey,
           ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.circular(25.r),
         ),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide.none,

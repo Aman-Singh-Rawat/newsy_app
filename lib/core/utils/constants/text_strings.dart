@@ -76,4 +76,7 @@ class TextStrings {
   /// Select Your country
   static const String selectYourCountry = "Select Your Country";
   static const String search = "Search";
+
+  /// Choose Your Topics
+  static const String chooseYourTopics = "Choose Your Topics";
 }

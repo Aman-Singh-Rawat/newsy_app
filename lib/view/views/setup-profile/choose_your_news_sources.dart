@@ -5,7 +5,6 @@ import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/setup-profile/fill_your_profile_screen.dart';
 import 'package:newsy/view/widgets/choose_your_news_widget.dart';
 
-import '../../../core/theme/app_colors.dart';
 import '../../widgets/bottom_navigation_btn.dart';
 import '../../widgets/custom_app_bar.dart';
 import '../../widgets/search_view_widget.dart' show SearchViewWidget;

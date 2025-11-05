@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:newsy/core/theme/app_colors.dart';
 
 class OnboardingContent extends StatelessWidget {
   final String image;
@@ -22,19 +22,7 @@ class OnboardingContent extends StatelessWidget {
         // Gradient overlay
         Positioned.fill(
           child: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Colors.transparent,
-                  Colors.transparent,
-                  Colors.black12,
-                  Colors.black87,
-                  Colors.black,
-                ],
-              ),
-            ),
+            decoration: BoxDecoration(gradient: Colorr.imageForegroundGradient),
           ),
         ),
 

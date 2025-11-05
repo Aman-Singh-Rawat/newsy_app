@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/helpers/helper_function.dart';
 
-import 'custom_btn.dart';
 
 class BottomNavigationBtn extends StatelessWidget {
   final String btnText;
@@ -18,7 +17,6 @@ class BottomNavigationBtn extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 25.h),
       decoration: BoxDecoration(
-        color: isDark ? Colors.black54 : Colors.white,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(21.r),
           topRight: Radius.circular(21.r),

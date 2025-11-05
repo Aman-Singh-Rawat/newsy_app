@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/navigation/app_navigation.dart';
-import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/extension.dart';

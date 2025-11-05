@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newsy/core/theme/app_colors.dart';
+import 'package:newsy/core/theme/custom_themes/app_bar_theme.dart';
 import 'package:newsy/core/theme/custom_themes/checkbox_theme.dart';
 import 'package:newsy/core/theme/custom_themes/elevated_btn_theme.dart';
 import 'package:newsy/core/theme/custom_themes/text_btn_theme.dart';
@@ -19,7 +20,7 @@ class AppTheme {
       cursorColor: Colorr.primary,
     ),
 
-    appBarTheme: AppBarTheme(backgroundColor: Colors.white),
+    appBarTheme: CustomAppBarTheme.lightTheme,
     textTheme: AppTextStyles.lightTextTheme,
     textButtonTheme: CustomTextBtnTheme.lightTheme,
     elevatedButtonTheme: ElevatedBtnTheme.lightTheme,
@@ -34,13 +35,13 @@ class AppTheme {
     brightness: Brightness.dark,
     fontFamily: "Poppins",
     primaryColor: Colorr.primary,
+    appBarTheme: CustomAppBarTheme.darkTheme,
     textTheme: AppTextStyles.darkTextTheme,
     textButtonTheme: CustomTextBtnTheme.darkTheme,
     elevatedButtonTheme: ElevatedBtnTheme.darkTheme,
     checkboxTheme: CustomCheckboxTheme.darkCheckboxThem,
     inputDecorationTheme: TextFormFieldTheme.darkInputDecoration,
     scaffoldBackgroundColor: Colorr.darkBackground,
-    appBarTheme: AppBarTheme(backgroundColor: Colorr.darkBackground),
     textSelectionTheme: TextSelectionThemeData().copyWith(
       cursorColor: Colorr.primary,
     ),

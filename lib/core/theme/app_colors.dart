@@ -33,7 +33,7 @@ class Colorr {
 
   // background colors
   static const light = Colors.white;
-  static const dark = Color(0xFF1a1a22);
+  static const lightGrey = Color(0xFFf5f6fa);
 
   // button colors
   static Color buttonDisabled = const Color(0xFFefa8a4);
@@ -63,4 +63,16 @@ class Colorr {
 
   // white colors
   static const Color whiteSurface = Color(0x000000ff);
+
+  static const LinearGradient imageForegroundGradient = LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [
+      Colors.transparent,
+      Colors.transparent,
+      Colors.black12,
+      Colors.black87,
+      Colors.black,
+    ],
+  );
 }

@@ -21,6 +21,17 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   late PageController _pageController;
   int _selectedIndex = 0;
 
+  void _handleNextButton(BuildContext context) {
+    if (_selectedIndex == onBoardList.length - 1) {
+      AppNavigator.push(context, const RoleScreen());
+    } else {
+      _pageController.nextPage(
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -157,14 +168,5 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 
-  void _handleNextButton(BuildContext context) {
-    if (_selectedIndex == onBoardList.length - 1) {
-      AppNavigator.push(context, const RoleScreen());
-    } else {
-      _pageController.nextPage(
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-      );
-    }
-  }
+  
 }
