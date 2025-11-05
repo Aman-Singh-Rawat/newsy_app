@@ -57,6 +57,12 @@ class _ChooseYourTopicsState extends State<ChooseYourTopics> {
     });
   }
 
+  void _handleSearchClearBtnClick() {
+    if (_searchController.text.trim().isNotEmpty) {
+      setState(() => _searchController.text = "");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,11 +75,11 @@ class _ChooseYourTopicsState extends State<ChooseYourTopics> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 10.h),
+              SizedBox(height: 12.h),
               SearchViewWidget(
                 isFieldEmpty: _searchController.text.trim().isEmpty,
                 controller: _searchController,
-                onButtonClick: () {},
+                onButtonClick: _handleSearchClearBtnClick,
               ),
 
               SizedBox(height: 15.h),

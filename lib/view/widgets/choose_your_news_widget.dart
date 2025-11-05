@@ -2,30 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:newsy/core/theme/app_colors.dart';
+import 'package:newsy/core/utils/helpers/helper_function.dart';
 
-class ChooseYourNewsWidget extends StatefulWidget {
+class ChooseYourNewsWidget extends StatelessWidget {
   final Map<String, Object> newsSource;
-  const ChooseYourNewsWidget({super.key, required this.newsSource});
-
-  @override
-  State<ChooseYourNewsWidget> createState() => _ChooseYourNewsWidgetState();
-}
-
-class _ChooseYourNewsWidgetState extends State<ChooseYourNewsWidget> {
-  bool _isSelected = false;
+  final VoidCallback onTap;
+  final bool isSelected;
+  const ChooseYourNewsWidget({
+    super.key,
+    required this.newsSource,
+    required this.onTap,
+    required this.isSelected,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = HelperFunction.isDarkMode(context);
     return GestureDetector(
-      onTap: () => setState(() => _isSelected = !_isSelected),
+      onTap: onTap,
       child: Container(
-        width: double.infinity,
-        height: 125.h,
         decoration: BoxDecoration(
+          color: isDark ? Colorr.darkSurface : Colorr.light,
           borderRadius: BorderRadius.circular(25.r),
-          border: _isSelected
+          border: isSelected
               ? Border.all(color: Colorr.primaryColor[400]!, width: 2.0.w)
-              : Border.all(color: Colors.grey.shade200, width: 1.w),
+              : isDark
+              ? null
+              : Border.all(color: Colors.grey.shade200, width: 2.w),
         ),
         child: Stack(
           children: [
@@ -42,20 +45,15 @@ class _ChooseYourNewsWidgetState extends State<ChooseYourNewsWidget> {
                   CircleAvatar(
                     radius: 30.r,
                     backgroundColor: Colorr.primaryColor[50],
-                    backgroundImage: NetworkImage(
-                      widget.newsSource["logo"] as String,
-                    ),
+                    backgroundImage: NetworkImage(newsSource["logo"] as String),
                   ),
                   SizedBox(height: 10.h),
                   Text(
-                    widget.newsSource["name"] as String,
+                    (newsSource["name"] as String).toUpperCase(),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 12.sp,
-
+                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
                       fontWeight: FontWeight.w600,
-                      color: Colors.black,
                     ),
                   ),
                 ],
@@ -66,15 +64,7 @@ class _ChooseYourNewsWidgetState extends State<ChooseYourNewsWidget> {
             Positioned(
               top: 5.h,
               right: 5.w,
-              child: Checkbox(
-                value: _isSelected,
-
-                activeColor: Colorr.primaryColor[400],
-                fillColor: WidgetStatePropertyAll(
-                  _isSelected ? Colorr.primaryColor[400] : Colors.white,
-                ),
-                onChanged: (value) => setState(() => _isSelected = value!),
-              ),
+              child: Checkbox(value: isSelected, onChanged: null),
             ),
           ],
         ),

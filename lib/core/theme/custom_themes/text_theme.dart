@@ -136,7 +136,7 @@ class AppTextStyles {
       fontSize: 12.sp,
       fontFamily: "Poppins",
       fontWeight: FontWeight.w500,
-      color: Colorr.dark,
+      color: Colorr.darkBackground,
     ),
     bodyLarge: TextStyle(
       fontSize: 14.sp,

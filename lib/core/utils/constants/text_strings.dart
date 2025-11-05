@@ -79,4 +79,7 @@ class TextStrings {
 
   /// Choose Your Topics
   static const String chooseYourTopics = "Choose Your Topics";
+
+  /// Choose Your News Sources
+  static const String chooseYourNewsSources = "Choose Your News Sources";
 }
