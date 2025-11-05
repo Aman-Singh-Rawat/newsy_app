@@ -12,7 +12,7 @@ class CustomAppBarTheme {
       fontSize: 18.sp,
       fontFamily: "Poppins",
       fontWeight: FontWeight.w500,
-      color: Colorr.light,
+      color: Colorr.darkBackground,
     ),
 
     iconTheme: IconThemeData(color: Colorr.primary),

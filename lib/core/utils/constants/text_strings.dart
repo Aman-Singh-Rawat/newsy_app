@@ -82,4 +82,10 @@ class TextStrings {
 
   /// Choose Your News Sources
   static const String chooseYourNewsSources = "Choose Your News Sources";
+
+  /// fill your profile
+  static const String fillYourProfile = "Fill Your Profile";
+  static const String userName = "UserName";
+  static const String fullName = "Full Name";
+  static const String phoneNumber = "Phone Number";
 }

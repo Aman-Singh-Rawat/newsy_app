@@ -1,27 +1,40 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/constants/image_strings.dart';
 
-class ProfilePlaceholder extends StatefulWidget {
-  const ProfilePlaceholder({super.key});
+class ProfilePlaceholder extends StatelessWidget {
+  final ImageSource source;
+  final File? selectedImage;
+  final VoidCallback pickImage;
 
-  @override
-  State<ProfilePlaceholder> createState() => _ProfilePlaceholderState();
-}
+  const ProfilePlaceholder({
+    super.key,
+    required this.source,
+    this.selectedImage,
+    required this.pickImage,
+  });
 
-class _ProfilePlaceholderState extends State<ProfilePlaceholder> {
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Image.asset(ImageStrings.imgProfilePlaceholder, height: 120.h, width: 120.w),
+        CircleAvatar(
+          radius: 80.w,
+          backgroundColor: Colors.transparent,
+          backgroundImage: selectedImage != null
+              ? FileImage(selectedImage!)
+              : AssetImage(ImageStrings.imgProfilePlaceholder),
+        ),
 
         Positioned(
           bottom: 0,
           right: 0,
           child: InkWell(
-            onTap: () {},
+            onTap: pickImage,
             borderRadius: BorderRadius.circular(35.r),
             child: Container(
               height: 35.h,
@@ -29,7 +42,6 @@ class _ProfilePlaceholderState extends State<ProfilePlaceholder> {
               decoration: BoxDecoration(
                 color: Colorr.primaryColor[400],
                 shape: BoxShape.circle,
-                border: Border.all(color: Colors.white, width: 2.w),
               ),
               child: Icon(Icons.edit, color: Colors.white, size: 18.sp),
             ),

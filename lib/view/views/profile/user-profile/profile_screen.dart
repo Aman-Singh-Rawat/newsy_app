@@ -52,7 +52,7 @@ class _ProfileScreenState extends State<ProfileScreen>
               SizedBox(height: 15.h),
 
               // perons image
-              ProfilePlaceholder(),
+              //ProfilePlaceholder(),
 
               SizedBox(height: 15.h),
 

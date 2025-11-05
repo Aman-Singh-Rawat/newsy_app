@@ -12,6 +12,7 @@ class AppTheme {
 
   // light theme
   static ThemeData lightTheme = ThemeData(
+    colorScheme: ColorScheme.fromSeed(seedColor: Colorr.primary),
     useMaterial3: true,
     brightness: Brightness.light,
     primaryColor: Colorr.primary,
@@ -31,8 +32,8 @@ class AppTheme {
 
   // dark theme
   static ThemeData darkTheme = ThemeData(
+    
     useMaterial3: true,
-    brightness: Brightness.dark,
     fontFamily: "Poppins",
     primaryColor: Colorr.primary,
     appBarTheme: CustomAppBarTheme.darkTheme,
@@ -45,5 +46,9 @@ class AppTheme {
     textSelectionTheme: TextSelectionThemeData().copyWith(
       cursorColor: Colorr.primary,
     ),
+    colorScheme: ColorScheme.fromSeed(
+    seedColor: Colorr.primary,
+    brightness: Brightness.dark,
+  ),
   );
 }

@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
           darkTheme: AppTheme.darkTheme,
           debugShowCheckedModeBanner: false,
           title: 'News App',
+
           localizationsDelegates: const [
             FlutterQuillLocalizations.delegate, // ← Add this
             GlobalMaterialLocalizations.delegate,

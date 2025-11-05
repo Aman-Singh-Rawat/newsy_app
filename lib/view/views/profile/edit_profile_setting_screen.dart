@@ -52,7 +52,7 @@ class _EditProfileSettingScreenState extends State<EditProfileSettingScreen> {
           onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
           child: Column(
             children: [
-              ProfilePlaceholder(),
+              //ProfilePlaceholder(),
               Divider(
                 color: Colors.grey.shade100,
               ).padOnly(top: 15.h, bottom: 20.h),
