@@ -16,7 +16,7 @@ class ImageStrings {
       "assets/images/img_notification_bell.png";
   static const String imgProfilePlaceholder =
       "assets/images/img_profile_placeholder.png";
-  static const String imgSuccessDialog = "assets/images/img_success.png";
+  static const String imgSuccessDialog = "assets/images/img_success_dialog.png";
   static const String imgNoResultFound =
       "assets/images/img_no_result_found.png";
   static const String imgReplies = "assets/images/img_replies.png";

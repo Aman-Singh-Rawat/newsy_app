@@ -1,9 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/extension.dart';
+import 'package:newsy/core/utils/helpers/helper_function.dart';
 import 'package:newsy/view/views/home/news_detail_screen.dart';
+import 'package:newsy/view/widgets/news_tab.dart';
 
 class NewsWidget extends StatefulWidget {
   final VoidCallback? onBookmarkClick;
@@ -17,16 +20,25 @@ class NewsWidget extends StatefulWidget {
 class _NewsWidgetState extends State<NewsWidget> {
   @override
   Widget build(BuildContext context) {
+    final bool isDark = HelperFunction.isDarkMode(context);
+    final currentPrimaryColor = isDark
+        ? Colorr.primaryColor[300]
+        : Colorr.primaryColor[400];
+
     return GestureDetector(
       onTap: () => Navigator.of(
         context,
       ).push(MaterialPageRoute(builder: (context) => NewsDetailScreen())),
       child: Container(
         width: double.infinity,
-        height: 150.h,
+        height: 155.h,
         decoration: BoxDecoration(
+          color: isDark ? Colorr.darkSurface : Colors.transparent,
           borderRadius: BorderRadius.circular(20.r),
-          border: Border.all(color: Colors.grey.shade200, width: 1.5.w),
+          border: Border.all(
+            color: isDark ? Colors.transparent : Colors.grey.shade200,
+            width: 1.5.w,
+          ),
         ),
         margin: EdgeInsets.symmetric(vertical: 5.h),
         child: Row(
@@ -51,12 +63,13 @@ class _NewsWidgetState extends State<NewsWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Wow! USA Developers New Way of Faster and More",
+                    "Wow! USA Developers New Way of Faster and More what do you think",
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w500,
+                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 13.sp,
+                      height: 1.5.h,
                     ),
                   ),
 
@@ -66,34 +79,41 @@ class _NewsWidgetState extends State<NewsWidget> {
                     children: [
                       CircleAvatar(
                         radius: 12.w,
-                        backgroundColor: Colorr.primaryColor[400],
+                        backgroundImage: NetworkImage(
+                          "https://cdn.pixabay.com/photo/2025/10/17/15/16/halloween-9900545_1280.jpg",
+                        ),
+                        backgroundColor: isDark
+                            ? Colorr.darkBackground
+                            : Colors.grey.shade200,
                       ),
 
                       SizedBox(width: 8.w),
 
-                      Text(
-                        "BBC News",
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: 11.sp,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w600,
+                      Flexible(
+                        child: Text(
+                          "BBC News",
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: Theme.of(context).textTheme.titleLarge!
+                              .copyWith(
+                                fontSize: 11.sp,
+                                fontWeight: FontWeight.w600,
+                              ),
                         ),
                       ),
 
                       Container(
-                        width: 63.w,
+                        constraints: BoxConstraints(maxWidth: 60),
                         margin: EdgeInsets.only(left: 12.w),
                         padding: EdgeInsets.symmetric(
-                          horizontal: 11.w,
-                          vertical: 4.h,
+                          horizontal: 7.w,
+                          vertical: 5.h,
                         ),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20.r),
                           border: Border.all(
                             width: 1.5.w,
-                            color: Colorr.primaryColor[400]!,
+                            color: currentPrimaryColor!,
                           ),
                         ),
                         child: Center(
@@ -103,7 +123,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                               fontSize: 9.sp,
-                              color: Colorr.primaryColor[400],
+                              color: currentPrimaryColor,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -116,33 +136,38 @@ class _NewsWidgetState extends State<NewsWidget> {
 
                   /// actions buttons
                   Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Icon(
                         Icons.thumb_up,
-                        size: 18.w,
-                        color: Colorr.primaryColor[400],
+                        size: 17.w,
+                        color: currentPrimaryColor,
                       ),
 
                       SizedBox(width: 5.w),
 
                       Text(
                         "316k",
-                        style: TextStyle(color: Colors.black, fontSize: 11.sp),
+                        style: Theme.of(
+                          context,
+                        ).textTheme.bodyLarge!.copyWith(fontSize: 11.sp),
                       ),
 
                       SizedBox(width: 10.w),
 
                       Icon(
                         Icons.message,
-                        size: 18.w,
-                        color: Colorr.primaryColor[400],
+                        size: 17.w,
+                        color: currentPrimaryColor,
                       ),
 
                       SizedBox(width: 6.w),
 
                       Text(
                         "316k",
-                        style: TextStyle(color: Colors.black, fontSize: 11.sp),
+                        style: Theme.of(
+                          context,
+                        ).textTheme.bodyLarge!.copyWith(fontSize: 11.sp),
                       ),
 
                       Spacer(),
@@ -151,8 +176,8 @@ class _NewsWidgetState extends State<NewsWidget> {
                         onTap: widget.onBookmarkClick,
                         child: Icon(
                           size: 18.w,
-                          Icons.bookmark_outline,
-                          color: Colorr.primaryColor[400],
+                          CupertinoIcons.bookmark,
+                          color: currentPrimaryColor,
                         ),
                       ),
 
@@ -164,7 +189,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                           child: Icon(
                             Icons.edit,
                             size: 18.w,
-                            color: Colorr.primaryColor[400],
+                            color: currentPrimaryColor,
                           ),
                         ),
                     ],

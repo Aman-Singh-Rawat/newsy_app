@@ -48,6 +48,7 @@ class _MyNewsScreenState extends State<MyNewsScreen> {
                   index: cat.key,
                   categoryName: cat.value,
                   isSelected: cat.key == _selectedIndex,
+                  onCategoryChoose: () {},
                 ),
               );
             }).toList(),

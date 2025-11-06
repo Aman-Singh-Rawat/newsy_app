@@ -88,4 +88,10 @@ class TextStrings {
   static const String userName = "UserName";
   static const String fullName = "Full Name";
   static const String phoneNumber = "Phone Number";
+
+  /// profile setup dialog
+  static const String profileSetupDialogTitle =
+      "Great!\nYour account has been created successfully";
+
+  static const String goToHome = "Go to Home";
 }

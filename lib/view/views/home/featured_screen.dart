@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/utils/extension.dart';
+import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
-import 'package:newsy/view/widgets/custom_app_bar.dart';
 import 'package:newsy/view/widgets/featured_widget.dart';
 
 class FeaturedScreen extends StatelessWidget {
@@ -11,9 +11,8 @@ class FeaturedScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBar(
+      appBar: CustomAppBar(
         title: 'Featured News',
-        context: context,
         actions: [BtnWithBg(icon: Icons.more_vert_rounded)],
       ),
       body: ListView.builder(

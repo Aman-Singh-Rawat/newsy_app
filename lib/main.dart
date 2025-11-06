@@ -4,7 +4,7 @@ import 'package:flutter_quill/flutter_quill.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/theme/theme.dart';
-import 'package:newsy/view/views/onboarding/splash_screen.dart';
+import 'package:newsy/view/views/main_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
           ],
 
-          home: SplashScreen(),
+          home: MainScreen(),
         );
       },
     );

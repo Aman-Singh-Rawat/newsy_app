@@ -8,8 +8,8 @@ import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/date_formats.dart';
 import 'package:newsy/core/utils/extension.dart';
+import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
-import 'package:newsy/view/widgets/custom_app_bar.dart';
 import 'package:newsy/view/widgets/notification_item.dart';
 
 class NotificationScreen extends StatefulWidget {
@@ -46,9 +46,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBar(
+      appBar: CustomAppBar(
         title: "Notification",
-        context: context,
         actions: [BtnWithBg(icon: Icons.more_vert_rounded)],
       ),
       body: GroupedListView(

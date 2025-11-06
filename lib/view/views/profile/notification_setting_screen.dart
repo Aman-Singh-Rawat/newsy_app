@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/utils/extension.dart';
-import 'package:newsy/view/widgets/custom_app_bar.dart';
+import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/switch_option_widget.dart';
 
 class NotificationSettingScreen extends StatefulWidget {
@@ -25,7 +25,7 @@ class _NotificationSettingScreenState extends State<NotificationSettingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBar(title: "Notification", context: context),
+      appBar: CustomAppBar(title: "Notification"),
       body: SafeArea(
         child: ListView.builder(
           itemCount: switchTitles.length,

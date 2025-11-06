@@ -6,7 +6,6 @@ import 'package:newsy/view/views/profile/settings_screen.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
 import 'package:newsy/view/widgets/my_outline_button.dart';
 import 'package:newsy/view/widgets/news_widget.dart';
-import 'package:newsy/view/widgets/profile_placeholder.dart';
 import 'package:newsy/view/widgets/social_stats_widget.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -53,7 +52,6 @@ class _ProfileScreenState extends State<ProfileScreen>
 
               // perons image
               //ProfilePlaceholder(),
-
               SizedBox(height: 15.h),
 
               // name

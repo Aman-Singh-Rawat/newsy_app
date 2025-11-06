@@ -4,7 +4,7 @@ import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/extension.dart';
-import 'package:newsy/view/widgets/custom_app_bar.dart';
+import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/get_setting.dart';
 import 'package:newsy/view/widgets/logout_dialog.dart';
 
@@ -20,7 +20,7 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBar(title: "Settings", context: context),
+      appBar: CustomAppBar(title: "Settings",),
       body: Column(
         children: [
           ...settingsItems.asMap().entries.map((settingItem) {

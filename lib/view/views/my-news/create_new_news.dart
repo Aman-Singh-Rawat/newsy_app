@@ -9,7 +9,7 @@ import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/extension.dart';
-import 'package:newsy/view/widgets/custom_app_bar.dart';
+import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
 import 'package:newsy/view/widgets/html_editor.dart';
 import 'package:newsy/view/widgets/text_field_with_label_widget.dart';
@@ -48,7 +48,7 @@ class _CreateNewNewsState extends State<CreateNewNews> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      appBar: getAppBar(title: "Create New News", context: context),
+      appBar: CustomAppBar(title: "Create New News"),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(

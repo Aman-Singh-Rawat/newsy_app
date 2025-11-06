@@ -5,8 +5,8 @@ import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/setup-profile/choose_your_topics.dart';
+import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/bottom_navigation_btn.dart';
-import 'package:newsy/view/widgets/custom_app_bar.dart';
 import 'package:newsy/view/widgets/search_view_widget.dart';
 import 'package:newsy/view/widgets/select_your_widget.dart';
 
@@ -48,10 +48,9 @@ class _SelectYourCountryState extends State<SelectYourCountry> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBar(
+      appBar: CustomAppBar(
+        showBackArrow: false,
         title: TextStrings.selectYourCountry,
-        context: context,
-        showLeading: false,
       ),
       body: SingleChildScrollView(
         child: Column(

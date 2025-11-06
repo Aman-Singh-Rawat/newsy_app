@@ -5,10 +5,10 @@ import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/setup-profile/fill_your_profile_screen.dart';
+import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/choose_your_news_widget.dart';
 
 import '../../widgets/bottom_navigation_btn.dart';
-import '../../widgets/custom_app_bar.dart';
 import '../../widgets/search_view_widget.dart' show SearchViewWidget;
 
 class ChooseYourNewsSources extends StatefulWidget {
@@ -66,9 +66,8 @@ class _ChooseYourNewsSourcesState extends State<ChooseYourNewsSources> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBar(
+      appBar: CustomAppBar(
         title: TextStrings.chooseYourNewsSources,
-        context: context,
       ),
       body: SafeArea(
         child: SingleChildScrollView(

@@ -43,7 +43,11 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
             children: [
-              SvgPicture.asset(ImageStrings.icBookmark, width: 180.w, height: 180.h),
+              SvgPicture.asset(
+                ImageStrings.icBookmark,
+                width: 180.w,
+                height: 180.h,
+              ),
               SizedBox(height: 20),
               Text(
                 "You have No bookmarked news",
@@ -78,6 +82,7 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
                   index: cat.key,
                   categoryName: cat.value,
                   isSelected: cat.key == _selectedIndex,
+                  onCategoryChoose: () {},
                 ),
               );
             }).toList(),

@@ -39,6 +39,7 @@ class _NewsScreenWidgetState extends State<NewsScreenWidget> {
                   index: cat.key,
                   categoryName: cat.value,
                   isSelected: cat.key == _selectedIndex,
+                  onCategoryChoose: () {},
                 ),
               );
             }).toList(),

@@ -8,7 +8,7 @@ import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/core/utils/helpers/helper_function.dart';
 import 'package:newsy/view/views/auth/reset_password_screen.dart';
-import 'package:newsy/view/widgets/custom_app_bar.dart';
+import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/otp_pin_field.dart';
 
 import '../../../core/theme/app_colors.dart';
@@ -47,7 +47,7 @@ class _OtpScreenState extends State<OtpScreen> {
     _isCounterMinus = _counter == -1;
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      appBar: getAppBar(title: TextStrings.forgotPassword, context: context),
+      appBar: CustomAppBar(title: TextStrings.forgotPassword),
       body: GestureDetector(
         behavior: HitTestBehavior.opaque,
 

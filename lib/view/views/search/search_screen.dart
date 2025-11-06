@@ -6,11 +6,10 @@ import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/home/news_agency_detail_screen.dart';
-import 'package:newsy/view/widgets/custom_app_bar.dart';
+import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/get_search_result_widget.dart';
 import 'package:newsy/view/widgets/hashtag_widget.dart';
 import 'package:newsy/view/widgets/news_tab.dart';
-import 'package:newsy/view/widgets/search_view_and_filter.dart';
 import 'package:newsy/view/widgets/user_list_tile.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -117,19 +116,7 @@ class _SearchScreenState extends State<SearchScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      appBar: getAppBar(
-        title: "Search",
-        context: context,
-        bottomWidget: Column(
-          children: [
-            SearchViewAndFilter(),
-
-            SizedBox(height: 10.h),
-
-            myTabBar(),
-          ],
-        ).padSymmetric(horizontal: 20.w),
-      ),
+      appBar: CustomAppBar(title: "Search"),
       body: SafeArea(
         child: Column(
           children: [

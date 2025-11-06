@@ -40,6 +40,7 @@ class _NewsTabWidgetState extends State<NewsTabWidget> {
                   index: cat.key,
                   categoryName: cat.value,
                   isSelected: cat.key == _selectedIndex,
+                  onCategoryChoose: () {},
                 ),
               );
             }).toList(),

@@ -5,8 +5,8 @@ import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/setup-profile/choose_your_news_sources.dart';
+import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/choose_topic_widget.dart';
-import 'package:newsy/view/widgets/custom_app_bar.dart';
 import 'package:newsy/view/widgets/search_view_widget.dart';
 
 import '../../widgets/bottom_navigation_btn.dart';
@@ -66,10 +66,8 @@ class _ChooseYourTopicsState extends State<ChooseYourTopics> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBar(
+      appBar: CustomAppBar(
         title: TextStrings.chooseYourTopics,
-        showLeading: true,
-        context: context,
       ),
       body: SafeArea(
         child: SingleChildScrollView(

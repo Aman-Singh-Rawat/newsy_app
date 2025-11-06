@@ -4,7 +4,7 @@ import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/extension.dart';
-import 'package:newsy/view/widgets/custom_app_bar.dart';
+import 'package:newsy/view/widgets/appbar/appbar.dart';
 
 class HelpSettingScreen extends StatelessWidget {
   const HelpSettingScreen({super.key});
@@ -23,7 +23,7 @@ class HelpSettingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBar(title: "Help", context: context),
+      appBar: CustomAppBar(title: "Help"),
       body: SafeArea(
         child: ListView.builder(
           itemCount: helpList.length,

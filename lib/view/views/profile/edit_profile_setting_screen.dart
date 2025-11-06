@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/extension.dart';
-import 'package:newsy/view/widgets/custom_app_bar.dart';
+import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
-import 'package:newsy/view/widgets/profile_placeholder.dart';
 import 'package:newsy/view/widgets/text_field_with_label_widget.dart';
 
 class EditProfileSettingScreen extends StatefulWidget {
@@ -46,7 +45,7 @@ class _EditProfileSettingScreenState extends State<EditProfileSettingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      appBar: getAppBar(title: "Edit Profile", context: context),
+      appBar: CustomAppBar(title: "Edit Profile"),
       body: SingleChildScrollView(
         child: GestureDetector(
           onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
@@ -90,7 +89,7 @@ class _EditProfileSettingScreenState extends State<EditProfileSettingScreen> {
                 textInputAction: TextInputAction.done,
                 controller: websiteController,
               ),
-   
+
               SizedBox(height: 25.h),
 
               CustomBtn(

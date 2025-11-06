@@ -5,8 +5,8 @@ import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/extension.dart';
+import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/category_widget.dart';
-import 'package:newsy/view/widgets/custom_app_bar.dart';
 
 class FaqSettingScreen extends StatefulWidget {
   const FaqSettingScreen({super.key});
@@ -21,7 +21,7 @@ class _FaqSettingScreenState extends State<FaqSettingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBar(title: "FAQ", context: context),
+      appBar: CustomAppBar(title: "FAQ"),
       body: SafeArea(
         child: Column(
           children: [
@@ -38,6 +38,7 @@ class _FaqSettingScreenState extends State<FaqSettingScreen> {
                       index: cat.key,
                       categoryName: cat.value,
                       isSelected: cat.key == _selectedIndex,
+                      onCategoryChoose: () {},
                     ),
                   );
                 }).toList(),

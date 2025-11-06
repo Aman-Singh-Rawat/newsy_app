@@ -6,9 +6,8 @@ import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/auth/otp_screen.dart';
-import 'package:newsy/view/widgets/custom_app_bar.dart';
+import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/news_agency_widget.dart';
-
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
@@ -37,7 +36,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBar(title: TextStrings.forgotPassword, context: context),
+      appBar: CustomAppBar(title: TextStrings.forgotPassword),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(

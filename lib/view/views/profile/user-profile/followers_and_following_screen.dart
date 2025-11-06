@@ -4,8 +4,8 @@ import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/models/users.dart';
 import 'package:newsy/view/views/home/news_agency_detail_screen.dart';
+import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
-import 'package:newsy/view/widgets/custom_app_bar.dart';
 import 'package:newsy/view/widgets/search_view_and_filter.dart';
 import 'package:newsy/view/widgets/user_list_tile.dart';
 
@@ -35,9 +35,8 @@ class _FollowersAndFollowingScreenState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBar(
+      appBar: CustomAppBar(
         title: widget.title,
-        context: context,
         actions: [BtnWithBg(icon: Icons.more_vert_rounded)],
       ),
       body: SafeArea(

@@ -7,8 +7,8 @@ import 'package:newsy/core/navigation/app_navigation.dart';
 import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/core/utils/helpers/helper_function.dart';
+import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/bottom_navigation_btn.dart';
-import 'package:newsy/view/widgets/custom_app_bar.dart';
 import 'package:newsy/view/widgets/open_select_image_dialog.dart';
 import 'package:newsy/view/widgets/profile_placeholder.dart';
 import 'package:newsy/view/widgets/show_account_created_dialog.dart';
@@ -65,7 +65,7 @@ class _FillYourProfileScreenState extends State<FillYourProfileScreen> {
     final bool isDark = HelperFunction.isDarkMode(context);
 
     return Scaffold(
-      appBar: getAppBar(title: TextStrings.fillYourProfile, context: context),
+      appBar: CustomAppBar(title: TextStrings.fillYourProfile,),
       body: SingleChildScrollView(
         child: Form(
           child: Column(
@@ -131,6 +131,7 @@ class _FillYourProfileScreenState extends State<FillYourProfileScreen> {
             ? null
             : () => showDialog(
                 context: context,
+                barrierDismissible: false,
                 builder: (context) =>
                     showAccountCreatedDialog(context: context),
               ),

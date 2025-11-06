@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/utils/extension.dart';
-import 'package:newsy/view/widgets/custom_app_bar.dart';
+import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/my_outline_button.dart';
 import 'package:newsy/view/widgets/switch_option_widget.dart';
 
@@ -20,7 +20,7 @@ class _SecuritySettingScreenState extends State<SecuritySettingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBar(title: "Security", context: context),
+      appBar: CustomAppBar(title: "Security"),
       body: SafeArea(
         child: Column(
           children: [

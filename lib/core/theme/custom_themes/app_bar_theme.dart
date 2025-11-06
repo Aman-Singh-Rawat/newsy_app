@@ -14,7 +14,7 @@ class CustomAppBarTheme {
       fontWeight: FontWeight.w500,
       color: Colorr.darkBackground,
     ),
-
+    actionsPadding: EdgeInsets.only(right: 18.w),
     iconTheme: IconThemeData(color: Colorr.primary),
   );
 
@@ -23,10 +23,12 @@ class CustomAppBarTheme {
     scrolledUnderElevation: 0,
     iconTheme: IconThemeData(color: Colorr.primary),
     titleTextStyle: TextStyle(
-      fontSize: 18.sp, 
+      fontSize: 18.sp,
       fontFamily: "Poppins",
       fontWeight: FontWeight.w500,
       color: Colorr.textWhite,
     ),
+
+    actionsPadding: EdgeInsets.only(right: 18.w),
   );
 }

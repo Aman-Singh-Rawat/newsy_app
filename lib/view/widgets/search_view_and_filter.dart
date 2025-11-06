@@ -21,8 +21,8 @@ class SearchViewAndFilter extends StatelessWidget {
 
         BtnWithBg(
           icon: Icons.filter_list_rounded,
-          padding: 9.0,
-          iconSize: 26.0,
+          padding: EdgeInsets.all(10.0),
+          iconSize: 20.0,
         ),
       ],
     );

@@ -5,7 +5,7 @@ import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/core/utils/helpers/helper_function.dart';
 import 'package:newsy/view/views/auth/auth_screen.dart';
-import 'package:newsy/view/widgets/custom_app_bar.dart';
+import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/news_agency_widget.dart';
 
 class RoleScreen extends StatefulWidget {
@@ -37,9 +37,9 @@ class _RoleScreenState extends State<RoleScreen> {
     final isDark = HelperFunction.isDarkMode(context);
 
     return Scaffold(
-      appBar: getAppBar(
+      appBar: CustomAppBar(
         title: TextStrings.newsAgencyAppBarText,
-        context: context,
+        showBackArrow: true,
       ),
       body: Column(
         mainAxisSize: MainAxisSize.max,

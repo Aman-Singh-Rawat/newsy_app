@@ -4,7 +4,7 @@ import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/extension.dart';
-import 'package:newsy/view/widgets/custom_app_bar.dart';
+import 'package:newsy/view/widgets/appbar/appbar.dart';
 
 class InviteFriendsSettingScreen extends StatelessWidget {
   const InviteFriendsSettingScreen({super.key});
@@ -12,7 +12,7 @@ class InviteFriendsSettingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBar(title: "Invite Friends", context: context),
+      appBar: CustomAppBar(title: "Invite Friends"),
       body: SafeArea(
         child: ListView.builder(
           itemCount: inviteUser.length,

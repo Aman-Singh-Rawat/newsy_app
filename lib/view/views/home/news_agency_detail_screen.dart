@@ -5,8 +5,8 @@ import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/profile/settings_screen.dart';
 import 'package:newsy/view/views/profile/user-profile/followers_and_following_screen.dart';
+import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
-import 'package:newsy/view/widgets/custom_app_bar.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
 import 'package:newsy/view/widgets/my_outline_button.dart';
 import 'package:newsy/view/widgets/news_widget.dart';
@@ -32,9 +32,7 @@ class _NewsAgencyDetailScreenState extends State<NewsAgencyDetailScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBar(
-        title: "",
-        context: context,
+      appBar: CustomAppBar(
         actions: [
           BtnWithBg(icon: Icons.share).padOnly(right: 20.w),
 
