@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:newsy/core/theme/app_colors.dart';
+import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/enums.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/core/utils/helpers/helper_function.dart';
@@ -63,7 +64,7 @@ class NotificationItem extends StatelessWidget {
               Icon(Icons.add, size: 18.w, color: Colorr.light),
               SizedBox(width: 5.w),
               Text(
-                "Follow",
+                TextStrings.follow,
                 style: TextStyle(
                   fontSize: 11.sp,
                   fontWeight: FontWeight.w600,

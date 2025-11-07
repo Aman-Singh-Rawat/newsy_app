@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/core/utils/constants.dart';
+import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/date_formats.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/widgets/appbar/appbar.dart';
@@ -34,7 +35,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
         ),
         SizedBox(height: 20),
         Text(
-          "You have No Notifications",
+          TextStrings.youHaveNoNotification,
           style: CustomTextStyle.emptyTextStyle,
         ),
         SizedBox(height: 60),
@@ -46,7 +47,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: "Notification",
+        title: TextStrings.notification,
         actions: [BtnWithBg(icon: Icons.more_vert_rounded)],
       ),
       body: _isEmpty

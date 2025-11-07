@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:newsy/core/theme/app_colors.dart';
+import 'package:newsy/core/utils/constants/text_strings.dart';
+import 'package:newsy/core/utils/helpers/helper_function.dart';
 import 'package:newsy/view/views/search/hashtag_screen.dart';
 
 class HashtagWidget extends StatelessWidget {
@@ -10,6 +12,8 @@ class HashtagWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = HelperFunction.isDarkMode(context);
+
     return InkWell(
       onTap: () => Navigator.of(context).push(
         MaterialPageRoute(
@@ -17,28 +21,29 @@ class HashtagWidget extends StatelessWidget {
         ),
       ),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 23.h),
         margin: EdgeInsets.only(bottom: 10.h),
         decoration: BoxDecoration(
+          color: isDark ? Colorr.darkSurface : Colors.transparent,
           borderRadius: BorderRadius.all(Radius.circular(16.r)),
-          border: Border.all(color: Colors.grey.shade200, width: 1.5.w),
+          border: isDark
+              ? null
+              : Border.all(color: Colors.grey.shade200, width: 1.5.w),
         ),
         child: Row(
           children: [
             Text(
               hashtag["tag"] as String,
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 13.sp,
-                fontWeight: FontWeight.w600,
-              ),
+              style: Theme.of(
+                context,
+              ).textTheme.titleLarge!.copyWith(fontSize: 12.sp),
             ),
 
             Spacer(),
             Text(
               hashtag["count"] as String,
               style: TextStyle(
-                fontSize: 12.5.sp,
+                fontSize: 12.sp,
                 fontWeight: FontWeight.w600,
                 color: Colorr.primaryColor[400],
               ),
@@ -46,11 +51,10 @@ class HashtagWidget extends StatelessWidget {
 
             SizedBox(width: 6.w),
             Text(
-              "News",
-              style: TextStyle(
-                fontSize: 12.5.sp,
+              TextStrings.news,
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                fontSize: 11.sp,
                 fontWeight: FontWeight.w500,
-                color: Colors.black87,
               ),
             ),
           ],

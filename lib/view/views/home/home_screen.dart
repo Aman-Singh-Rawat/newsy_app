@@ -15,7 +15,6 @@ import 'package:newsy/view/widgets/category_widget.dart';
 import 'package:newsy/view/widgets/featured_widget.dart';
 import 'package:newsy/view/widgets/get_screen_title_and_see_all';
 import 'package:newsy/view/widgets/news_widget.dart';
-import 'package:newsy/view/widgets/searchview/search_view_widget.dart';
 import 'package:newsy/view/widgets/searchview/searchview_with_filter.dart';
 
 class HomeScreen extends StatefulWidget {

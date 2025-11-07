@@ -6,7 +6,6 @@ import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/core/utils/helpers/helper_function.dart';
 import 'package:newsy/view/views/home/news_detail_screen.dart';
-import 'package:newsy/view/widgets/news_tab.dart';
 
 class NewsWidget extends StatefulWidget {
   final VoidCallback? onBookmarkClick;

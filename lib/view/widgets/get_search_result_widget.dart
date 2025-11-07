@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/theme/app_colors.dart';
+import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
 
 class GetSearchResultWidget extends StatelessWidget {
@@ -13,7 +14,7 @@ class GetSearchResultWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Text(
-          "Search Results",
+          TextStrings.searchResults,
           style: Theme.of(
             context,
           ).textTheme.bodySmall!.copyWith(fontWeight: FontWeight.w500),

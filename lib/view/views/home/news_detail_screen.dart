@@ -102,7 +102,6 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
 
             UserListTile(
               user: users[0],
-              isBorder: false,
               onClick: () => Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => NewsAgencyDetailScreen(),

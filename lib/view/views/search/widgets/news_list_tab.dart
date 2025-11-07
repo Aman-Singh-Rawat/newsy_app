@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/constants/image_strings.dart';
+import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/widgets/category_widget.dart';
 import 'package:newsy/view/widgets/get_search_result_widget.dart';
@@ -28,11 +29,11 @@ class _NewsListTabState extends State<NewsListTab> {
           width: 200.w,
           height: 200.h,
         ),
-        Text("No Results Found", style: CustomTextStyle.emptyTextStyle),
+        Text(TextStrings.noResultFound, style: CustomTextStyle.emptyTextStyle),
 
         SizedBox(height: 12.h),
         Text(
-          "Please try another keyword",
+          TextStrings.pleaseTryAnotherKeyword,
           style: TextStyle(fontWeight: FontWeight.w500),
         ),
       ],

@@ -94,4 +94,22 @@ class TextStrings {
       "Great!\nYour account has been created successfully";
 
   static const String goToHome = "Go to Home";
+
+  /// search screen
+  static const String news = "News";
+  static const String people = "People";
+  static const String hashtag = "Hashtag";
+
+  /// search news list
+  static const String noResultFound = "No Result Found";
+  static const String pleaseTryAnotherKeyword = "Please try another keyword";
+  static const String searchResults = "Search Results";
+
+  /// search -> people
+  static const String follow = "Follow";
+  static const String following = "Following";
+
+  /// notification
+  static const String youHaveNoNotification = "You have No Notifications";
+  static const String notification = "Notification";
 }
