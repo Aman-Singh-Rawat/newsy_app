@@ -21,7 +21,7 @@ class CustomTextStyle {
   static TextStyle emptyTextStyle = TextStyle(
     fontSize: 19.sp,
     color: Colorr.primaryColor[400],
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.w500,
   );
 
   static TextStyle followFollowingTextStyle = TextStyle(

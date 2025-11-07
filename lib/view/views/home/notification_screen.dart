@@ -20,17 +20,16 @@ class NotificationScreen extends StatefulWidget {
 }
 
 class _NotificationScreenState extends State<NotificationScreen> {
-  get getEmptyNotification => SizedBox(
-    height: double.infinity,
-    width: double.infinity,
+  final bool _isEmpty = false;
+
+  get getEmptyNotification => Center(
     child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisSize: MainAxisSize.min,
       children: [
         Image.asset(
           ImageStrings.imgNotification,
-          width: 150.w,
-          height: 150.h,
+          width: 180.w,
+          height: 180.h,
           fit: BoxFit.contain,
         ),
         SizedBox(height: 20),
@@ -38,7 +37,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
           "You have No Notifications",
           style: CustomTextStyle.emptyTextStyle,
         ),
-        SizedBox(height: 20),
+        SizedBox(height: 60),
       ],
     ).padSymmetric(horizontal: 20.w),
   );
@@ -50,34 +49,36 @@ class _NotificationScreenState extends State<NotificationScreen> {
         title: "Notification",
         actions: [BtnWithBg(icon: Icons.more_vert_rounded)],
       ),
-      body: GroupedListView(
-        elements: notificationGroups,
-        groupHeaderBuilder: (element) => Text(
-          DateFormat(DateFormats.articleDateFormat12).format(element.dateTime),
-          style: TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.w500,
-            color: Colors.black54,
-          ),
-        ).padOnly(bottom: 15.h, top: 15.h),
-        groupBy: (element) => DateFormat(
-          DateFormats.articleDateFormat12,
-        ).format(element.dateTime),
-        order: GroupedListOrder.DESC,
-        groupSeparatorBuilder: (String date) => Text(
-          date,
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: Colors.black.withOpacity(0.9),
-          ),
-        ),
-        itemBuilder: (context, element) => Column(
-          children: element.notifications.map((notification) {
-            return NotificationItem(notification: notification);
-          }).toList(),
-        ),
-      ).padSymmetric(horizontal: 20.w),
+      body: _isEmpty
+          ? getEmptyNotification
+          : GroupedListView(
+              elements: notificationGroups,
+              groupHeaderBuilder: (element) => Text(
+                DateFormat(
+                  DateFormats.articleDateFormat12,
+                ).format(element.dateTime),
+                style: Theme.of(
+                  context,
+                ).textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.w500),
+              ).padOnly(bottom: 15.h, top: 15.h),
+              groupBy: (element) => DateFormat(
+                DateFormats.articleDateFormat12,
+              ).format(element.dateTime),
+              order: GroupedListOrder.DESC,
+              groupSeparatorBuilder: (String date) => Text(
+                date,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black.withOpacity(0.9),
+                ),
+              ),
+              itemBuilder: (context, element) => Column(
+                children: element.notifications.map((notification) {
+                  return NotificationItem(notification: notification);
+                }).toList(),
+              ),
+            ).padSymmetric(horizontal: 20.w),
     );
   }
 }

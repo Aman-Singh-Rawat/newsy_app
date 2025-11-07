@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/enums.dart';
 import 'package:newsy/core/utils/extension.dart';
+import 'package:newsy/core/utils/helpers/helper_function.dart';
 import 'package:newsy/models/notification.dart' as notification_model;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -10,16 +11,15 @@ class NotificationItem extends StatelessWidget {
   final notification_model.Notification notification;
   const NotificationItem({super.key, required this.notification});
 
-  Widget get getTitle {
+  Widget getTitle(BuildContext context) {
     if (notification.notificationType == NotificationType.message) {
       return Text(
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
         notification.title,
-        style: TextStyle(
-          fontSize: 14.sp,
+        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
           fontWeight: FontWeight.bold,
-          color: Colors.black,
+          fontSize: 13.sp,
         ),
       );
     } else {
@@ -29,18 +29,16 @@ class NotificationItem extends StatelessWidget {
         text: TextSpan(
           text: notification.title.split(" ").first,
           style: TextStyle(
-            fontSize: 13.sp,
+            fontSize: 12.sp,
             fontWeight: FontWeight.bold,
             color: Colorr.primaryColor[400],
           ),
           children: [
             TextSpan(
               text: " ${notification.title.split(" ").skip(1).join(" ")}",
-              style: TextStyle(
-                fontSize: 13.sp,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
+              style: Theme.of(
+                context,
+              ).textTheme.headlineMedium!.copyWith(fontSize: 12.sp),
             ),
           ],
         ),
@@ -48,31 +46,33 @@ class NotificationItem extends StatelessWidget {
     }
   }
 
-  Widget get getActionWiget {
+  Widget getActionWiget(BuildContext context) {
     Widget widget;
 
     if (notification.notificationType == NotificationType.isFollowingYou) {
-      widget = TextButton.icon(
-        style: TextButton.styleFrom(
-          fixedSize: Size(85.w, 0.h),
-          backgroundColor: Colorr.primaryColor[400],
-
-          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 0),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.r),
+      widget = GestureDetector(
+        onTap: () {},
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 7.w, vertical: 5.h),
+          decoration: BoxDecoration(
+            color: Colorr.primary,
+            borderRadius: BorderRadius.circular(20.r),
+          ),
+          child: Row(
+            children: [
+              Icon(Icons.add, size: 18.w, color: Colorr.light),
+              SizedBox(width: 5.w),
+              Text(
+                "Follow",
+                style: TextStyle(
+                  fontSize: 11.sp,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
+              ),
+            ],
           ),
         ),
-        label: Text(
-          "Follow",
-          style: TextStyle(
-            fontSize: 11.sp,
-
-            fontWeight: FontWeight.w600,
-            color: Colors.white,
-          ),
-        ),
-        onPressed: () {},
-        icon: Icon(Icons.add, color: Colors.white, size: 15.w),
       );
     } else if (notification.newsImage != null) {
       widget = ClipRRect(
@@ -93,17 +93,22 @@ class NotificationItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = HelperFunction.isDarkMode(context);
+
     return Container(
       margin: EdgeInsets.only(bottom: 12.h),
-      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
+      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 14.h),
       decoration: BoxDecoration(
+        color: isDark ? Colorr.darkSurface : Colors.transparent,
         borderRadius: BorderRadius.circular(14.r),
-        border: Border.all(color: Colors.grey.shade200, width: 1),
+        border: isDark
+            ? null
+            : Border.all(color: Colors.grey.shade200, width: 1),
       ),
       child: Row(
         children: [
           CircleAvatar(
-            radius: 22.r,
+            radius: 21.r,
             backgroundImage: NetworkImage(notification.leadingImage),
           ),
           SizedBox(width: 15.w),
@@ -112,15 +117,13 @@ class NotificationItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                getTitle,
+                getTitle(context),
                 if (notification.description != null) ...[
                   SizedBox(height: 6.h),
                   Text(
                     notification.description!,
-                    style: TextStyle(
-                      fontSize: 12.5.sp,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black.withOpacity(0.4),
+                    style: Theme.of(context).textTheme.labelSmall!.copyWith(
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ],
@@ -129,17 +132,16 @@ class NotificationItem extends StatelessWidget {
                   SizedBox(height: 6.h),
                   Text(
                     notification.timeAgo,
-                    style: TextStyle(
-                      fontSize: 10.sp,
+                    style: Theme.of(context).textTheme.labelSmall!.copyWith(
                       fontWeight: FontWeight.w500,
-                      color: Colors.black87,
+                      fontSize: 9.sp,
                     ),
                   ),
                 ],
               ],
             ),
           ),
-          getActionWiget,
+          getActionWiget(context),
         ],
       ),
     );

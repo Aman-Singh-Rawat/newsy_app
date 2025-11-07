@@ -14,7 +14,7 @@ class CustomAppBarTheme {
       fontWeight: FontWeight.w500,
       color: Colorr.darkBackground,
     ),
-    actionsPadding: EdgeInsets.only(right: 18.w),
+    actionsPadding: EdgeInsets.symmetric(horizontal: 18.w),
     iconTheme: IconThemeData(color: Colorr.primary),
   );
 
@@ -28,7 +28,6 @@ class CustomAppBarTheme {
       fontWeight: FontWeight.w500,
       color: Colorr.textWhite,
     ),
-
-    actionsPadding: EdgeInsets.only(right: 18.w),
+    actionsPadding: EdgeInsets.symmetric(horizontal: 18.w),
   );
 }

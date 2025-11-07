@@ -31,7 +31,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        leading: Image.asset(ImageStrings.imgSix),
+        leading: Padding(
+          padding: EdgeInsets.only(left: 14.w,),
+          child: Image.asset(ImageStrings.imgSix),
+        ),
         showBackArrow: false,
         title: "Berita",
         actions: [
@@ -87,7 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                         ),
-                        
+
                         SliverAppBar(
                           automaticallyImplyLeading: false,
                           pinned: true,
