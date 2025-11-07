@@ -45,9 +45,12 @@ class CategoryWidget extends StatelessWidget {
           categoryName,
           style: TextStyle(
             fontSize: 12.sp,
-            letterSpacing: 0.5,
             fontWeight: FontWeight.w600,
-            color: isSelected ? Colors.white : Colorr.primaryColor[300],
+            color: isSelected
+                ? Colors.white
+                : isDark
+                ? Colorr.primaryColor[300]
+                : Colorr.primaryColor[400],
           ),
         ),
       ),

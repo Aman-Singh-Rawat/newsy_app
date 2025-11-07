@@ -14,11 +14,9 @@ class GetSearchResultWidget extends StatelessWidget {
       children: [
         Text(
           "Search Results",
-          style: TextStyle(
-            color: Colors.black54,
-            fontSize: 13.sp,
-            fontWeight: FontWeight.w500,
-          ),
+          style: Theme.of(
+            context,
+          ).textTheme.bodySmall!.copyWith(fontWeight: FontWeight.w500),
         ),
 
         Text(

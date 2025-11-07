@@ -7,7 +7,7 @@ import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
 import 'package:newsy/view/widgets/category_widget.dart';
 import 'package:newsy/view/widgets/news_widget.dart';
-import 'package:newsy/view/widgets/search_view_and_filter.dart';
+import 'package:newsy/view/widgets/searchview/searchview_with_filter.dart';
 import 'package:newsy/view/widgets/show_bookmark_remove_bottom_sheet.dart';
 
 class MyNewsScreen extends StatefulWidget {
@@ -77,7 +77,7 @@ class _MyNewsScreenState extends State<MyNewsScreen> {
         child: Column(
           children: [
             SizedBox(height: 15.h),
-            SearchViewAndFilter().padSymmetric(horizontal: 20.w),
+            SearchViewWithFilter().padSymmetric(horizontal: 20.w),
             Expanded(child: getMyBookmarkNews()),
           ],
         ),

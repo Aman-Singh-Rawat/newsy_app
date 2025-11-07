@@ -6,7 +6,7 @@ import 'package:newsy/models/users.dart';
 import 'package:newsy/view/views/home/news_agency_detail_screen.dart';
 import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
-import 'package:newsy/view/widgets/search_view_and_filter.dart';
+import 'package:newsy/view/widgets/searchview/searchview_with_filter.dart';
 import 'package:newsy/view/widgets/user_list_tile.dart';
 
 class FollowersAndFollowingScreen extends StatefulWidget {
@@ -42,7 +42,7 @@ class _FollowersAndFollowingScreenState
       body: SafeArea(
         child: Column(
           children: [
-            SearchViewAndFilter().padOnly(top: 10.h, bottom: 20.h),
+            SearchViewWithFilter().padOnly(top: 10.h, bottom: 20.h),
 
             Expanded(
               child: ListView.builder(

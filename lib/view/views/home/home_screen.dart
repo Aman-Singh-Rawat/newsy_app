@@ -15,7 +15,8 @@ import 'package:newsy/view/widgets/category_widget.dart';
 import 'package:newsy/view/widgets/featured_widget.dart';
 import 'package:newsy/view/widgets/get_screen_title_and_see_all';
 import 'package:newsy/view/widgets/news_widget.dart';
-import 'package:newsy/view/widgets/search_view_widget.dart';
+import 'package:newsy/view/widgets/searchview/search_view_widget.dart';
+import 'package:newsy/view/widgets/searchview/searchview_with_filter.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -32,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: CustomAppBar(
         leading: Padding(
-          padding: EdgeInsets.only(left: 14.w,),
+          padding: EdgeInsets.only(left: 14.w),
           child: Image.asset(ImageStrings.imgSix),
         ),
         showBackArrow: false,
@@ -47,20 +48,10 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            Row(
-              children: [
-                Expanded(
-                  child: SearchViewWidget(
-                    controller: TextEditingController(),
-                    onButtonClick: () {},
-                  ),
-                ),
-
-                SizedBox(width: 10.w),
-
-                BtnWithBg(icon: Icons.filter_list_outlined),
-              ],
-            ).padSymmetric(horizontal: 20.w, vertical: 10.h),
+            SearchViewWithFilter().padSymmetric(
+              horizontal: 20.w,
+              vertical: 10.h,
+            ),
             Expanded(
               child: NestedScrollView(
                 headerSliverBuilder:

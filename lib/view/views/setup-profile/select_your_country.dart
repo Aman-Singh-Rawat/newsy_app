@@ -7,7 +7,7 @@ import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/setup-profile/choose_your_topics.dart';
 import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/bottom_navigation_btn.dart';
-import 'package:newsy/view/widgets/search_view_widget.dart';
+import 'package:newsy/view/widgets/searchview/search_view_widget.dart';
 import 'package:newsy/view/widgets/select_your_widget.dart';
 
 class SelectYourCountry extends StatefulWidget {

@@ -31,9 +31,9 @@ class CustomTextStyle {
   );
 
   static TextStyle tabTextStyle = TextStyle(
-    color: Colors.black,
-    fontSize: 14.0.sp,
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.bold,
+    fontSize: 14.sp,
+    color: Colorr.light,
   );
 
   static TextStyle settingScreenItemTitleStyle = TextStyle(

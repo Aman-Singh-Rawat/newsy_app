@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:newsy/core/theme/app_colors.dart';
 
 import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/home/news_agency_detail_screen.dart';
+import 'package:newsy/view/views/search/widgets/news_list_tab.dart';
 import 'package:newsy/view/widgets/appbar/appbar.dart';
+import 'package:newsy/view/widgets/category_widget.dart';
 import 'package:newsy/view/widgets/get_search_result_widget.dart';
 import 'package:newsy/view/widgets/hashtag_widget.dart';
 import 'package:newsy/view/widgets/news_tab.dart';
+import 'package:newsy/view/widgets/searchview/searchview_with_filter.dart';
 import 'package:newsy/view/widgets/user_list_tile.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -30,38 +34,6 @@ class _SearchScreenState extends State<SearchScreen>
       setState(() {});
     });
     super.initState();
-  }
-
-  TabBar myTabBar() {
-    return TabBar(
-      controller: tabController,
-      indicatorWeight: 3.5.h,
-      tabs: [
-        Tab(text: "News"),
-        Tab(text: "People"),
-        Tab(text: "Hashtag"),
-      ],
-    );
-  }
-
-  Widget get getEmptyWidget {
-    return Column(
-      children: [
-        Image.asset(
-          ImageStrings.imgNoResultFound,
-          fit: BoxFit.cover,
-          width: 200.w,
-          height: 200.h,
-        ),
-        Text("No Results Found", style: CustomTextStyle.emptyTextStyle),
-
-        SizedBox(height: 12.h),
-        Text(
-          "Please try another keyword",
-          style: TextStyle(fontWeight: FontWeight.w500),
-        ),
-      ],
-    ).padSymmetric(horizontal: 20.w);
   }
 
   Widget getPeopleTab() {
@@ -91,7 +63,7 @@ class _SearchScreenState extends State<SearchScreen>
     );
   }
 
-  Widget get getHashtag {
+  Widget hashtagTab() {
     return Column(
       children: [
         SizedBox(height: 20.h),
@@ -118,24 +90,31 @@ class _SearchScreenState extends State<SearchScreen>
       resizeToAvoidBottomInset: true,
       appBar: CustomAppBar(title: "Search"),
       body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              child: TabBarView(
-                controller: tabController,
-                children: [
-                  // News Tab
-                  NewsTabWidget(),
-
-                  // People Tab
-                  getPeopleTab(),
-
-                  // hashtag tab
-                  getHashtag,
-                ],
+        child: NestedScrollView(
+          headerSliverBuilder: (context, _) {
+            return [
+              SliverAppBar(
+                pinned: true,
+                flexibleSpace: SearchViewWithFilter().padSymmetric(
+                  horizontal: 20.w,
+                ),
+                bottom: TabBar(
+                  controller: tabController,
+                  indicatorWeight: 3.5.h,
+                  padding: EdgeInsets.symmetric(horizontal: 18.w),
+                  tabs: [
+                    Tab(text: "News"),
+                    Tab(text: "People"),
+                    Tab(text: "Hashtag"),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ];
+          },
+          body: TabBarView(
+            controller: tabController,
+            children: [NewsListTab(), getPeopleTab(), hashtagTab()],
+          ),
         ),
       ),
     );

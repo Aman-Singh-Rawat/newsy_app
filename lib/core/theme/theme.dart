@@ -4,6 +4,7 @@ import 'package:newsy/core/theme/custom_themes/app_bar_theme.dart';
 import 'package:newsy/core/theme/custom_themes/bottom_navigation_theme.dart';
 import 'package:newsy/core/theme/custom_themes/checkbox_theme.dart';
 import 'package:newsy/core/theme/custom_themes/elevated_btn_theme.dart';
+import 'package:newsy/core/theme/custom_themes/tabbar_theme.dart';
 import 'package:newsy/core/theme/custom_themes/text_btn_theme.dart';
 import 'package:newsy/core/theme/custom_themes/text_form_field_theme.dart';
 import 'package:newsy/core/theme/custom_themes/text_theme.dart';
@@ -24,6 +25,7 @@ class AppTheme {
 
     appBarTheme: CustomAppBarTheme.lightTheme,
     textTheme: AppTextStyles.lightTextTheme,
+    tabBarTheme: TabbarTheme.lightTheme,
     bottomNavigationBarTheme: BottomNavigationTheme.lightTheme,
     textButtonTheme: CustomTextBtnTheme.lightTheme,
     elevatedButtonTheme: ElevatedBtnTheme.lightTheme,
@@ -38,6 +40,7 @@ class AppTheme {
     useMaterial3: true,
     fontFamily: "Poppins",
     primaryColor: Colorr.primary,
+    tabBarTheme: TabbarTheme.darkTheme,
     appBarTheme: CustomAppBarTheme.darkTheme,
     textTheme: AppTextStyles.darkTextTheme,
     bottomNavigationBarTheme: BottomNavigationTheme.darkTheme,

@@ -32,7 +32,6 @@ class FeaturedWidget extends StatelessWidget {
                     child: Center(child: Icon(Icons.error)),
                   );
                 },
-                
               ),
             ),
           ),
@@ -40,7 +39,16 @@ class FeaturedWidget extends StatelessWidget {
           Positioned.fill(
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.4),
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Colors.black12,
+                    Colors.black12,
+                    Colors.black54,
+                    Colors.black87,
+                  ],
+                ),
                 borderRadius: BorderRadius.circular(20.r),
               ),
             ),

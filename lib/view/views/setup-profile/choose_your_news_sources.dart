@@ -9,7 +9,7 @@ import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/choose_your_news_widget.dart';
 
 import '../../widgets/bottom_navigation_btn.dart';
-import '../../widgets/search_view_widget.dart' show SearchViewWidget;
+import '../../widgets/searchview/search_view_widget.dart' show SearchViewWidget;
 
 class ChooseYourNewsSources extends StatefulWidget {
   const ChooseYourNewsSources({super.key});

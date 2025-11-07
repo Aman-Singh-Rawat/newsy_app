@@ -7,7 +7,7 @@ import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/setup-profile/choose_your_news_sources.dart';
 import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/choose_topic_widget.dart';
-import 'package:newsy/view/widgets/search_view_widget.dart';
+import 'package:newsy/view/widgets/searchview/search_view_widget.dart';
 
 import '../../widgets/bottom_navigation_btn.dart';
 
