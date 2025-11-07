@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/theme/app_colors.dart';
+import 'package:newsy/core/utils/constants/bottom_navigation_item.dart';
+import 'package:newsy/core/utils/helpers/helper_function.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
   final Function(int) onTap;
@@ -13,28 +15,41 @@ class CustomBottomNavigationBar extends StatelessWidget {
     required this.currentBottomSelectedIndex,
   });
 
-  Widget getBottomNavBarItem({
+  BottomNavigationBarItem bottomNavigationBarItem({
     required IconData icon,
     required bool isSelected,
+    required bool isDark,
+    required String label,
   }) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(13.r),
-        color: isSelected
-            ? Colorr.primaryColor[400]
-            : Colorr.primaryColor[100]!.withOpacity(0.5),
+    return BottomNavigationBarItem(
+      label: label,
+      icon: Container(
+        padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(13.r),
+          color: isSelected
+              ? Colorr.primaryColor[400]
+              : isDark
+              ? Colorr.iconBg
+              : Colorr.primaryColor[100]!.withOpacity(0.5),
+        ),
+        child: Icon(icon),
       ),
-      child: Icon(icon),
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = HelperFunction.isDarkMode(context);
     return Container(
       padding: EdgeInsets.only(top: 10.h, left: 10.w, right: 10.w),
       decoration: BoxDecoration(
-        border: Border(top: BorderSide(width: 2, color: Colors.grey.shade200)),
+        border: Border(
+          top: BorderSide(
+            width: 2,
+            color: isDark ? Colorr.darkSurface : Colors.grey.shade200,
+          ),
+        ),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(25.r),
           topRight: Radius.circular(25.r),
@@ -48,57 +63,21 @@ class CustomBottomNavigationBar extends StatelessWidget {
         ),
         child: BottomNavigationBar(
           iconSize: 20.w,
-          backgroundColor: Colors.transparent,
-          elevation: 0,
           onTap: onTap,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          selectedIconTheme: IconThemeData(color: Colors.white),
-          unselectedIconTheme: IconThemeData(color: Colorr.primaryColor[400]),
+          backgroundColor: Colors.transparent,
           currentIndex: currentBottomSelectedIndex,
-          type: BottomNavigationBarType.fixed,
-          items: [
-            BottomNavigationBarItem(
-              icon: getBottomNavBarItem(
-                icon: Icons.home,
-                isSelected: currentBottomSelectedIndex == 0,
-              ),
-              label: "Home",
-            ),
+          items: bottomNavigationBarItemValues.asMap().entries.map((
+            bottomValue,
+          ) {
+            final item = bottomValue.value;
 
-            BottomNavigationBarItem(
-              icon: getBottomNavBarItem(
-                icon: Icons.search,
-                isSelected: currentBottomSelectedIndex == 1,
-              ),
-              label: "Search",
-            ),
-
-            BottomNavigationBarItem(
-              icon: getBottomNavBarItem(
-                icon: CupertinoIcons.bookmark,
-                isSelected: currentBottomSelectedIndex == 2,
-              ),
-
-              label: "Bookmark",
-            ),
-
-            BottomNavigationBarItem(
-              icon: getBottomNavBarItem(
-                icon: CupertinoIcons.list_bullet,
-                isSelected: currentBottomSelectedIndex == 3,
-              ),
-              label: "List",
-            ),
-
-            BottomNavigationBarItem(
-              icon: getBottomNavBarItem(
-                icon: Icons.person,
-                isSelected: currentBottomSelectedIndex == 4,
-              ),
-              label: "Profile",
-            ),
-          ],
+            return bottomNavigationBarItem(
+              icon: item["icon"],
+              isSelected: currentBottomSelectedIndex == bottomValue.key,
+              isDark: isDark,
+              label: item["label"],
+            );
+          }).toList(),
         ),
       ),
     );

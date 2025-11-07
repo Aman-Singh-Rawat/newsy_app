@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:newsy/core/theme/app_colors.dart';
+import 'package:newsy/core/utils/helpers/helper_function.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
 
 class FeaturedWidget extends StatelessWidget {
@@ -9,6 +11,7 @@ class FeaturedWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = HelperFunction.isDarkMode(context);
     return SizedBox(
       width: double.maxFinite,
       height: 243.h,
@@ -21,6 +24,15 @@ class FeaturedWidget extends StatelessWidget {
               child: Image.network(
                 "https://english.cdn.zeenews.com/sites/default/files/2021/02/07/915333-tiger-shroff-pool.jpg?im=Resize=(1200,900)",
                 fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      color: isDark ? Colorr.darkSurface : Colors.grey.shade200,
+                    ),
+                    child: Center(child: Icon(Icons.error)),
+                  );
+                },
+                
               ),
             ),
           ),

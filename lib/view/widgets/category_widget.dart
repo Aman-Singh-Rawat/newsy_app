@@ -27,7 +27,7 @@ class CategoryWidget extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(
           horizontal: isSelected ? 18.w : 17.w,
-          vertical: isSelected ? 9.h : 8.h,
+          vertical: isSelected ? 10.h : 8.h,
         ),
         margin: EdgeInsets.only(right: 10.w, left: index == 0 ? 20.w : 0),
         decoration: BoxDecoration(
@@ -38,7 +38,7 @@ class CategoryWidget extends StatelessWidget {
               : Colorr.light,
           borderRadius: BorderRadius.circular(20.r),
           border: !isSelected
-              ? Border.all(width: 2.w, color: Colorr.primaryColor[400]!)
+              ? Border.all(width: 2.w, color: Colorr.primaryColor[300]!)
               : null,
         ),
         child: Text(
@@ -47,7 +47,7 @@ class CategoryWidget extends StatelessWidget {
             fontSize: 12.sp,
             letterSpacing: 0.5,
             fontWeight: FontWeight.w600,
-            color: isSelected ? Colors.white : Colorr.primaryColor[400],
+            color: isSelected ? Colors.white : Colorr.primaryColor[300],
           ),
         ),
       ),
