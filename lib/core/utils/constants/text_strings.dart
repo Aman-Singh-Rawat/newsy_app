@@ -112,4 +112,8 @@ class TextStrings {
   /// notification
   static const String youHaveNoNotification = "You have No Notifications";
   static const String notification = "Notification";
+
+  /// Hashtag
+  static const String top = "Top";
+  static const String recent = "Recent";
 }

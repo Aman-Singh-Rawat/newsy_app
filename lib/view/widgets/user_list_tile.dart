@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/helpers/helper_function.dart';
 import 'package:newsy/models/users.dart';
-import 'package:newsy/view/widgets/follow_status_background.dart';
+import 'package:newsy/view/widgets/texts/follow_status_text.dart';
 
 class UserListTile extends StatelessWidget {
   final User user;

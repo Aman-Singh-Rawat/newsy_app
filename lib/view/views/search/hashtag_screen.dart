@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:newsy/core/theme/app_colors.dart';
+import 'package:newsy/core/theme/custom_text_style.dart';
+import 'package:newsy/core/utils/constants/text_strings.dart';
 
 import 'package:newsy/core/utils/extension.dart';
+import 'package:newsy/core/utils/helpers/helper_function.dart';
 import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
 import 'package:newsy/view/widgets/news_widget.dart';
+import 'package:newsy/view/widgets/texts/text_container.dart';
 
 class HashtagScreen extends StatefulWidget {
   final Map<String, String> hashtag;
@@ -21,101 +26,88 @@ class _HashtagScreenState extends State<HashtagScreen>
   @override
   void initState() {
     tabController = TabController(length: 2, vsync: this);
-    tabController.addListener(() {
-      setState(() {});
-    });
+    tabController.addListener(() => setState(() {}));
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = HelperFunction.isDarkMode(context);
     return Scaffold(
       appBar: CustomAppBar(
-        title: ((widget.hashtag["tag"] as String).substring(1)),
+        title: TextStrings.hashtag,
         actions: [BtnWithBg(icon: Icons.more_vert_rounded)],
-        // prefSize: 190,
-        // bottomWidget: Column(
-        //   children: [
-        //     Row(
-        //       mainAxisAlignment: MainAxisAlignment.center,
-        //       children: [
-        //         Container(
-        //           padding: EdgeInsets.symmetric(
-        //             horizontal: 12.w,
-        //             vertical: 10.h,
-        //           ),
-        //           decoration: BoxDecoration(
-        //             color: Colorr.primaryColor[400],
-        //             borderRadius: BorderRadius.circular(25.sp),
-        //           ),
-        //           child: Center(
-        //             child: Text(
-        //               widget.hashtag["tag"] as String,
-        //               style: TextStyle(
-        //                 color: Colors.white,
-        //                 fontWeight: FontWeight.w600,
-        //                 fontSize: 13.sp,
-        //               ),
-        //             ),
-        //           ),
-        //         ),
-        //       ],
-        //     ),
-        //     SizedBox(height: 20.h),
-        //     Row(
-        //       crossAxisAlignment: CrossAxisAlignment.center,
-        //       mainAxisAlignment: MainAxisAlignment.center,
-        //       children: [
-        //         Text(
-        //           widget.hashtag["count"] as String,
-        //           style: TextStyle(
-        //             fontWeight: FontWeight.w600,
-        //             color: Colorr.primaryColor[400],
-        //             fontSize: 14.sp,
-        //           ),
-        //         ),
-        //         SizedBox(width: 3.w),
-        //         Text(
-        //           "news",
-        //           style: TextStyle(
-        //             fontWeight: FontWeight.w600,
-        //             color: Colors.black,
-        //             fontSize: 14.sp,
-        //           ),
-        //         ),
-        //       ],
-        //     ),
-
-        //     SizedBox(height: 22.h),
-
-        //     Divider(color: Colors.grey.shade200),
-
-        //     SizedBox(height: 10.h),
-
-        //     TabBar(
-        //       controller: tabController,
-        //       indicatorWeight: 3.5.h,
-        //       tabs: [
-        //         Tab(text: "Top"),
-        //         Tab(text: "Recent"),
-        //       ],
-        //     ),
-        //   ],
-        // ).padSymmetric(horizontal: 20.w),
       ),
-      body: TabBarView(
-        controller: tabController,
+      body: Column(
         children: [
-          ListView.builder(
-            itemBuilder: (context, index) => NewsWidget(),
-            itemCount: 5,
-          ).padOnly(top: 20.h),
+          // Hashtag header (fixed)
+          SizedBox(height: 20.h),
+          TextContainer(
+            padding: EdgeInsets.symmetric(horizontal: 17.w, vertical: 10.h),
+            child: Text(
+              widget.hashtag["tag"]!,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 13.sp,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          SizedBox(height: 20.h),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                widget.hashtag["count"]!,
+                style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  color: Colorr.primaryColor[400],
+                  fontSize: 14.sp,
+                ),
+              ),
+              SizedBox(width: 3.w),
+              Text(
+                TextStrings.news.toLowerCase(),
+                style: Theme.of(
+                  context,
+                ).textTheme.bodyLarge!.copyWith(fontWeight: FontWeight.w600),
+              ),
+            ],
+          ),
+          Divider(
+            color: isDark ? Colorr.darkSurface : Colors.grey.shade200,
+          ).padOnly(top: 10.h, left: 20.h, right: 20.h, bottom: 10.h),
 
-          // another tab item
-          ListView.builder(
-            itemBuilder: (context, index) => NewsWidget(),
-            itemCount: 5,
-          ).padOnly(top: 20.h),
+          // Tabs
+          TabBar(
+            padding: EdgeInsets.symmetric(horizontal: 18.w),
+            controller: tabController,
+            indicatorWeight: 3.5.h,
+            tabs: const [
+              Tab(text: TextStrings.top),
+              Tab(text: TextStrings.recent),
+            ],
+          ),
+
+          // Scrollable area
+          Expanded(
+            child: TabBarView(
+              controller: tabController,
+              children: [
+                ListView.separated(
+                  itemBuilder: (context, index) => NewsWidget(),
+                  itemCount: 5,
+                  separatorBuilder: (_, __) => SizedBox(height: 20.h),
+                ).padOnly(top: 20.h, left: 20.w, right: 20.w),
+
+                ListView.separated(
+                  itemBuilder: (context, index) => NewsWidget(),
+                  itemCount: 5,
+                  separatorBuilder: (_, __) => SizedBox(height: 20.h),
+                ).padOnly(top: 20.h, left: 20.w, right: 20.w),
+              ],
+            ),
+          ),
         ],
       ),
     );

@@ -30,7 +30,7 @@ class _NewsWidgetState extends State<NewsWidget> {
       ).push(MaterialPageRoute(builder: (context) => NewsDetailScreen())),
       child: Container(
         width: double.infinity,
-        height: 155.h,
+        height: 150.h,
         decoration: BoxDecoration(
           color: isDark ? Colorr.darkSurface : Colors.transparent,
           borderRadius: BorderRadius.circular(20.r),
@@ -39,7 +39,6 @@ class _NewsWidgetState extends State<NewsWidget> {
             width: 1.5.w,
           ),
         ),
-        margin: EdgeInsets.symmetric(vertical: 5.h),
         child: Row(
           children: [
             Expanded(
