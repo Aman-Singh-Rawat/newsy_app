@@ -67,8 +67,9 @@ class _NewsListTabState extends State<NewsListTab> {
 
           SizedBox(height: 20.h),
 
-          ListView.builder(
+          ListView.separated(
             itemBuilder: (context, index) => NewsWidget(),
+            separatorBuilder: (context, index) => SizedBox(height: 15.h),
             itemCount: 5,
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),

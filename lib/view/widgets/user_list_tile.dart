@@ -8,8 +8,16 @@ import 'package:newsy/view/widgets/texts/follow_status_text.dart';
 
 class UserListTile extends StatelessWidget {
   final User user;
+  final Color? color;
   final VoidCallback onClick;
-  const UserListTile({super.key, required this.user, required this.onClick});
+  final Border? border;
+  const UserListTile({
+    super.key,
+    this.border,
+    required this.user,
+    required this.onClick,
+    this.color,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +28,9 @@ class UserListTile extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.only(bottom: 10.h),
         decoration: BoxDecoration(
-          color: isDark ? Colorr.darkSurface : Colors.transparent,
+          color: color,
           borderRadius: BorderRadius.all(Radius.circular(15.r)),
-          border: !isDark
-              ? Border.all(color: Colors.grey.shade200, width: 1.5.w)
-              : null,
+          border: border,
         ),
         child: ListTile(
           contentPadding: EdgeInsets.symmetric(horizontal: 8.w),

@@ -130,8 +130,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ];
                     },
-                body: ListView.builder(
+                body: ListView.separated(
                   itemBuilder: (context, index) => NewsWidget(),
+                  separatorBuilder: (context, index) => SizedBox(height: 15.h),
                   itemCount: 5,
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),

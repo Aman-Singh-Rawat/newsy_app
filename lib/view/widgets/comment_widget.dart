@@ -51,18 +51,18 @@ class CommentWidget extends StatelessWidget {
 
           Row(
             children: [
-              MyTextButton(
+              ActionButton(
                 icon: Icons.thumb_up,
                 text: comment.likes.toString(),
               ),
               SizedBox(width: 10.w),
 
-              MyTextButton(
+              ActionButton(
                 icon: Icons.thumb_down,
                 text: comment.dislikes.toString(),
               ),
               SizedBox(width: 10.w),
-              MyTextButton(
+              ActionButton(
                 icon: Icons.message,
                 text: comment.comments.toString(),
               ),

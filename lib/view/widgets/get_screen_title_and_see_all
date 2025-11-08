@@ -36,30 +36,3 @@ class ScreenTitleText extends StatelessWidget {
     );
   }
 }
-
-Widget getScreenTitleAndSeeAll({
-    required String title,
-    VoidCallback? onTextClick,
-  }) {
-    return Row(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          title,
-        ),
-
-        InkWell(
-          onTap: onTextClick,
-          child: Text(
-            "See all",
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-              color: Colorr.primaryColor[400],
-            ),
-          ),
-        ),
-      ],
-    );
-  }

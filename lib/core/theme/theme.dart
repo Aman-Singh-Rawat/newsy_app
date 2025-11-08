@@ -3,6 +3,8 @@ import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/theme/custom_themes/app_bar_theme.dart';
 import 'package:newsy/core/theme/custom_themes/bottom_navigation_theme.dart';
 import 'package:newsy/core/theme/custom_themes/checkbox_theme.dart';
+import 'package:newsy/core/theme/custom_themes/chip_theme.dart';
+import 'package:newsy/core/theme/custom_themes/divider_theme.dart';
 import 'package:newsy/core/theme/custom_themes/elevated_btn_theme.dart';
 import 'package:newsy/core/theme/custom_themes/tabbar_theme.dart';
 import 'package:newsy/core/theme/custom_themes/text_btn_theme.dart';
@@ -22,7 +24,8 @@ class AppTheme {
     textSelectionTheme: TextSelectionThemeData().copyWith(
       cursorColor: Colorr.primary,
     ),
-
+    dividerTheme: ADividerTheme.lightTheme,
+    chipTheme: AChipTheme.lightTheme,
     appBarTheme: CustomAppBarTheme.lightTheme,
     textTheme: AppTextStyles.lightTextTheme,
     tabBarTheme: TabbarTheme.lightTheme,
@@ -36,9 +39,10 @@ class AppTheme {
 
   // dark theme
   static ThemeData darkTheme = ThemeData(
-    
     useMaterial3: true,
     fontFamily: "Poppins",
+    dividerTheme: ADividerTheme.darkTheme,
+    chipTheme: AChipTheme.darkTheme,
     primaryColor: Colorr.primary,
     tabBarTheme: TabbarTheme.darkTheme,
     appBarTheme: CustomAppBarTheme.darkTheme,
@@ -53,8 +57,8 @@ class AppTheme {
       cursorColor: Colorr.primary,
     ),
     colorScheme: ColorScheme.fromSeed(
-    seedColor: Colorr.primary,
-    brightness: Brightness.dark,
-  ),
+      seedColor: Colorr.primary,
+      brightness: Brightness.dark,
+    ),
   );
 }

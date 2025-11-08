@@ -6,6 +6,7 @@ import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/core/utils/helpers/helper_function.dart';
 import 'package:newsy/view/views/home/news_detail_screen.dart';
+import 'package:newsy/view/widgets/my_text_button.dart';
 
 class NewsWidget extends StatefulWidget {
   final VoidCallback? onBookmarkClick;
@@ -136,37 +137,13 @@ class _NewsWidgetState extends State<NewsWidget> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Icon(
-                        Icons.thumb_up,
-                        size: 17.w,
-                        color: currentPrimaryColor,
-                      ),
+                      /// Like
+                      ActionButton(icon: Icons.thumb_up, text: "316k"),
+                      SizedBox(width: 15.w),
 
-                      SizedBox(width: 5.w),
-
-                      Text(
-                        "316k",
-                        style: Theme.of(
-                          context,
-                        ).textTheme.bodyLarge!.copyWith(fontSize: 11.sp),
-                      ),
-
-                      SizedBox(width: 10.w),
-
-                      Icon(
-                        Icons.message,
-                        size: 17.w,
-                        color: currentPrimaryColor,
-                      ),
-
-                      SizedBox(width: 6.w),
-
-                      Text(
-                        "316k",
-                        style: Theme.of(
-                          context,
-                        ).textTheme.bodyLarge!.copyWith(fontSize: 11.sp),
-                      ),
+                      /// Comments
+                      ActionButton(icon: Icons.message, text: "316k"),
+                      SizedBox(width: 15.w),
 
                       Spacer(),
 

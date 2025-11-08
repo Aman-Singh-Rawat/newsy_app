@@ -2,28 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:newsy/core/theme/app_colors.dart';
+import 'package:newsy/core/utils/helpers/helper_function.dart';
 
-class MyTextButton extends StatelessWidget {
+class ActionButton extends StatelessWidget {
   final IconData icon;
   final String text;
-  const MyTextButton({super.key, required this.icon, required this.text});
+  const ActionButton({super.key, required this.icon, required this.text});
 
   @override
   Widget build(BuildContext context) {
-    return TextButton.icon(
-      onPressed: () {},
-      style: TextButton.styleFrom(padding: const EdgeInsets.all(2)),
-      icon: Icon(icon, size: 18.w, color: Colorr.primaryColor[400]),
-      label: Text(
-        text,
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 12.sp,
-          fontWeight: FontWeight.w600,
+    final bool isDark = HelperFunction.isDarkMode(context);
+    final currentPrimaryColor = isDark
+        ? Colorr.primaryColor[300]
+        : Colorr.primaryColor[400];
+    return Row(
+      children: [
+        Icon(icon, size: 17.w, color: currentPrimaryColor),
+
+        SizedBox(width: 5.w),
+
+        Text(
+          text,
+          style: Theme.of(
+            context,
+          ).textTheme.bodyLarge!.copyWith(fontSize: 11.sp),
         ),
-      ),
+      ],
     );
   }
 }

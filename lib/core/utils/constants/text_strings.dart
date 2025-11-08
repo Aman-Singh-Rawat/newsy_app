@@ -116,4 +116,10 @@ class TextStrings {
   /// Hashtag
   static const String top = "Top";
   static const String recent = "Recent";
+
+  /// News detail
+  static const String comments = "Comments";
+  static const String related = "Related  ";
+  static const String addACommentHintText = "Add a Comment...";
+  static const String isThisNewsHelpful = "Is this news helpful?";
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/extension.dart';
+import 'package:newsy/core/utils/helpers/helper_function.dart';
 import 'package:newsy/view/views/home/news_agency_detail_screen.dart';
 import 'package:newsy/view/widgets/get_search_result_widget.dart';
 import 'package:newsy/view/widgets/user_list_tile.dart';
@@ -11,6 +13,7 @@ class PeopleTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = HelperFunction.isDarkMode(context);
     return Column(
       children: [
         SizedBox(height: 20.h),
@@ -25,6 +28,10 @@ class PeopleTab extends StatelessWidget {
             itemCount: users.length,
             itemBuilder: (context, index) => UserListTile(
               user: users[index],
+              border: !isDark
+                  ? Border.all(color: Colors.grey.shade200, width: 1.5.w)
+                  : null,
+              color: isDark ? Colorr.darkSurface : Colors.transparent,
               onClick: () => Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => NewsAgencyDetailScreen(),

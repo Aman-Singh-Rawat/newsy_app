@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:newsy/core/navigation/app_navigation.dart';
 
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/constants.dart';
+import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
+import 'package:newsy/core/utils/helpers/helper_function.dart'
+    show HelperFunction;
 import 'package:newsy/view/views/home/news_agency_detail_screen.dart';
+import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/beautiful_comment_widget.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
 import 'package:newsy/view/widgets/get_screen_title_and_see_all';
 import 'package:newsy/view/widgets/my_text_button.dart';
 import 'package:newsy/view/widgets/news_widget.dart';
+import 'package:newsy/view/widgets/texts/text_container.dart';
 import 'package:newsy/view/widgets/user_list_tile.dart';
 
 class NewsDetailScreen extends StatefulWidget {
@@ -23,24 +29,30 @@ class NewsDetailScreen extends StatefulWidget {
 class _NewsDetailScreenState extends State<NewsDetailScreen> {
   @override
   Widget build(BuildContext context) {
+    final bool isDark = HelperFunction.isDarkMode(context);
+    final currentPrimaryColor = isDark
+        ? Colorr.primaryColor[300]
+        : Colorr.primaryColor[400];
+
     return Scaffold(
-      appBar: AppBar(
-        leading: InkWell(
-          onTap: () => Navigator.of(context).pop(),
-          child: Icon(Icons.arrow_back),
-        ),
-        actionsPadding: EdgeInsets.symmetric(horizontal: 20.w),
+      appBar: CustomAppBar(
         actions: [
+          /// share button
           BtnWithBg(icon: Icons.share_rounded),
           SizedBox(width: 10.w),
+
+          /// bookmark
           BtnWithBg(icon: Icons.bookmark_outline_rounded),
           SizedBox(width: 10.w),
+
+          /// more
           BtnWithBg(icon: Icons.more_vert_rounded),
         ],
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
+            /// News Image
             SizedBox(
               height: 243.h,
               width: double.infinity,
@@ -53,73 +65,72 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
               ),
             ),
 
-            SizedBox(height: 10.h),
+            SizedBox(height: 20.h),
+
+            /// Title
             Text(
               "Joe Biden at Press Confrence USA Announces New Political Policy",
-              style: TextStyle(
-                height: 1.6.h,
-                color: Colors.black,
-                fontSize: 16.sp,
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
                 fontWeight: FontWeight.w600,
+                height: 1.4.h,
+                fontSize: 17.sp,
               ),
             ),
 
-            SizedBox(height: 10.h),
+            SizedBox(height: 22.h),
 
+            /// Action Buttons and topic
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 3.h),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25.r),
-                    border: Border.all(
-                      color: Colorr.primaryColor[400]!,
-                      width: 1.5.w,
-                    ),
-                  ),
+                TextContainer(
+                  border: Border.all(color: currentPrimaryColor!),
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4.h),
+                  color: Colors.transparent,
                   child: Text(
                     "Politics",
                     style: TextStyle(
-                      color: Colorr.primaryColor[400],
-                      fontSize: 11.sp,
+                      color: currentPrimaryColor,
+                      fontSize: 9.sp,
                     ),
                   ),
                 ),
 
                 SizedBox(width: 15.w),
 
-                // buttons
-                MyTextButton(icon: Icons.visibility, text: "638.8k"),
-                SizedBox(width: 10.w),
+                // Views
+                ActionButton(icon: Icons.visibility, text: "638.8k"),
+                SizedBox(width: 15.w),
 
-                MyTextButton(icon: Icons.thumb_up, text: "638.8k"),
-                SizedBox(width: 10.w),
-                MyTextButton(icon: Icons.message, text: "638.8k"),
+                /// likes
+                ActionButton(icon: Icons.thumb_up, text: "638.8k"),
+                SizedBox(width: 15.w),
+
+                /// comments
+                ActionButton(icon: Icons.message, text: "638.8k"),
               ],
             ),
 
+            SizedBox(height: 15.h),
+
+            /// user
             UserListTile(
               user: users[0],
-              onClick: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => NewsAgencyDetailScreen(),
-                ),
-              ),
+
+              color: Colors.transparent,
+              onClick: () =>
+                  AppNavigator.push(context, const NewsAgencyDetailScreen()),
             ),
 
             // desc
             Text(
               "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.",
-              style: TextStyle(
-                fontSize: 12.sp,
-                height: 1.5.h,
-                fontWeight: FontWeight.w500,
-                color: Colors.black54,
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                fontWeight: FontWeight.w400,
+                height: 1.6.h,
               ),
             ),
-
             SizedBox(height: 20.h),
             AspectRatio(
               aspectRatio: 16 / 9,
@@ -135,14 +146,17 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
             SizedBox(height: 20.h),
             Text(
               "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi.",
-              style: CustomTextStyle.userCommentTextStyle,
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                fontWeight: FontWeight.w400,
+                height: 1.6.h,
+              ),
             ),
 
             SizedBox(height: 10.h),
 
             Wrap(
-              runSpacing: 2.h,
-              spacing: 5.w,
+              runSpacing: 1.h,
+              spacing: 10.w,
               children:
                   [
                     "#politics",
@@ -153,60 +167,44 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
                     "#android",
                     "#flutter",
                   ].map((value) {
-                    return Chip(
-                      label: Text(value),
-                      backgroundColor: Colors.white,
-                      labelStyle: TextStyle(
-                        color: Colorr.primaryColor[400],
-                        fontSize: 11.sp,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(24.r),
-                        side: BorderSide(
-                          color: Colorr.primaryColor[400]!,
-                          width: 1.7.w,
-                        ),
-                      ),
-                    );
+                    return Chip(label: Text(value));
                   }).toList(),
             ),
 
-            SizedBox(height: 20.sp),
+            SizedBox(height: 22.sp),
 
             Row(
               children: [
                 Text(
-                  "Is this news helpful?",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 14.sp,
-                  ),
+                  TextStrings.isThisNewsHelpful,
+                  style: Theme.of(
+                    context,
+                  ).textTheme.headlineMedium!.copyWith(fontSize: 14.sp),
                 ),
 
                 Spacer(),
-                MyTextButton(icon: Icons.thumb_up, text: "381.4k"),
-                SizedBox(width: 10.w),
-                MyTextButton(icon: Icons.thumb_down, text: "21.4k"),
+                ActionButton(icon: Icons.thumb_up, text: "381.4k"),
+                SizedBox(width: 15.w),
+                ActionButton(icon: Icons.thumb_down, text: "21.4k"),
               ],
             ),
 
-            SizedBox(height: 20.h),
+            SizedBox(height: 22.h),
 
             // comment
             BeautifulCommentWidget(),
 
-            Divider(color: Colors.grey.shade200).padSymmetric(vertical: 17.h),
+            Divider().padSymmetric(vertical: 17.h),
 
-            getScreenTitleAndSeeAll(title: "Related", onTextClick: () {}),
+            ScreenTitleText(title: TextStrings.related, onClick: () {}),
 
             SizedBox(height: 20.h),
-            ListView.builder(
+            ListView.separated(
               shrinkWrap: true,
+              itemCount: 5,
               physics: NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) => NewsWidget(),
-              itemCount: 5,
+              separatorBuilder: (context, index) => SizedBox(height: 15.h),
             ),
           ],
         ).padSymmetric(horizontal: 18.w, vertical: 20.h),
