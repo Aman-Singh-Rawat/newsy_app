@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/models/users.dart';
-import 'package:newsy/view/views/home/news_agency_detail_screen.dart';
+import 'package:newsy/view/views/home/news_agency_profile_screen.dart';
 import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
 import 'package:newsy/view/widgets/searchview/searchview_with_filter.dart';
@@ -51,7 +51,7 @@ class _FollowersAndFollowingScreenState
                   user: usersList[index],
                   onClick: () => Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => NewsAgencyDetailScreen(),
+                      builder: (context) => NewsAgencyProfileScreen(),
                     ),
                   ),
                 ),

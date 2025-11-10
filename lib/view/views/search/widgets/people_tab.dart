@@ -4,7 +4,7 @@ import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/core/utils/helpers/helper_function.dart';
-import 'package:newsy/view/views/home/news_agency_detail_screen.dart';
+import 'package:newsy/view/views/home/news_agency_profile_screen.dart';
 import 'package:newsy/view/widgets/get_search_result_widget.dart';
 import 'package:newsy/view/widgets/user_list_tile.dart';
 
@@ -34,7 +34,7 @@ class PeopleTab extends StatelessWidget {
               color: isDark ? Colorr.darkSurface : Colors.transparent,
               onClick: () => Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => NewsAgencyDetailScreen(),
+                  builder: (context) => NewsAgencyProfileScreen(),
                 ),
               ),
             ),

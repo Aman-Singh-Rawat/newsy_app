@@ -125,4 +125,9 @@ class TextStrings {
 
   /// Comments
   static const String reply = "Reply";
+
+  /// news_agency_profile_screen
+  static const String followers = "Followers";
+  static const String website = "Website";
+  static const String topNews = "Top News";
 }

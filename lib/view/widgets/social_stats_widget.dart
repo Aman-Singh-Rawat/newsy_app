@@ -18,12 +18,7 @@ class SocialStatsWidget extends StatelessWidget {
         Text(
           value,
           maxLines: 1,
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 20.sp,
-
-            fontWeight: FontWeight.w600,
-          ),
+          style: Theme.of(context).textTheme.headlineMedium,
         ),
 
         SizedBox(height: 6.h),
@@ -31,7 +26,9 @@ class SocialStatsWidget extends StatelessWidget {
         Text(
           category,
           maxLines: 1,
-          style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500),
+          style: Theme.of(
+            context,
+          ).textTheme.bodySmall!.copyWith(fontWeight: FontWeight.w500),
         ),
       ],
     );

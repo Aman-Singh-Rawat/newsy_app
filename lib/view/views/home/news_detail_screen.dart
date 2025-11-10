@@ -9,7 +9,7 @@ import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/core/utils/helpers/helper_function.dart'
     show HelperFunction;
-import 'package:newsy/view/views/home/news_agency_detail_screen.dart';
+import 'package:newsy/view/views/home/news_agency_profile_screen.dart';
 import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/beautiful_comment_widget.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
@@ -120,7 +120,7 @@ class _NewsDetailScreenState extends State<NewsDetailScreen> {
 
               color: Colors.transparent,
               onClick: () =>
-                  AppNavigator.push(context, const NewsAgencyDetailScreen()),
+                  AppNavigator.push(context, const NewsAgencyProfileScreen()),
             ),
 
             // desc
