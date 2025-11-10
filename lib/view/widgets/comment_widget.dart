@@ -4,7 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/constants/image_strings.dart';
+import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
+import 'package:newsy/core/utils/helpers/helper_function.dart';
 import 'package:newsy/models/comment_model.dart';
 import 'package:newsy/view/widgets/my_text_button.dart';
 
@@ -14,11 +16,18 @@ class CommentWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = HelperFunction.isDarkMode(context);
+    final currentPrimaryColor = isDark
+        ? Colorr.primaryColor[300]
+        : Colorr.primaryColor[400];
     return Container(
-      padding: EdgeInsets.all(12.w),
+      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 2.h),
       margin: EdgeInsets.only(top: 20.h),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey.shade200),
+        color: isDark ? Colorr.darkBackground : Colors.transparent,
+        border: Border.all(
+          color: isDark ? Colorr.darkBackground : Colors.grey.shade200,
+        ),
         borderRadius: BorderRadius.circular(14.r),
       ),
 
@@ -32,22 +41,41 @@ class CommentWidget extends StatelessWidget {
             ),
             title: Text(
               comment.userName,
-              style: CustomTextStyle.userNameTextStyle,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(
+                context,
+              ).textTheme.titleLarge!.copyWith(fontSize: 12.sp),
             ),
             subtitle: Text(
               comment.timeAgo,
-              style: CustomTextStyle.userNameSubTextStyle,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(
+                context,
+              ).textTheme.labelSmall!.copyWith(fontSize: 9.sp),
             ),
             trailing: InkWell(
               onTap: () {},
-              child: Icon(Icons.more_vert, color: Colorr.primaryColor[400]),
+              child: Icon(Icons.more_vert, color: currentPrimaryColor),
             ),
+            visualDensity: VisualDensity(horizontal: 0, vertical: -3),
           ),
 
           Divider(),
 
+          SizedBox(height: 5.h),
+
           // comment text
-          Text(comment.comment, style: CustomTextStyle.userCommentTextStyle),
+          Text(
+            comment.comment,
+            style: Theme.of(context).textTheme.labelMedium!.copyWith(
+              fontWeight: FontWeight.w400,
+              height: 1.5.h,
+            ),
+          ),
+
+          SizedBox(height: 5.h),
 
           Row(
             children: [
@@ -75,15 +103,15 @@ class CommentWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "${comment.replies} Reply",
+                "${comment.replies} ${TextStrings.reply}",
                 style: TextStyle(
                   color: Colorr.primaryColor[400],
-                  fontSize: 14.sp,
+                  fontSize: 11.sp,
                   fontWeight: FontWeight.w600,
                 ),
               ),
 
-              Image.asset(ImageStrings.imgReplies),
+              Image.asset(ImageStrings.imgReplies, width: 15.w, height: 15.h),
             ],
           ).padSymmetric(vertical: 6.h),
         ],

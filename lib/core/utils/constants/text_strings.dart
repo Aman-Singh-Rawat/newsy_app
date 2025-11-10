@@ -122,4 +122,7 @@ class TextStrings {
   static const String related = "Related  ";
   static const String addACommentHintText = "Add a Comment...";
   static const String isThisNewsHelpful = "Is this news helpful?";
+
+  /// Comments
+  static const String reply = "Reply";
 }

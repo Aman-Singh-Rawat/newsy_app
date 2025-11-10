@@ -24,14 +24,8 @@ class UserCommentField extends StatelessWidget {
 
         SizedBox(width: 10.w),
 
-        Expanded(
+        Expanded(       
           child: TextFormField(
-            style: TextStyle(
-              fontSize: 13.sp,
-              color: Colors.black,
-              fontWeight: FontWeight.w600,
-            ),
-
             decoration: InputDecoration(
               hintText: TextStrings.addACommentHintText,
               filled: isDark,

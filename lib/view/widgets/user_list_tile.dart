@@ -50,7 +50,7 @@ class UserListTile extends StatelessWidget {
             user.followers,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: Theme.of(context).textTheme.labelSmall,
+            style: Theme.of(context).textTheme.labelSmall!.copyWith(fontSize: 9.sp),
           ),
           trailing: InkWell(
             borderRadius: BorderRadius.all(Radius.circular(20.r)),

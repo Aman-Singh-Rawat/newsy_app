@@ -23,9 +23,9 @@ class _NewsScreenWidgetState extends State<NewsScreenWidget> {
         SizedBox(height: 10.h),
 
         /// news and see all
-        getScreenTitleAndSeeAll(
+        ScreenTitleText(
           title: "News",
-          onTextClick: () {},
+          onClick: () {},
         ).marginSymmetric(horizontal: 20.w, vertical: 15.h),
 
         /// top category list
