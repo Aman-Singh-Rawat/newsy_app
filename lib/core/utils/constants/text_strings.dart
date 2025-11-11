@@ -130,4 +130,12 @@ class TextStrings {
   static const String followers = "Followers";
   static const String website = "Website";
   static const String topNews = "Top News";
+
+  /// bookmark
+  static const String myBookmark = "My Bookmark";
+  static const String youHaveNoBookmarkNews = "You have No bookmarked news";
+  static const String exploreNews = "Explore News";
+  static const String removeFromYourBookmark = "Remove from your bookmark?";
+  static const String cancel = "Cancel";
+  static const String yesRemove = "Yes, Remove";
 }

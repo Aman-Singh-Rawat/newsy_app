@@ -8,7 +8,7 @@ import 'package:newsy/view/widgets/btn_with_bg.dart';
 import 'package:newsy/view/widgets/category_widget.dart';
 import 'package:newsy/view/widgets/news_widget.dart';
 import 'package:newsy/view/widgets/searchview/searchview_with_filter.dart';
-import 'package:newsy/view/widgets/show_bookmark_remove_bottom_sheet.dart';
+import 'package:newsy/view/views/bookmark/widgets/show_bookmark_remove_bottom_sheet.dart';
 
 class MyNewsScreen extends StatefulWidget {
   const MyNewsScreen({super.key});

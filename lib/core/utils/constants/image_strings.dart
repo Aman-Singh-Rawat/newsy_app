@@ -30,5 +30,5 @@ class ImageStrings {
   static const String icTopBottomArrow =
       "assets/images/ic_top_to_bottom_arrow.svg";
 
-  static const String icBookmark = "assets/icons/ic_bookmark.svg";
+  static const String imgBookmark = "assets/images/img_bookmark.png";
 }

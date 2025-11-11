@@ -5,13 +5,15 @@ import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/constants/image_strings.dart';
 import 'package:newsy/core/utils/constants.dart';
+import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
+import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/btn_with_bg.dart';
 import 'package:newsy/view/widgets/category_widget.dart';
 import 'package:newsy/view/widgets/custom_btn.dart';
 import 'package:newsy/view/widgets/news_widget.dart';
 import 'package:newsy/view/widgets/searchview/searchview_with_filter.dart';
-import 'package:newsy/view/widgets/show_bookmark_remove_bottom_sheet.dart';
+import 'package:newsy/view/views/bookmark/widgets/show_bookmark_remove_bottom_sheet.dart';
 
 class BookmarkScreen extends StatefulWidget {
   const BookmarkScreen({super.key});
@@ -24,11 +26,12 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
   int _selectedIndex = 0;
   Widget getNews() {
     return Expanded(
-      child: ListView.builder(
+      child: ListView.separated(
+        itemCount: 5,
         itemBuilder: (context, index) => NewsWidget(
           onBookmarkClick: () => showBookmarkRemoveBottomSheet(context),
         ),
-        itemCount: 5,
+        separatorBuilder: (context, index) => SizedBox(height: 12.h),
       ).padSymmetric(horizontal: 20.w),
     );
   }
@@ -43,14 +46,14 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
             children: [
-              SvgPicture.asset(
-                ImageStrings.icBookmark,
-                width: 180.w,
-                height: 180.h,
+              Image.asset(
+                ImageStrings.imgBookmark,
+                width: 190.w,
+                height: 190.h,
               ),
               SizedBox(height: 20),
               Text(
-                "You have No bookmarked news",
+                TextStrings.youHaveNoBookmarkNews,
                 style: CustomTextStyle.emptyTextStyle,
               ),
             ],
@@ -59,7 +62,7 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
 
         CustomBtn(
           color: Colorr.primaryColor[400]!,
-          btnText: "Explore News",
+          btnText: TextStrings.exploreNews,
           onTap: () {},
         ).padSymmetric(vertical: 20.h),
       ],
@@ -101,10 +104,13 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Image.asset(ImageStrings.imgSix),
-        actionsPadding: EdgeInsets.only(right: 20.w),
-        title: Text("My Bookmark"),
+      appBar: CustomAppBar(
+        showBackArrow: false,
+        leading: Padding(
+          padding: EdgeInsets.only(left: 14.w),
+          child: Image.asset(ImageStrings.imgSix),
+        ),
+        title: TextStrings.myBookmark,
         actions: [BtnWithBg(icon: Icons.more_vert_rounded)],
       ),
       body: SafeArea(
@@ -112,6 +118,7 @@ class _BookmarkScreenState extends State<BookmarkScreen> {
           children: [
             SizedBox(height: 15.h),
             SearchViewWithFilter().padSymmetric(horizontal: 20.w),
+
             Expanded(child: getMyBookmarkNews()),
           ],
         ),

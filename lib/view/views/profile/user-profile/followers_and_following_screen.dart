@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:newsy/core/navigation/app_navigation.dart';
 import 'package:newsy/core/utils/constants.dart';
+import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/models/users.dart';
 import 'package:newsy/view/views/home/news_agency_profile_screen.dart';
@@ -24,7 +26,7 @@ class _FollowersAndFollowingScreenState
 
   @override
   void initState() {
-    if (widget.title == "Followers") {
+    if (widget.title == TextStrings.followers) {
       usersList = users;
     } else {
       usersList = users.where((user) => !user.isFollowing).toList();
@@ -39,27 +41,22 @@ class _FollowersAndFollowingScreenState
         title: widget.title,
         actions: [BtnWithBg(icon: Icons.more_vert_rounded)],
       ),
-      body: SafeArea(
-        child: Column(
-          children: [
-            SearchViewWithFilter().padOnly(top: 10.h, bottom: 20.h),
+      body: Column(
+        children: [
+          SearchViewWithFilter().padOnly(top: 10.h, bottom: 20.h),
 
-            Expanded(
-              child: ListView.builder(
-                itemCount: usersList.length,
-                itemBuilder: (context, index) => UserListTile(
-                  user: usersList[index],
-                  onClick: () => Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => NewsAgencyProfileScreen(),
-                    ),
-                  ),
-                ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: usersList.length,
+              itemBuilder: (context, index) => UserListTile(
+                user: usersList[index],
+                onClick: () =>
+                    AppNavigator.push(context, const NewsAgencyProfileScreen()),
               ),
             ),
-          ],
-        ).padSymmetric(horizontal: 20.w),
-      ),
+          ),
+        ],
+      ).padSymmetric(horizontal: 20.w),
     );
   }
 }

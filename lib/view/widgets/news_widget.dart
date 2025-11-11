@@ -8,16 +8,17 @@ import 'package:newsy/core/utils/helpers/helper_function.dart';
 import 'package:newsy/view/views/home/news_detail_screen.dart';
 import 'package:newsy/view/widgets/my_text_button.dart';
 
-class NewsWidget extends StatefulWidget {
+class NewsWidget extends StatelessWidget {
   final VoidCallback? onBookmarkClick;
   final VoidCallback? onEdit;
-  const NewsWidget({super.key, this.onBookmarkClick, this.onEdit});
+  final Color nightColor;
+  const NewsWidget({
+    super.key,
+    this.onBookmarkClick,
+    this.onEdit,
+    this.nightColor = Colorr.darkSurface,
+  });
 
-  @override
-  State<NewsWidget> createState() => _NewsWidgetState();
-}
-
-class _NewsWidgetState extends State<NewsWidget> {
   @override
   Widget build(BuildContext context) {
     final bool isDark = HelperFunction.isDarkMode(context);
@@ -33,7 +34,7 @@ class _NewsWidgetState extends State<NewsWidget> {
         width: double.infinity,
         height: 150.h,
         decoration: BoxDecoration(
-          color: isDark ? Colorr.darkSurface : Colors.transparent,
+          color: isDark ? nightColor : Colors.transparent,
           borderRadius: BorderRadius.circular(20.r),
           border: Border.all(
             color: isDark ? Colors.transparent : Colors.grey.shade200,
@@ -148,7 +149,7 @@ class _NewsWidgetState extends State<NewsWidget> {
                       Spacer(),
 
                       InkWell(
-                        onTap: widget.onBookmarkClick,
+                        onTap: onBookmarkClick,
                         child: Icon(
                           size: 18.w,
                           CupertinoIcons.bookmark,
@@ -158,9 +159,9 @@ class _NewsWidgetState extends State<NewsWidget> {
 
                       SizedBox(width: 10.w),
 
-                      if (widget.onEdit != null)
+                      if (onEdit != null)
                         InkWell(
-                          onTap: widget.onEdit,
+                          onTap: onEdit,
                           child: Icon(
                             Icons.edit,
                             size: 18.w,
