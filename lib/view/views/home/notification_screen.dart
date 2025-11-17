@@ -10,7 +10,7 @@ import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/date_formats.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/widgets/appbar/appbar.dart';
-import 'package:newsy/view/widgets/btn_with_bg.dart';
+import 'package:newsy/view/widgets/buttons/btn_with_bg.dart';
 import 'package:newsy/view/widgets/notification_item.dart';
 
 class NotificationScreen extends StatefulWidget {

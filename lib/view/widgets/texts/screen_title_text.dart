@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
  
 import 'package:newsy/core/theme/app_colors.dart';
 
@@ -21,7 +20,7 @@ class ScreenTitleText extends StatelessWidget {
         ),
 
         if (onClick != null)
-        InkWell(
+        GestureDetector(
           onTap: onClick,
           child: Text(
             "See all",

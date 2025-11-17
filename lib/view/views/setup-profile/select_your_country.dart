@@ -81,11 +81,13 @@ class _SelectYourCountryState extends State<SelectYourCountry> {
           ],
         ),
       ).padSymmetric(horizontal: 20.w),
-      bottomNavigationBar: BottomNavigationBtn(
-        btnText: TextStrings.next,
-        onTap: selectedItemCode.isNotEmpty
-            ? () => AppNavigator.push(context, const ChooseYourTopics())
-            : null,
+      bottomNavigationBar: BottomNavigationItemBg(
+        child: ElevatedButton(
+          onPressed: selectedItemCode.isNotEmpty
+              ? () => AppNavigator.push(context, const ChooseYourTopics())
+              : null,
+          child: Text(TextStrings.next),
+        ),
       ),
     );
   }

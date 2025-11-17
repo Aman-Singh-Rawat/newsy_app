@@ -66,9 +66,7 @@ class _ChooseYourTopicsState extends State<ChooseYourTopics> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        title: TextStrings.chooseYourTopics,
-      ),
+      appBar: CustomAppBar(title: TextStrings.chooseYourTopics),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -106,12 +104,13 @@ class _ChooseYourTopicsState extends State<ChooseYourTopics> {
           ).marginSymmetric(horizontal: 20.w),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBtn(
-        btnText: TextStrings.next,
-
-        onTap: _selectedCategoryList.isNotEmpty
-            ? () => AppNavigator.push(context, const ChooseYourNewsSources())
-            : null,
+      bottomNavigationBar: BottomNavigationItemBg(
+        child: ElevatedButton(
+          onPressed: _selectedCategoryList.isNotEmpty
+              ? () => AppNavigator.push(context, const ChooseYourNewsSources())
+              : null,
+          child: Text(TextStrings.next),
+        ),
       ),
     );
   }

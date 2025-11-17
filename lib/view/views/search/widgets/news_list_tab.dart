@@ -59,7 +59,7 @@ class _NewsListTabState extends State<NewsListTab> {
                 );
               }).toList(),
             ),
-          ),
+          ).padOnly(left: 20.w),
 
           SizedBox(height: 20.h),
 

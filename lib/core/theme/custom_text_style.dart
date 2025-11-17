@@ -86,4 +86,19 @@ class CustomTextStyle {
     color: Colors.black,
     fontWeight: FontWeight.w600,
   );
+
+  /// Text Field text
+  static TextStyle textFormFieldStyle = TextStyle(
+    fontSize: 12.sp,
+    fontFamily: "Poppins",
+    fontWeight: FontWeight.w500,
+    color: Colorr.textWhite,
+  );
+
+  /// Text Field Hint Text
+  static TextStyle textFieldHintStyle = TextStyle(
+    color: Colors.grey.shade400,
+    fontSize: 13.sp,
+    fontWeight: FontWeight.w500,
+  );
 }

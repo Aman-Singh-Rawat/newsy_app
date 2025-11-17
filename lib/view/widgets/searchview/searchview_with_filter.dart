@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:newsy/view/widgets/btn_with_bg.dart';
+import 'package:newsy/view/widgets/buttons/btn_with_bg.dart';
 import 'package:newsy/view/widgets/searchview/search_view_widget.dart';
 
 class SearchViewWithFilter extends StatelessWidget {

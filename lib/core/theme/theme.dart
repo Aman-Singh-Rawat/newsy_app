@@ -5,6 +5,7 @@ import 'package:newsy/core/theme/custom_themes/bottom_navigation_theme.dart';
 import 'package:newsy/core/theme/custom_themes/checkbox_theme.dart';
 import 'package:newsy/core/theme/custom_themes/chip_theme.dart';
 import 'package:newsy/core/theme/custom_themes/divider_theme.dart';
+import 'package:newsy/core/theme/custom_themes/dropdown_menu_theme.dart';
 import 'package:newsy/core/theme/custom_themes/elevated_btn_theme.dart';
 import 'package:newsy/core/theme/custom_themes/tabbar_theme.dart';
 import 'package:newsy/core/theme/custom_themes/text_btn_theme.dart';
@@ -24,6 +25,7 @@ class AppTheme {
     textSelectionTheme: TextSelectionThemeData().copyWith(
       cursorColor: Colorr.primary,
     ),
+    dropdownMenuTheme: CustomDropdownMenuTheme.lightDropdownMenuTheme,
     dividerTheme: ADividerTheme.lightTheme,
     chipTheme: AChipTheme.lightTheme,
     appBarTheme: CustomAppBarTheme.lightTheme,
@@ -47,6 +49,8 @@ class AppTheme {
     tabBarTheme: TabbarTheme.darkTheme,
     appBarTheme: CustomAppBarTheme.darkTheme,
     textTheme: AppTextStyles.darkTextTheme,
+    dialogTheme: DialogThemeData(backgroundColor: Colorr.darkSurface),
+    dropdownMenuTheme: CustomDropdownMenuTheme.darkDropdownMenuTheme,
     bottomNavigationBarTheme: BottomNavigationTheme.darkTheme,
     textButtonTheme: CustomTextBtnTheme.darkTheme,
     elevatedButtonTheme: ElevatedBtnTheme.darkTheme,

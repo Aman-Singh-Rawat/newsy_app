@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/navigation/app_navigation.dart';
 
 import 'package:newsy/core/theme/app_colors.dart';
-import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
@@ -12,10 +11,10 @@ import 'package:newsy/core/utils/helpers/helper_function.dart'
 import 'package:newsy/view/views/home/news_agency_profile_screen.dart';
 import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/beautiful_comment_widget.dart';
-import 'package:newsy/view/widgets/btn_with_bg.dart';
-import 'package:newsy/view/widgets/get_screen_title_and_see_all';
+import 'package:newsy/view/widgets/buttons/btn_with_bg.dart';
 import 'package:newsy/view/widgets/my_text_button.dart';
 import 'package:newsy/view/widgets/news_widget.dart';
+import 'package:newsy/view/widgets/texts/screen_title_text.dart';
 import 'package:newsy/view/widgets/texts/text_container.dart';
 import 'package:newsy/view/widgets/user_list_tile.dart';
 

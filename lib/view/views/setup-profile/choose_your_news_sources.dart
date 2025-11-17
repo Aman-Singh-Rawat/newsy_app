@@ -66,9 +66,7 @@ class _ChooseYourNewsSourcesState extends State<ChooseYourNewsSources> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        title: TextStrings.chooseYourNewsSources,
-      ),
+      appBar: CustomAppBar(title: TextStrings.chooseYourNewsSources),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -105,11 +103,13 @@ class _ChooseYourNewsSourcesState extends State<ChooseYourNewsSources> {
           ).marginSymmetric(horizontal: 20.w),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBtn(
-        btnText: TextStrings.next,
-        onTap: _selectedSourceList.isNotEmpty
-            ? () => AppNavigator.push(context, const FillYourProfileScreen())
-            : null,
+      bottomNavigationBar: BottomNavigationItemBg(
+        child: ElevatedButton(
+          onPressed: _selectedSourceList.isNotEmpty
+              ? () => AppNavigator.push(context, const FillYourProfileScreen())
+              : null,
+          child: Text(TextStrings.next),
+        ),
       ),
     );
   }

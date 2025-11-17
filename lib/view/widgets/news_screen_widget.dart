@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/widgets/category_widget.dart';
-import 'package:newsy/view/widgets/get_screen_title_and_see_all';
+import 'package:newsy/view/widgets/texts/screen_title_text.dart';
 import 'package:newsy/view/widgets/news_widget.dart';
 
 class NewsScreenWidget extends StatefulWidget {
@@ -44,7 +44,7 @@ class _NewsScreenWidgetState extends State<NewsScreenWidget> {
               );
             }).toList(),
           ),
-        ),
+        ).padOnly(left: 20.w),
 
         SizedBox(height: 5.h),
 

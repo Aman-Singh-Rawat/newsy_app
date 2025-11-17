@@ -29,7 +29,7 @@ class CategoryWidget extends StatelessWidget {
           horizontal: isSelected ? 18.w : 17.w,
           vertical: isSelected ? 10.h : 8.h,
         ),
-        margin: EdgeInsets.only(right: 10.w, left: index == 0 ? 20.w : 0),
+        margin: EdgeInsets.only(right: 10.w),
         decoration: BoxDecoration(
           color: isSelected
               ? Colorr.primaryColor[400]

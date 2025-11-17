@@ -3,12 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/utils/helpers/helper_function.dart';
 
+class BottomNavigationItemBg extends StatelessWidget {
+  final Widget child;
 
-class BottomNavigationBtn extends StatelessWidget {
-  final String btnText;
-  final VoidCallback? onTap;
-
-  const BottomNavigationBtn({super.key, required this.btnText, this.onTap});
+  const BottomNavigationItemBg({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +27,7 @@ class BottomNavigationBtn extends StatelessWidget {
         ),
       ),
 
-      child: ElevatedButton(onPressed: onTap, child: Text(btnText)),
+      child: child,
     );
   }
 }

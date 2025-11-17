@@ -138,4 +138,17 @@ class TextStrings {
   static const String removeFromYourBookmark = "Remove from your bookmark?";
   static const String cancel = "Cancel";
   static const String yesRemove = "Yes, Remove";
+
+  /// My News
+  static const String myNews = "My News";
+
+  /// Create New News
+  static const String createNewNews = "Create New News";
+  static const String addCoverPhotos = "Add Cover Photos";
+  static const String newsDetails = "News Details";
+  static const String title = "Title";
+  static const String selectCategory = "Select Category";
+  static const String addNewsArticles = "Add News/Article";
+  static const String addTag = "Add Tag";
+  static const String publishNow = "Publish Now";
 }

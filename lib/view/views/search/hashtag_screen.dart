@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/theme/app_colors.dart';
-import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/constants/text_strings.dart';
 
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/core/utils/helpers/helper_function.dart';
 import 'package:newsy/view/widgets/appbar/appbar.dart';
-import 'package:newsy/view/widgets/btn_with_bg.dart';
+import 'package:newsy/view/widgets/buttons/btn_with_bg.dart';
 import 'package:newsy/view/widgets/news_widget.dart';
 import 'package:newsy/view/widgets/texts/text_container.dart';
 

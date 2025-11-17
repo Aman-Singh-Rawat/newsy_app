@@ -10,7 +10,7 @@ import 'package:newsy/core/utils/helpers/helper_function.dart';
 import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/bottom_navigation_btn.dart';
 import 'package:newsy/view/widgets/open_select_image_dialog.dart';
-import 'package:newsy/view/widgets/profile_placeholder.dart';
+import 'package:newsy/view/widgets/images/profile_placeholder.dart';
 import 'package:newsy/view/widgets/show_account_created_dialog.dart';
 import 'package:newsy/view/widgets/text_field_with_label_widget.dart';
 
@@ -65,7 +65,7 @@ class _FillYourProfileScreenState extends State<FillYourProfileScreen> {
     final bool isDark = HelperFunction.isDarkMode(context);
 
     return Scaffold(
-      appBar: CustomAppBar(title: TextStrings.fillYourProfile,),
+      appBar: CustomAppBar(title: TextStrings.fillYourProfile),
       body: SingleChildScrollView(
         child: Form(
           child: Column(
@@ -125,16 +125,18 @@ class _FillYourProfileScreenState extends State<FillYourProfileScreen> {
           ).marginSymmetric(horizontal: 20.w),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBtn(
-        btnText: TextStrings.continueText,
-        onTap: _isFieldsEmpty
-            ? null
-            : () => showDialog(
-                context: context,
-                barrierDismissible: false,
-                builder: (context) =>
-                    showAccountCreatedDialog(context: context),
-              ),
+      bottomNavigationBar: BottomNavigationItemBg(
+        child: ElevatedButton(
+          onPressed: _isFieldsEmpty
+              ? null
+              : () => showDialog(
+                  context: context,
+                  barrierDismissible: false,
+                  builder: (context) =>
+                      showAccountCreatedDialog(context: context),
+                ),
+          child: Text(TextStrings.continueText),
+        ),
       ),
     );
   }

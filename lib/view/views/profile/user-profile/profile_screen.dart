@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/profile/settings_screen.dart';
-import 'package:newsy/view/widgets/btn_with_bg.dart';
+import 'package:newsy/view/widgets/buttons/btn_with_bg.dart';
 import 'package:newsy/view/widgets/my_outline_button.dart';
 import 'package:newsy/view/widgets/news_widget.dart';
 import 'package:newsy/view/widgets/social_stats_widget.dart';

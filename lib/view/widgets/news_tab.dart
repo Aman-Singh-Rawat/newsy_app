@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/core/utils/constants.dart';
+import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/widgets/category_widget.dart';
 import 'package:newsy/view/widgets/get_search_result_widget.dart';
 import 'package:newsy/view/widgets/news_widget.dart';
@@ -45,7 +46,7 @@ class _NewsTabWidgetState extends State<NewsTabWidget> {
               );
             }).toList(),
           ),
-        ),
+        ).padOnly(left: 20.w),
 
         SizedBox(height: 22.h),
 

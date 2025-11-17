@@ -60,6 +60,10 @@ class Colorr {
   static const Color iconBg = Color(0xFF382b34);
   static const Color darkerTextColor = Color(0xFF3c434d);
   static const Color darkerGrey = Color(0XFF7b7f88);
+  static const Color slateGrey = Color(0xFF6D717A);
+  static const Color borderCharcoalGrey = Color(0xFF52565F);
+
+
 
   // white colors
   static const Color whiteSurface = Color(0x000000ff);

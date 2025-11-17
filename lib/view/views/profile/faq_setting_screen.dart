@@ -43,7 +43,7 @@ class _FaqSettingScreenState extends State<FaqSettingScreen> {
                   );
                 }).toList(),
               ),
-            ),
+            ).padOnly(left: 20.w),
 
             SizedBox(height: 20.h),
 

@@ -10,12 +10,12 @@ import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/view/views/home/featured_screen.dart';
 import 'package:newsy/view/views/home/notification_screen.dart';
 import 'package:newsy/view/widgets/appbar/appbar.dart';
-import 'package:newsy/view/widgets/btn_with_bg.dart';
+import 'package:newsy/view/widgets/buttons/btn_with_bg.dart';
 import 'package:newsy/view/widgets/category_widget.dart';
 import 'package:newsy/view/widgets/featured_widget.dart';
-import 'package:newsy/view/widgets/get_screen_title_and_see_all';
 import 'package:newsy/view/widgets/news_widget.dart';
 import 'package:newsy/view/widgets/searchview/searchview_with_filter.dart';
+import 'package:newsy/view/widgets/texts/screen_title_text.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -121,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       );
                                     }).toList(),
                                   ),
-                                ),
+                                ).padOnly(left: 20.w),
 
                                 SizedBox(height: 20.h),
                               ],
