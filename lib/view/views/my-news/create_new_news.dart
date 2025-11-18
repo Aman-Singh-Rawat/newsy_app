@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 
 import 'package:newsy/core/theme/app_colors.dart';
-import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/constants/image_strings.dart';
-import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/constants/text_strings.dart';
 import 'package:newsy/core/utils/extension.dart';
-import 'package:newsy/core/utils/helpers/helper_function.dart';
 import 'package:newsy/view/views/my-news/widgets/add_cover_photos_widget.dart';
 import 'package:newsy/view/views/my-news/widgets/add_tag.dart';
 import 'package:newsy/view/views/my-news/widgets/select_category.dart';
 import 'package:newsy/view/widgets/appbar/appbar.dart';
 import 'package:newsy/view/widgets/bottom_navigation_btn.dart';
 import 'package:newsy/view/widgets/buttons/create_news_bottom_Btn_background.dart';
-import 'package:newsy/view/widgets/custom_btn.dart';
 import 'package:newsy/view/widgets/html_editor.dart';
 import 'package:newsy/view/widgets/text_field_with_label_widget.dart';
 import 'package:newsy/view/widgets/texts/screen_title_text.dart';

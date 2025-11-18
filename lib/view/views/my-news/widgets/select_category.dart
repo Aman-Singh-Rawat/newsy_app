@@ -1,17 +1,11 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:mobkit_dashed_border/mobkit_dashed_border.dart';
-import 'package:newsy/core/navigation/app_navigation.dart';
 import 'package:newsy/core/theme/app_colors.dart';
 import 'package:newsy/core/theme/custom_text_style.dart';
 import 'package:newsy/core/utils/constants.dart';
 import 'package:newsy/core/utils/constants/text_strings.dart';
-import 'package:newsy/core/utils/extension.dart';
 import 'package:newsy/core/utils/helpers/helper_function.dart';
-import 'package:newsy/view/widgets/open_select_image_dialog.dart';
 import 'package:newsy/view/widgets/texts/text_field_title.dart';
 
 class SelectCategory extends StatelessWidget {

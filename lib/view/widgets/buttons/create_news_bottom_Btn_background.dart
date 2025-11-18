@@ -39,6 +39,5 @@ class CreateNewsBottomBtnBackground extends StatelessWidget {
             )
           : Icon(icon, color: iconColor, size: 27.w),
     );
-    ;
   }
 }
