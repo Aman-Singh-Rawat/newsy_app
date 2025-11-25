@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -6,11 +7,23 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/app/config/app_theme.dart';
+import 'package:newsy/data/datasource/local/shared_pref_service.dart';
+import 'package:newsy/firebase_options.dart';
+import 'package:newsy/presentations/features/onboarding/splash_screen.dart';
 import 'package:newsy/presentations/root/main_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  /// initializing shared pref
+  await SharedPrefService.instance.init();
+
+  /// loading .env
   await dotenv.load();
+
+  /// firebase initializing
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -31,13 +44,13 @@ class MyApp extends StatelessWidget {
           title: 'News App',
 
           localizationsDelegates: const [
-            FlutterQuillLocalizations.delegate, // ← Add this
+            FlutterQuillLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
             GlobalCupertinoLocalizations.delegate,
           ],
 
-          home: MainScreen(),
+          home: SplashScreen(),
         );
       },
     );

@@ -75,7 +75,7 @@ void showCommentDialog(BuildContext context) {
             child: SingleChildScrollView(
               child: Column(
                 children: comments.map((comment) {
-                  return CommentWidget(comment: comment!);
+                  return CommentWidget(comment: comment);
                 }).toList(),
               ),
             ),

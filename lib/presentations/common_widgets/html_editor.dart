@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
-import 'package:newsy/app/config/app_colors.dart';
 
 class MyHtmlEditor extends StatefulWidget {
   const MyHtmlEditor({super.key});

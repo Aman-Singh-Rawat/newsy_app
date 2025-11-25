@@ -4,6 +4,7 @@ import 'package:newsy/app/navigation/app_navigation.dart';
 import 'package:newsy/app/constants/text_strings.dart';
 import 'package:newsy/core/utils/extensions.dart';
 import 'package:newsy/core/utils/helper_function.dart';
+import 'package:newsy/data/datasource/local/role_local_datasource.dart';
 import 'package:newsy/presentations/features/auth/auth_screen.dart';
 import 'package:newsy/presentations/common_widgets/appbar/appbar.dart';
 import 'package:newsy/presentations/common_widgets/news_agency_widget.dart';
@@ -17,6 +18,7 @@ class RoleScreen extends StatefulWidget {
 
 class _RoleScreenState extends State<RoleScreen> {
   int _selectedItemIndex = 0;
+  final roleLocalDataSource = RoleLocalDataSource();
   final List<Map<String, dynamic>> _roleDataList = [
     {
       "index": 0,
@@ -34,12 +36,10 @@ class _RoleScreenState extends State<RoleScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final isDark = HelperFunction.isDarkMode(context);
-
     return Scaffold(
       appBar: CustomAppBar(
         title: TextStrings.newsAgencyAppBarText,
-        showBackArrow: true,
+        showBackArrow: false,
       ),
       body: Column(
         mainAxisSize: MainAxisSize.max,
@@ -67,8 +67,11 @@ class _RoleScreenState extends State<RoleScreen> {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () =>
-                  AppNavigator.pushAndRemoveAll(context, const AuthScreen()),
+              onPressed: () {
+                roleLocalDataSource.saveRole(_selectedItemIndex);
+                AppNavigator.pushAndRemoveAll(context, const AuthScreen());
+              },
+
               child: Text(TextStrings.continueText),
             ),
           ),

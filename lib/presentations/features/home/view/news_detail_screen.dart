@@ -7,7 +7,6 @@ import 'package:newsy/app/constants/constants.dart';
 import 'package:newsy/app/constants/text_strings.dart';
 import 'package:newsy/core/utils/extensions.dart';
 import 'package:newsy/core/utils/helper_function.dart' show HelperFunction;
-import 'package:newsy/data/models/news_article.dart';
 import 'package:newsy/presentations/features/home/view/news_agency_profile_screen.dart';
 import 'package:newsy/presentations/common_widgets/appbar/appbar.dart';
 import 'package:newsy/presentations/common_widgets/beautiful_comment_widget.dart';

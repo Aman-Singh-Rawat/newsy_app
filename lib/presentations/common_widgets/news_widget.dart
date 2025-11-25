@@ -1,22 +1,18 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_quill/flutter_quill.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:newsy/app/config/app_colors.dart';
-import 'package:newsy/app/constants/image_strings.dart';
 import 'package:newsy/app/navigation/app_navigation.dart';
 import 'package:newsy/core/utils/extensions.dart';
 import 'package:newsy/core/utils/helper_function.dart';
 import 'package:newsy/data/models/news_article.dart';
-import 'package:newsy/data/models/news_response.dart';
 import 'package:newsy/presentations/common_widgets/category_widget.dart';
 import 'package:newsy/presentations/common_widgets/images/image_error.dart';
 import 'package:newsy/presentations/common_widgets/placeholder/image_shimmer.dart';
 import 'package:newsy/presentations/features/home/view/news_detail_screen.dart';
 import 'package:newsy/presentations/common_widgets/my_text_button.dart';
-import 'package:shimmer_animation/shimmer_animation.dart';
 
 class NewsWidget extends StatelessWidget {
   final NewsArticle? article;

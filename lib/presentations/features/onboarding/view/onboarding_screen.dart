@@ -1,29 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/app/navigation/app_navigation.dart';
 import 'package:newsy/app/config/app_colors.dart';
 import 'package:newsy/app/config/custom_text_style.dart';
 import 'package:newsy/app/constants/image_strings.dart';
 import 'package:newsy/app/constants/text_strings.dart';
+import 'package:newsy/presentations/features/onboarding/provider/onboarding_providers.dart';
 import 'package:newsy/presentations/features/onboarding/role_screen.dart';
 import 'package:newsy/presentations/common_widgets/onboarding_content.dart';
 
-class OnboardingScreen extends StatefulWidget {
+import '../../../../data/models/onboarding_model.dart';
+
+class OnboardingScreen extends ConsumerStatefulWidget {
   const OnboardingScreen({super.key});
 
   @override
-  State<OnboardingScreen> createState() => _OnboardingScreenState();
+  ConsumerState<OnboardingScreen> createState() => _OnboardingScreenState();
 }
 
-class _OnboardingScreenState extends State<OnboardingScreen> {
+class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   final colorr = Colorr.primaryColor;
-  late List<Map<String, dynamic>> onBoardList;
+  late List<OnboardingModel> onBoardList;
   late PageController _pageController;
   int _selectedIndex = 0;
 
   void _handleNextButton(BuildContext context) {
     if (_selectedIndex == onBoardList.length - 1) {
-      AppNavigator.push(context, const RoleScreen());
+      ref.read(onboardingViewModelProvider.notifier).completeOnboarding();
+      AppNavigator.pushAndRemoveAll(context, const RoleScreen());
     } else {
       _pageController.nextPage(
         duration: const Duration(milliseconds: 300),
@@ -36,57 +41,21 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   void initState() {
     super.initState();
     onBoardList = [
-      {
-        "image": ImageStrings.imgOnboardingOne,
-        "title": RichText(
-          text: TextSpan(
-            style: CustomTextStyle.onboardingTextStyle,
-            text: "Get the latest news from ",
-            children: [
-              TextSpan(
-                text: "reliable sources",
-                style: CustomTextStyle.onboardingTextStyle.copyWith(
-                  color: colorr[400],
-                ),
-              ),
-            ],
-          ),
-        ),
-      },
-      {
-        "image": ImageStrings.imgOnboardingTwo,
-        "title": RichText(
-          text: TextSpan(
-            style: CustomTextStyle.onboardingTextStyle,
-            text: "Get actual news from ",
-            children: [
-              TextSpan(
-                text: "around the world",
-                style: CustomTextStyle.onboardingTextStyle.copyWith(
-                  color: colorr[400],
-                ),
-              ),
-            ],
-          ),
-        ),
-      },
-      {
-        "image": ImageStrings.imgOnboardingThree,
-        "title": RichText(
-          text: TextSpan(
-            style: CustomTextStyle.onboardingTextStyle,
-            text: "Sport, politics, healthy, ",
-            children: [
-              TextSpan(
-                text: "& anything",
-                style: CustomTextStyle.onboardingTextStyle.copyWith(
-                  color: colorr[400],
-                ),
-              ),
-            ],
-          ),
-        ),
-      },
+      OnboardingModel(
+        image: ImageStrings.imgOnboardingOne,
+        whiteText: TextStrings.onboardingWhiteOne,
+        coloredText: TextStrings.onboardingColorOne,
+      ),
+      OnboardingModel(
+        image: ImageStrings.imgOnboardingTwo,
+        whiteText: TextStrings.onboardingWhiteTwo,
+        coloredText: TextStrings.onboardingColorTwo,
+      ),
+      OnboardingModel(
+        image: ImageStrings.imgOnboardingThree,
+        whiteText: TextStrings.onboardingWhiteThree,
+        coloredText: TextStrings.onboardingColorThree,
+      ),
     ];
     _pageController = PageController(viewportFraction: 1.0);
   }
@@ -105,10 +74,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             itemCount: onBoardList.length,
             itemBuilder: (context, index) {
               final item = onBoardList[index];
-              return OnboardingContent(
-                image: item["image"],
-                titleWidget: item["title"],
-              );
+
+              return OnboardingContent(model: item);
             },
           ),
 
@@ -142,7 +109,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
                 // Skip button
                 TextButton(
-                  onPressed: () => AppNavigator.push(context, const RoleScreen()) ,
+                  onPressed: () {
+                    ref
+                        .read(onboardingViewModelProvider.notifier)
+                        .completeOnboarding();
+                    AppNavigator.pushAndRemoveAll(context, const RoleScreen());
+                  },
+
                   child: Text(TextStrings.skip),
                 ),
                 SizedBox(height: 15.h),
@@ -167,6 +140,4 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       ),
     );
   }
-
-  
 }

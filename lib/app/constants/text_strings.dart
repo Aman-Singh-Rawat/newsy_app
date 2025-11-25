@@ -1,13 +1,19 @@
 class TextStrings {
   TextStrings._();
 
-  // onboarding texts
-  static const String onboardingWhiteOne = "Get the latest news from";
-  static const String onboardingCoralOne = "reliable resources";
-  static const String onboardingWhiteTwo = "Get actual news from";
-  static const String onboardingCoralTwo = "around the world";
-  static const String onboardingWhiteThree = "Sport, politics, healthy,";
-  static const String onboardingCoralThree = "& anything";
+  // Onboarding text part 1 (white text)
+  static const String onboardingWhiteOne = "Get the latest news from ";
+
+  static const String onboardingWhiteTwo = "Get actual news from ";
+
+  static const String onboardingWhiteThree = "Sport, politics, healthy, ";
+
+  // Onboarding colored text (primary color)
+  static const String onboardingColorOne = "reliable sources";
+
+  static const String onboardingColorTwo = "around the world";
+
+  static const String onboardingColorThree = "& anything";
 
   /// Button text of onboarding
   static const String skip = "Skip";

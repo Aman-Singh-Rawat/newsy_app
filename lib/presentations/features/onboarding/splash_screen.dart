@@ -1,28 +1,53 @@
 import 'dart:async';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:newsy/app/navigation/app_navigation.dart';
 import 'package:newsy/app/config/app_colors.dart';
 import 'package:newsy/app/constants/image_strings.dart';
 import 'package:newsy/core/utils/helper_function.dart';
-import 'package:newsy/presentations/features/onboarding/onboarding_screen.dart';
+import 'package:newsy/data/datasource/local/role_local_datasource.dart';
+import 'package:newsy/presentations/features/auth/auth_screen.dart';
+import 'package:newsy/presentations/features/onboarding/provider/onboarding_providers.dart';
+import 'package:newsy/presentations/features/onboarding/role_screen.dart';
+import 'package:newsy/presentations/features/onboarding/view/onboarding_screen.dart';
+import 'package:newsy/presentations/root/main_screen.dart';
 
-class SplashScreen extends StatefulWidget {
+class SplashScreen extends ConsumerStatefulWidget {
   const SplashScreen({super.key});
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  ConsumerState<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _SplashScreenState extends ConsumerState<SplashScreen> {
+  /// selecting scrren where to navigate
+  Widget get getNavigationScreen {
+    final onboardingSeen = ref.read(onboardingViewModelProvider);
+    final role = RoleLocalDataSource().getRole();
+    final loggedIn =
+        FirebaseAuth.instance.currentUser != null; // TODO CHANGE THIS LATER
+
+    if (!onboardingSeen) {
+      return const OnboardingScreen();
+    } else if (role == null) {
+      return const RoleScreen();
+    } else if (!loggedIn) {
+      return const AuthScreen();
+    } else {
+      return const MainScreen();
+    }
+  }
+
   @override
   void initState() {
     super.initState();
     Timer(
       const Duration(seconds: 3),
-      () => AppNavigator.pushReplacement(context, OnboardingScreen()),
+      () => AppNavigator.pushReplacement(context, getNavigationScreen),
     );
   }
 
