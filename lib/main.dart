@@ -11,6 +11,7 @@ import 'package:newsy/data/datasource/local/shared_pref_service.dart';
 import 'package:newsy/firebase_options.dart';
 import 'package:newsy/presentations/features/onboarding/splash_screen.dart';
 import 'package:newsy/presentations/root/main_screen.dart';
+import 'package:toastification/toastification.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,7 +25,7 @@ void main() async {
   /// firebase initializing
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(const ProviderScope(child: ToastificationWrapper(child: MyApp())));
 }
 
 class MyApp extends StatelessWidget {

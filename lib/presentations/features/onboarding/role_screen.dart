@@ -5,7 +5,7 @@ import 'package:newsy/app/constants/text_strings.dart';
 import 'package:newsy/core/utils/extensions.dart';
 import 'package:newsy/core/utils/helper_function.dart';
 import 'package:newsy/data/datasource/local/role_local_datasource.dart';
-import 'package:newsy/presentations/features/auth/auth_screen.dart';
+import 'package:newsy/presentations/features/auth/view/auth_screen.dart';
 import 'package:newsy/presentations/common_widgets/appbar/appbar.dart';
 import 'package:newsy/presentations/common_widgets/news_agency_widget.dart';
 

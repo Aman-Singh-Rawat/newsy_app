@@ -11,7 +11,7 @@ final newsApiProvider = Provider(
 );
 
 // Repository Provider
-final NewsRepositoryProvider = Provider(
+final newsRepositoryProvider = Provider(
   (ref) => NewsRepository(ref.watch(newsApiProvider)),
 );
 

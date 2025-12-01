@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newsy/app/navigation/app_navigation.dart';
 
@@ -6,25 +9,36 @@ import 'package:newsy/app/constants/image_strings.dart';
 import 'package:newsy/app/constants/text_strings.dart';
 import 'package:newsy/core/utils/extensions.dart';
 import 'package:newsy/core/utils/helper_function.dart';
+import 'package:newsy/core/utils/show_loading_dialog.dart';
+import 'package:newsy/core/utils/toasts.dart';
+import 'package:newsy/core/utils/validator.dart';
 import 'package:newsy/presentations/features/auth/forgot_password_screen.dart';
+import 'package:newsy/presentations/features/auth/provider/auth_providers.dart';
+import 'package:newsy/presentations/features/auth/viewmodel/auth_viewmodel.dart';
 import 'package:newsy/presentations/features/setup-profile/select_your_country.dart';
 import 'package:newsy/presentations/common_widgets/remember_me_widget.dart';
 import 'package:newsy/presentations/common_widgets/social_btn.dart';
 import 'package:newsy/presentations/common_widgets/text_field_with_label_widget.dart';
+import 'package:newsy/presentations/root/main_screen.dart';
 
-class AuthScreen extends StatefulWidget {
+class AuthScreen extends ConsumerStatefulWidget {
   final bool isSignIn;
 
   const AuthScreen({super.key, this.isSignIn = false});
 
   @override
-  State<AuthScreen> createState() => _AuthScreenState();
+  ConsumerState<AuthScreen> createState() => _AuthScreenState();
 }
 
-class _AuthScreenState extends State<AuthScreen> {
+class _AuthScreenState extends ConsumerState<AuthScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  late final String? authState;
+  late final AuthViewmodel _authVM;
   bool _isRememberMe = false;
+  String? emailError;
+  String? passwordError;
 
   void _handleAuthNavigation() {
     if (widget.isSignIn) {
@@ -34,13 +48,84 @@ class _AuthScreenState extends State<AuthScreen> {
     }
   }
 
-  void _handleSignUp() {
-    AppNavigator.pushAndRemoveAll(context, const SelectYourCountry());
+  void _handleSignUp() async {
+    /// if user not fill all text fields
+    if (!_formKey.currentState!.validate()) {
+      Toasts.warningToast(waring: "Please correct the highlighted fields");
+      return;
+    }
+
+    /// showing dialog
+    showLoadingDialog(context);
+
+    /// signup
+    final signupResult = await _authVM.signUp(
+      _emailController.text.trim(),
+      _passwordController.text.trim(),
+    );
+
+    if (!context.mounted) return;
+
+    /// removing showLoading
+    AppNavigator.pop(context);
+
+    /// if account successfully created
+    if (signupResult == true && authState == null) {
+      Toasts.successToast(msg: "Your account has been created successfully.");
+      AppNavigator.pushAndRemoveAll(context, const SelectYourCountry());
+    } else {
+      /// showing error
+      Toasts.errorToast(err: authState.toString());
+    }
   }
 
-  void _handleSignIn() {
-    AppNavigator.pushAndRemoveAll(context, const SelectYourCountry());
+  void _handleSignIn() async {
+    /// if user not fill all text fields
+    if (!_formKey.currentState!.validate()) {
+      Toasts.warningToast(waring: "Please correct the highlighted fields");
+      return;
+    }
+
+    /// showing dialog
+    showLoadingDialog(context);
+
+    /// signup
+    final signupResult = await _authVM.login(
+      _emailController.text.trim(),
+      _passwordController.text.trim(),
+    );
+
+    if (!context.mounted) return;
+
+    /// removing showLoading
+    AppNavigator.pop(context);
+
+    /// if account successfully created
+    if (signupResult == true && authState == null) {
+      Toasts.successToast(msg: "Great to see you again! 👋");
+      AppNavigator.pushAndRemoveAll(context, const MainScreen());
+    } else {
+      /// showing error
+      Toasts.errorToast(err: authState.toString());
+    }
   }
+
+ void _handleGoogleSignIn() async {
+  final result = await _authVM.loginWithGoogle();
+  log("debugging:: $result");
+
+  if (!context.mounted) return;
+
+  final error = ref.read(authViewModelProvider); 
+
+  if (result == true && error == null) {
+    Toasts.successToast(msg: "Great to see you again! 👋");
+    AppNavigator.pushAndRemoveAll(context, const MainScreen());
+  } else {
+    Toasts.errorToast(err: error.toString()); // will show real error
+  }
+}
+
 
   @override
   void dispose() {
@@ -51,6 +136,8 @@ class _AuthScreenState extends State<AuthScreen> {
 
   @override
   void initState() {
+    authState = ref.read(authViewModelProvider);
+    _authVM = ref.read(authViewModelProvider.notifier);
     _emailController.addListener(() => setState(() {}));
     _passwordController.addListener(() => setState(() {}));
     super.initState();
@@ -95,25 +182,46 @@ class _AuthScreenState extends State<AuthScreen> {
 
                 SizedBox(height: 20.h),
 
-                /// email field
-                CustomTextFieldWithLabel(
-                  label: TextStrings.email,
-                  hint: TextStrings.email,
-                  isFieldEmpty: _emailController.text.trim().isEmpty,
-                  isPassword: false,
-                  controller: _emailController,
-                ),
+                Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      /// email field
+                      CustomTextFieldWithLabel(
+                        label: TextStrings.email,
+                        hint: TextStrings.email,
+                        isFieldEmpty: _emailController.text.trim().isEmpty,
+                        isPassword: false,
+                        controller: _emailController,
+                        error: emailError,
+                        validator: (value) {
+                          setState(() {
+                            emailError = Validator.emailValidator(value);
+                          });
+                          return emailError;
+                        },
+                      ),
 
-                SizedBox(height: 20.h),
+                      SizedBox(height: 20.h),
 
-                /// password field
-                CustomTextFieldWithLabel(
-                  label: TextStrings.password,
-                  hint: TextStrings.password,
-                  isPassword: true,
-                  isFieldEmpty: _passwordController.text.trim().isEmpty,
-                  textInputAction: TextInputAction.done,
-                  controller: _passwordController,
+                      /// password field
+                      CustomTextFieldWithLabel(
+                        label: TextStrings.password,
+                        hint: TextStrings.password,
+                        isPassword: true,
+                        isFieldEmpty: _passwordController.text.trim().isEmpty,
+                        textInputAction: TextInputAction.done,
+                        controller: _passwordController,
+                        error: passwordError,
+                        validator: (value) {
+                          setState(() {
+                            passwordError = Validator.passwordValidator(value);
+                          });
+                          return passwordError;
+                        },
+                      ),
+                    ],
+                  ),
                 ),
 
                 SizedBox(height: 2.h),
@@ -180,7 +288,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     Expanded(
                       child: SocialBtn(
                         icon: ImageStrings.ic_google,
-                        onTap: _handleSignIn,
+                        onTap: _handleGoogleSignIn,
                         btnText: TextStrings.google,
                       ),
                     ),

@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:newsy/app/config/app_colors.dart';
 import 'package:newsy/core/utils/extensions.dart';
-import 'package:newsy/presentations/features/auth/auth_screen.dart';
+import 'package:newsy/presentations/features/auth/view/auth_screen.dart';
 import 'package:newsy/presentations/common_widgets/custom_btn.dart';
 import 'package:newsy/presentations/common_widgets/my_outline_button.dart';
 

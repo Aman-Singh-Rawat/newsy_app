@@ -18,6 +18,21 @@ class TextFormFieldTheme {
       borderRadius: BorderRadius.circular(25.r),
       borderSide: BorderSide(color: Colorr.primaryColor[400]!, width: 2.w),
     ),
+    errorStyle: const TextStyle(
+      height: 0,
+      color: Colors.transparent,
+      fontSize: 0,
+    ),
+
+    errorMaxLines: 1,
+    errorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(25.r),
+      borderSide: BorderSide(color: Colors.transparent),
+    ),
+    focusedErrorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(25.r),
+      borderSide: BorderSide(color: Colors.transparent),
+    ),
   );
 
   // dark theme
@@ -35,7 +50,22 @@ class TextFormFieldTheme {
       borderSide: BorderSide.none,
       borderRadius: BorderRadius.circular(25.r),
     ),
+    
+    errorStyle: const TextStyle(
+      height: 0,
+      color: Colors.transparent,
+      fontSize: 0,
+    ),
+    errorMaxLines: 1,
 
+    errorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(25.r),
+      borderSide: BorderSide(color: Colors.transparent),
+    ),
+    focusedErrorBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(25.r),
+      borderSide: BorderSide(color: Colors.transparent),
+    ),
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(25.r),
       borderSide: BorderSide(color: Colorr.primaryColor[400]!, width: 2.w),

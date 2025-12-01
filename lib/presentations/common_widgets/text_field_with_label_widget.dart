@@ -12,6 +12,9 @@ class CustomTextFieldWithLabel extends StatelessWidget {
   final bool isRequired;
   final IconData? suffixIcon;
   final bool isFieldEmpty;
+  final String? error;
+
+  final String? Function(String?)? validator;
   final TextInputAction textInputAction;
   final TextEditingController controller;
 
@@ -25,6 +28,8 @@ class CustomTextFieldWithLabel extends StatelessWidget {
     this.isFieldEmpty = true,
     required this.controller,
     this.isRequired = true,
+    this.validator,
+    this.error,
   });
 
   @override
@@ -45,10 +50,11 @@ class CustomTextFieldWithLabel extends StatelessWidget {
           hintText: hint,
           controller: controller,
           suffixIcon: suffixIcon,
+          validator: validator,
         ),
 
-        /// text field error
-        TextFieldErrorWidget(isDark: isDark),
+        /// Error Widget
+        if (error != null) TextFieldErrorWidget(errorText: error!),
       ],
     );
   }

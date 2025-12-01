@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:newsy/app/config/app_colors.dart';
 import 'package:newsy/core/utils/helper_function.dart';
+import 'package:newsy/core/utils/validator.dart';
+import 'package:newsy/presentations/common_widgets/text_field_error_widget.dart';
 
 class CustomTextField extends StatefulWidget {
   final bool isFieldEmpty;
@@ -12,6 +14,7 @@ class CustomTextField extends StatefulWidget {
   final String hintText;
   final Function(String)? onFieldSubmitted;
   final IconData? suffixIcon;
+  final String? Function(String?)? validator;
 
   const CustomTextField({
     super.key,
@@ -22,6 +25,7 @@ class CustomTextField extends StatefulWidget {
     required this.hintText,
     this.suffixIcon,
     this.onFieldSubmitted,
+    this.validator,
   });
 
   @override
@@ -45,6 +49,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
       child: TextFormField(
         onFieldSubmitted: widget.onFieldSubmitted,
         textInputAction: widget.textInputAction,
+        validator: widget.validator,
         style: Theme.of(
           context,
         ).textTheme.labelLarge!.copyWith(fontSize: 13.sp),

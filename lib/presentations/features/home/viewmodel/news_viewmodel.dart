@@ -12,7 +12,7 @@ class NewsViewmodel extends AsyncNotifier<NewsResponse?> {
 
   Future<void> loadNews() async {
     log("debugg:: loadNews of NewsViewModel");
-    final repo = ref.read(NewsRepositoryProvider);
+    final repo = ref.read(newsRepositoryProvider);
 
     state = const AsyncLoading();
 

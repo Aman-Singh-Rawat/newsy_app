@@ -12,7 +12,20 @@
           "package_name": "com.aman.newsy"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "236176063742-f9od52a63bbq87n8ctg1ot7sc1s7ttn4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aman.newsy",
+            "certificate_hash": "1ee902579341a8870a19f40169a3efabeaa6ba6f"
+          }
+        },
+        {
+          "client_id": "236176063742-5lbrm3aq60r90uqqbsvmda5ttt37e17b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBwToiPXaQEH3GVhisGAGem75mRFRe3Bfg"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "236176063742-5lbrm3aq60r90uqqbsvmda5ttt37e17b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "236176063742-gmsiq9prog2557mhp8mmm5j25qrn3qqo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.aman.newsy"
+              }
+            }
+          ]
         }
       }
     }

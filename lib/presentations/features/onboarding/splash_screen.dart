@@ -10,7 +10,7 @@ import 'package:newsy/app/config/app_colors.dart';
 import 'package:newsy/app/constants/image_strings.dart';
 import 'package:newsy/core/utils/helper_function.dart';
 import 'package:newsy/data/datasource/local/role_local_datasource.dart';
-import 'package:newsy/presentations/features/auth/auth_screen.dart';
+import 'package:newsy/presentations/features/auth/view/auth_screen.dart';
 import 'package:newsy/presentations/features/onboarding/provider/onboarding_providers.dart';
 import 'package:newsy/presentations/features/onboarding/role_screen.dart';
 import 'package:newsy/presentations/features/onboarding/view/onboarding_screen.dart';
